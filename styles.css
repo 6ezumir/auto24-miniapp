@@ -1,0 +1,132 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Orbitron:wght@600&display=swap');
+
+body {
+  background-color: #0d0d0d;
+  color: #f1f1f1;
+  font-family: 'Montserrat', sans-serif;
+  margin: 0;
+  padding: 0 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.container {
+  max-width: 480px;
+  width: 100%;
+  text-align: center;
+  padding: 10px 0;
+}
+
+.logo {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: 2px solid #f1c40f;
+  box-shadow: 0 0 15px rgba(230, 57, 70, 0.7);
+  opacity: 0;
+  transition: opacity 1s ease;
+}
+
+.logo.fade-in { opacity: 1; }
+
+.intro-text {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1.8rem;
+  color: #e63946;
+  margin: 10px 0;
+  opacity: 0;
+  transform: translateY(-20px);
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+.intro-text.slide-in { opacity: 1; transform: translateY(0); }
+
+.progress-bar {
+  height: 6px;
+  background: #444;
+  border-radius: 4px;
+  overflow: hidden;
+  margin: 12px 0;
+}
+
+.progress {
+  height: 100%;
+  width: 0;
+  background: linear-gradient(90deg, #e63946, #f1c40f, #3498db);
+  transition: width 0.4s ease;
+}
+
+.step {
+  background: #1a1a1a;
+  padding: 16px;
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(230, 57, 70, 0.3);
+  margin: 10px 0;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.7s forwards;
+}
+
+.button {
+  background: linear-gradient(135deg, #e63946, #f1c40f, #3498db);
+  border: none;
+  border-radius: 8px;
+  color: #fff;
+  padding: 12px 20px;
+  font-size: 1rem;
+  cursor: pointer;
+  margin: 6px 0;
+  width: 100%;
+  max-width: 300px;
+  transition: transform 0.2s ease;
+  font-weight: 600;
+}
+
+.button:hover {
+  transform: scale(1.05);
+}
+
+.alex {
+  margin-top: 20px;
+  font-size: 1rem;
+  color: #f1c40f;
+  font-style: italic;
+  opacity: 0;
+  animation: fadeIn 1s ease forwards;
+}
+
+.alex.visible { opacity: 1; }
+
+.hidden { display: none; }
+
+.car-assembly {
+  margin-top: 20px;
+}
+
+.car-part {
+  font-size: 1.2rem;
+  margin: 8px 0;
+  opacity: 0;
+  animation: assemble 0.5s ease forwards;
+}
+
+.car-part:nth-child(1) { animation-delay: 0.3s; }
+.car-part:nth-child(2) { animation-delay: 0.6s; }
+.car-part:nth-child(3) { animation-delay: 0.9s; }
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes assemble {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
