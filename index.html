@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Собери Авто Мечты</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="container">
+    <img src="assets/logo.png" alt="Логотип" class="logo fade-in" />
+    <h1 class="intro-text slide-in">🚗 Собери Авто Мечты</h1>
+    <div class="progress-bar"><div class="progress" id="progress"></div></div>
+
+    <div class="step" id="step1">
+      <p>Какой кузов тебе интересен?</p>
+      <button class="button" onclick="nextStep('Купе')">Купе</button>
+      <button class="button" onclick="nextStep('Седан')">Седан</button>
+      <button class="button" onclick="nextStep('Внедорожник')">Внедорожник</button>
+    </div>
+
+    <div class="step hidden" id="step2">
+      <p>Откуда привезем авто?</p>
+      <button class="button" onclick="nextStep('Корея')">Корея</button>
+      <button class="button" onclick="nextStep('Китай')">Китай</button>
+      <button class="button" onclick="nextStep('Япония')">Япония</button>
+    </div>
+
+    <div class="step hidden" id="step3">
+      <p>Укажи бюджет 🚀</p>
+      <button class="button" onclick="finishGame('до 1 млн')">до 1 млн ₽</button>
+      <button class="button" onclick="finishGame('до 2 млн')">до 2 млн ₽</button>
+      <button class="button" onclick="finishGame('3 млн+')">от 3 млн ₽</button>
+    </div>
+
+    <div class="hidden" id="final">
+      <div class="overlay"></div>
+      <div class="assembly-scene">
+        <video src="assets/nfs_build.mp4" autoplay muted loop></video>
+        <div class="result" id="finalText"></div>
+        <button class="button" onclick="goToBot()">Перейти в бота</button>
+      </div>
+    </div>
+
+    <div class="alex" id="alex"></div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
