@@ -1,3 +1,4 @@
+
 let currentStep = 1;
 let answers = [];
 const alex = document.getElementById("alex");
@@ -29,6 +30,9 @@ function finishGame(budget) {
   document.getElementById(`step${currentStep}`).classList.add("hidden");
   document.getElementById("final").classList.remove("hidden");
 
+  // запускаем анимацию сборки
+  showAssembly();
+
   document.getElementById("finalText").innerHTML = `
     🚗 Ты выбрал:<br>
     Кузов: <b>${answers[0]}</b><br>
@@ -48,4 +52,19 @@ function showAlexReaction(text) {
 function updateProgress(value) {
   const val = value !== undefined ? value : Math.min((answers.length / 3) * 100, 100);
   progress.style.width = val + "%";
+}
+
+function showAssembly() {
+  const parts = document.querySelectorAll('.part');
+  let step = 0;
+  function showNext() {
+    if (step < parts.length) {
+      parts[step].classList.add('visible');
+      step++;
+      setTimeout(showNext, 800);
+    } else {
+      document.getElementById('finalText').classList.add('visible');
+    }
+  }
+  showNext();
 }
