@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -5,6 +6,41 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Собери Авто Мечты</title>
   <link rel="stylesheet" href="styles.css" />
+  <style>
+    .container {
+      position: relative;
+    }
+    .part {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      opacity: 0;
+      transform: scale(0.95);
+      transition: all 0.6s ease;
+    }
+    .part.visible {
+      opacity: 1;
+      transform: scale(1);
+    }
+    .final-text {
+      margin-top: 20px;
+      font-size: 1.4em;
+      text-align: center;
+      color: #00ccff;
+      opacity: 0;
+      transition: opacity 1s ease 0.5s;
+    }
+    .final-text.visible {
+      opacity: 1;
+    }
+    .assembly-scene {
+      position: relative;
+      width: 100%;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+  </style>
 </head>
 <body>
   <div class="container">
@@ -36,15 +72,14 @@
     <div class="hidden" id="final">
       <div class="overlay"></div>
       <div class="assembly-scene">
-        <div class="video-wrapper">
-          <iframe 
-            src="https://streamable.com/e/pyw0at" 
-            frameborder="0" 
-            allowfullscreen 
-            allow="autoplay"
-          ></iframe>
-      </div>
-        <div class="result" id="finalText"></div>
+        <img src="car_part_1.png" class="part" id="part1">
+        <img src="car_part_2.png" class="part" id="part2">
+        <img src="car_part_3.png" class="part" id="part3">
+        <img src="car_part_4.png" class="part" id="part4">
+        <img src="car_part_5.png" class="part" id="part5">
+        <img src="car_part_6.png" class="part" id="part6">
+        <img src="car_part_7.png" class="part" id="part7">
+        <div class="final-text" id="finalText">🎉 Готово! Перейди в бота, чтобы получить подборку</div>
         <button class="button" onclick="goToBot()">Перейти в бота</button>
       </div>
     </div>
@@ -53,6 +88,30 @@
   </div>
 
   <script src="script.js"></script>
+  <script>
+    function showAssembly() {
+      const parts = document.querySelectorAll('.part');
+      let step = 0;
+      function showNext() {
+        if (step < parts.length) {
+          parts[step].classList.add('visible');
+          step++;
+          setTimeout(showNext, 800);
+        } else {
+          document.getElementById('finalText').classList.add('visible');
+        }
+      }
+      showNext();
+    }
+    function finishGame(answer) {
+      document.getElementById('step3').classList.add('hidden');
+      document.getElementById('final').classList.remove('hidden');
+      showAssembly();
+    }
+    function goToBot() {
+      window.location.href = "https://t.me/auto24serviceofficial_bot";
+    }
+  </script>
 </body>
 </html>
 <!-- trigger rebuild -->
