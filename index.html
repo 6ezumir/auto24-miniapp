@@ -88,30 +88,6 @@
   </div>
 
   <script src="script.js"></script>
-  <script>
-    function showAssembly() {
-      const parts = document.querySelectorAll('.part');
-      let step = 0;
-      function showNext() {
-        if (step < parts.length) {
-          parts[step].classList.add('visible');
-          step++;
-          setTimeout(showNext, 800);
-        } else {
-          document.getElementById('finalText').classList.add('visible');
-        }
-      }
-      showNext();
-    }
-    function finishGame(answer) {
-      document.getElementById('step3').classList.add('hidden');
-      document.getElementById('final').classList.remove('hidden');
-      showAssembly();
-    }
-    function goToBot() {
-      window.location.href = "https://t.me/auto24serviceofficial_bot";
-    }
-  </script>
 </body>
 </html>
 <!-- trigger rebuild -->
