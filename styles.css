@@ -1,3 +1,4 @@
+
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Orbitron:wght@600&display=swap');
 
 body {
@@ -41,13 +42,8 @@ body {
 .assembly-scene {
   position: relative;
   z-index: 2;
-}
-.assembly-scene video {
-  width: 100%;
-  border-radius: 12px;
-  margin-bottom: 12px;
-  box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
-  border: 2px solid #e63946;
+  max-width: 100%;
+  min-height: 240px;
 }
 .result {
   font-size: 1.1rem;
@@ -88,17 +84,17 @@ body {
   margin: 10px 0;
   text-align: center;
 }
-.video-wrapper {
-  position: relative;
-  padding-bottom: 56.25%; /* 16:9 */
-  height: 0;
-  overflow: hidden;
-  border-radius: 12px;
-  margin-bottom: 20px;
-}
-.video-wrapper iframe {
+
+.part {
   position: absolute;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  border: none;
+  top: 0;
+  left: 0;
+  width: 100%;
+  opacity: 0;
+  transform: scale(0.95);
+  transition: all 0.6s ease;
+}
+.part.visible {
+  opacity: 1;
+  transform: scale(1);
 }
