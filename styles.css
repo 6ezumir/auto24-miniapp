@@ -195,4 +195,9 @@ body {
     font-size: 1.1rem;
   }
 }
+.hidden {
+  display: none !important;
+}
 
+git commit -m "Fix: добавлен .hidden { display: none }"
+git push
