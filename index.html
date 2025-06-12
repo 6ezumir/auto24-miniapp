@@ -12,6 +12,7 @@
     <h1 class="intro-text slide-in">🚗 Собери Авто Мечты</h1>
     <div class="progress-bar"><div class="progress" id="progress"></div></div>
 
+    <!-- Шаг 1 -->
     <div class="step" id="step1">
       <p>Какой кузов тебе интересен?</p>
       <button class="button" onclick="nextStep('Купе')">Купе</button>
@@ -19,6 +20,7 @@
       <button class="button" onclick="nextStep('Внедорожник')">Внедорожник</button>
     </div>
 
+    <!-- Шаг 2 -->
     <div class="step hidden" id="step2">
       <p>Откуда привезем авто?</p>
       <button class="button" onclick="nextStep('Корея')">Корея</button>
@@ -26,6 +28,7 @@
       <button class="button" onclick="nextStep('Япония')">Япония</button>
     </div>
 
+    <!-- Шаг 3 -->
     <div class="step hidden" id="step3">
       <p>Укажи бюджет 🚀</p>
       <button class="button" onclick="finishGame('до 1 млн')">до 1 млн ₽</button>
@@ -33,22 +36,28 @@
       <button class="button" onclick="finishGame('3 млн+')">от 3 млн ₽</button>
     </div>
 
+    <!-- Финальный экран -->
     <div class="hidden" id="final">
       <div class="assembly-scene">
-        <img src="car_part_1.png" class="part" id="part1">
-        <img src="car_part_2.png" class="part" id="part2">
-        <img src="car_part_3.png" class="part" id="part3">
-        <img src="car_part_4.png" class="part" id="part4">
-        <img src="car_part_5.png" class="part" id="part5">
-        <img src="car_part_6.png" class="part" id="part6">
-        <img src="car_part_7.png" class="part" id="part7">
+        <!-- ВСЕ части размещены с абсолютным позиционированием -->
+        <div class="car-wrapper">
+          <img src="car_part_1.png" class="part" id="part1">
+          <img src="car_part_2.png" class="part" id="part2">
+          <img src="car_part_3.png" class="part" id="part3">
+          <img src="car_part_4.png" class="part" id="part4">
+          <img src="car_part_5.png" class="part" id="part5">
+          <img src="car_part_6.png" class="part" id="part6">
+          <img src="car_part_7.png" class="part" id="part7">
+        </div>
         <div class="final-text" id="finalText">🎉 Готово! Перейди в бота, чтобы получить подборку</div>
         <button class="button" onclick="goToBot()">Перейти в бота</button>
       </div>
     </div>
 
+    <!-- Алекс -->
     <div class="alex" id="alex"></div>
   </div>
+
   <script src="script.js?v=3" defer></script>
 </body>
 </html>
