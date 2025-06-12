@@ -1,4 +1,3 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Orbitron:wght@600&display=swap');
 
 body {
@@ -12,26 +11,84 @@ body {
   align-items: center;
   min-height: 100vh;
 }
-.container { max-width: 480px; text-align: center; width: 100%; }
-.logo { width: 80px; transition: opacity 1s ease; opacity: 0; }
-.logo.fade-in { opacity: 1; }
-.intro-text { font-family: 'Orbitron'; font-size: 1.8rem; color: #e63946; opacity: 0; transform: translateY(-20px); transition: opacity 1s, transform 1s; }
-.intro-text.slide-in { opacity: 1; transform: translateY(0); }
-.progress-bar { height: 6px; background: #333; border-radius: 4px; overflow: hidden; margin: 12px 0; }
-.progress { height: 100%; width: 0; background: linear-gradient(90deg, #e63946, #f1c40f, #3498db); }
 
-.step, .assembly-scene { background: #1a1a1a; padding: 16px; border-radius: 12px; margin: 10px 0; display: none; }
-.step:not(.hidden), #final:not(.hidden) { display: block; }
+.container {
+  max-width: 480px;
+  text-align: center;
+  width: 100%;
+  position: relative;
+}
+
+.logo {
+  width: 80px;
+  transition: opacity 1s ease;
+  opacity: 0;
+  margin: 20px auto 10px;
+  display: block;
+}
+
+.logo.fade-in {
+  opacity: 1;
+}
+
+.intro-text {
+  font-family: 'Orbitron';
+  font-size: 1.8rem;
+  color: #e63946;
+  opacity: 0;
+  transform: translateY(-20px);
+  transition: opacity 1s, transform 1s;
+}
+
+.intro-text.slide-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.progress-bar {
+  height: 6px;
+  background: #333;
+  border-radius: 4px;
+  overflow: hidden;
+  margin: 12px 0;
+}
+
+.progress {
+  height: 100%;
+  width: 0;
+  background: linear-gradient(90deg, #e63946, #f1c40f, #3498db);
+  transition: width 0.4s ease;
+}
+
+.step, .assembly-scene {
+  background: #1a1a1a;
+  padding: 16px;
+  border-radius: 12px;
+  margin: 10px 0;
+  display: none;
+}
+
+.step:not(.hidden),
+#final:not(.hidden) {
+  display: block;
+}
 
 .button {
   background: linear-gradient(135deg, #e63946, #f1c40f, #3498db);
-  border: none; color: #fff;
+  border: none;
+  color: #fff;
   padding: 12px 20px;
   border-radius: 8px;
-  cursor: pointer; font-weight: 600;
+  cursor: pointer;
+  font-weight: 600;
+  margin: 6px;
   transition: all 0.2s ease;
 }
-.button:hover { transform: scale(1.05); box-shadow: 0 0 12px rgba(241, 196, 15, 0.5); }
+
+.button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 12px rgba(241, 196, 15, 0.5);
+}
 
 .overlay {
   position: fixed;
@@ -39,16 +96,49 @@ body {
   background-color: rgba(0,0,0,0.85);
   z-index: 1;
 }
+
 .assembly-scene {
   position: relative;
   z-index: 2;
   max-width: 100%;
-  min-height: 240px;
+  min-height: 280px;
+  margin: 0 auto;
 }
+
+.part {
+  position: relative;
+  width: 90%;
+  max-width: 380px;
+  display: block;
+  margin: 0 auto;
+  opacity: 0;
+  transform: scale(0.95);
+  transition: all 0.6s ease;
+}
+
+.part.visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.final-text {
+  margin-top: 20px;
+  font-size: 1.2rem;
+  text-align: center;
+  color: #00ccff;
+  opacity: 0;
+  transition: opacity 1s ease 0.5s;
+}
+
+.final-text.visible {
+  opacity: 1;
+}
+
 .result {
   font-size: 1.1rem;
   margin-bottom: 10px;
 }
+
 .alex {
   margin-top: 16px;
   color: #f1c40f;
@@ -57,13 +147,16 @@ body {
   opacity: 0;
   animation: fadeIn 1s ease forwards;
 }
+
 .alex.visible {
   opacity: 1;
 }
+
 @keyframes fadeIn {
   from { opacity: 0; }
   to { opacity: 1; }
 }
+
 #final {
   position: fixed;
   inset: 0;
@@ -75,9 +168,11 @@ body {
   flex-direction: column;
   padding: 20px;
 }
+
 #final:not(.hidden) {
   display: flex;
 }
+
 #finalText {
   color: #f1f1f1;
   font-size: 1.2rem;
@@ -85,16 +180,19 @@ body {
   text-align: center;
 }
 
-.part {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  opacity: 0;
-  transform: scale(0.95);
-  transition: all 0.6s ease;
+/* 📱 Адаптация под узкие экраны (iPhone SE и др.) */
+@media (max-width: 360px) {
+  .intro-text {
+    font-size: 1.4rem;
+  }
+
+  .button {
+    font-size: 0.9rem;
+    padding: 10px 14px;
+  }
+
+  .final-text {
+    font-size: 1.1rem;
+  }
 }
-.part.visible {
-  opacity: 1;
-  transform: scale(1);
-}
+
