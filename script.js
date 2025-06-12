@@ -1,12 +1,13 @@
-
 let currentStep = 1;
 let answers = [];
+
 const alex = document.getElementById("alex");
 const progress = document.getElementById("progress");
 
 document.addEventListener("DOMContentLoaded", () => {
   document.querySelector(".logo").classList.add("fade-in");
   document.querySelector(".intro-text").classList.add("slide-in");
+
   setTimeout(() => {
     document.getElementById("step1").classList.remove("hidden");
     showAlexReaction("Привет! Я Алекс — давай соберем твой автомобиль мечты! 🚗");
@@ -16,28 +17,35 @@ document.addEventListener("DOMContentLoaded", () => {
 function nextStep(answer) {
   answers.push(answer);
   updateProgress();
-  showAlexReaction(`Интересно, ты выбрал ${answer} 🤔`);
+  showAlexReaction(`Интересно, ты выбрал: ${answer} 🤔`);
+
   document.getElementById(`step${currentStep}`).classList.add("hidden");
   currentStep++;
-  const next = document.getElementById(`step${currentStep}`);
-  if (next) next.classList.remove("hidden");
+
+  const nextStepElement = document.getElementById(`step${currentStep}`);
+  if (nextStepElement) {
+    nextStepElement.classList.remove("hidden");
+  }
 }
 
 function finishGame(budget) {
   answers.push(budget);
   updateProgress(100);
+
   showAlexReaction("Отличный выбор! 🚗 Уже мечтаю о твоем авто!");
+
   document.getElementById(`step${currentStep}`).classList.add("hidden");
   document.getElementById("final").classList.remove("hidden");
 
-  // запускаем анимацию сборки
+  // Плавная сборка машины
   showAssembly();
 
+  // Финальный текст
   document.getElementById("finalText").innerHTML = `
     🚗 Ты выбрал:<br>
-    Кузов: <b>${answers[0]}</b><br>
-    Страна: <b>${answers[1]}</b><br>
-    Бюджет: <b>${answers[2]}</b>
+    <b>Кузов:</b> ${answers[0]}<br>
+    <b>Страна:</b> ${answers[1]}<br>
+    <b>Бюджет:</b> ${answers[2]}
   `;
 }
 
@@ -47,6 +55,9 @@ function goToBot() {
 
 function showAlexReaction(text) {
   alex.textContent = `Алекс: ${text}`;
+  alex.classList.remove("visible");
+  void alex.offsetWidth; // перезапуск анимации
+  alex.classList.add("visible");
 }
 
 function updateProgress(value) {
@@ -56,15 +67,17 @@ function updateProgress(value) {
 
 function showAssembly() {
   const parts = document.querySelectorAll('.part');
-  let step = 0;
-  function showNext() {
-    if (step < parts.length) {
-      parts[step].classList.add('visible');
-      step++;
-      setTimeout(showNext, 800);
+  let index = 0;
+
+  function showNextPart() {
+    if (index < parts.length) {
+      parts[index].classList.add('visible');
+      index++;
+      setTimeout(showNextPart, 700); // скорость появления деталей
     } else {
-      document.getElementById('finalText').classList.add('visible');
+      document.getElementById("finalText").classList.add("visible");
     }
   }
-  showNext();
+
+  showNextPart();
 }
