@@ -91,9 +91,10 @@ body {
   box-shadow: 0 0 12px rgba(241, 196, 15, 0.5);
 }
 
-.overlay {
+/* .overlay {
   display: none !important;
-}
+} */
+
 
 .assembly-scene {
   position: relative;
