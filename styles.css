@@ -91,35 +91,37 @@ body {
   box-shadow: 0 0 12px rgba(241, 196, 15, 0.5);
 }
 
-/* -------- ОБНОВЛЕННАЯ СЦЕНА СБОРКИ АВТО -------- */
 .assembly-scene {
   position: relative;
   z-index: 2;
-  width: 100%;
-  max-width: 380px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 8px;
-  padding-top: 10px;
+  max-width: 100%;
+  min-height: 320px;
+  margin: 0 auto;
   background-color: #fff;
 }
 
-.part {
-  width: auto;
-  max-width: 90%;
-  height: auto;
-  opacity: 0;
-  transform: translateY(20px) scale(0.95);
-  transition: all 0.6s ease;
-  will-change: transform, opacity;
+.car-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 360px;
+  margin: 0 auto;
+  aspect-ratio: 9 / 16;
 }
 
-.part.visible {
-  opacity: 1;
-  transform: translateY(0) scale(1);
+.car-wrapper .part {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  opacity: 0;
+  transform: scale(0.95);
+  transition: all 0.6s ease;
 }
-/* ------------------------------------------------ */
+
+.car-wrapper .part.visible {
+  opacity: 1;
+  transform: scale(1);
+}
 
 .final-text {
   margin-top: 20px;
@@ -197,16 +199,8 @@ body {
   .final-text {
     font-size: 1.1rem;
   }
-
-  .assembly-scene {
-    max-width: 320px;
-    gap: 6px;
-  }
-
-  .part {
-    max-width: 95%;
-  }
 }
+
 
 
 git commit -m "Fix: добавлен .hidden { display: none }"
