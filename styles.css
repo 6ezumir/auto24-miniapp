@@ -1,8 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Orbitron:wght@600&display=swap');
 
 body {
-  background-color: #0d0d0d;
-  color: #f1f1f1;
+  background-color: #f4f4f4;
+  color: #000;
   font-family: 'Montserrat', sans-serif;
   margin: 0;
   padding: 0 10px;
@@ -47,7 +47,7 @@ body {
 
 .progress-bar {
   height: 6px;
-  background: #333;
+  background: #ccc;
   border-radius: 4px;
   overflow: hidden;
   margin: 12px 0;
@@ -61,11 +61,12 @@ body {
 }
 
 .step, .assembly-scene {
-  background: #1a1a1a;
+  background: #fff;
   padding: 16px;
   border-radius: 12px;
   margin: 10px 0;
   display: none;
+  box-shadow: 0 0 12px rgba(0,0,0,0.1);
 }
 
 .step:not(.hidden),
@@ -93,7 +94,7 @@ body {
 .overlay {
   position: fixed;
   inset: 0;
-  background-color: rgba(0,0,0,0.85);
+  background-color: rgba(0,0,0,0.2);
   z-index: 1;
 }
 
@@ -103,6 +104,7 @@ body {
   max-width: 100%;
   min-height: 280px;
   margin: 0 auto;
+  background-color: #fff;
 }
 
 .part {
@@ -160,7 +162,7 @@ body {
 #final {
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.95);
+  background: rgba(255, 255, 255, 0.95);
   z-index: 999;
   display: none;
   justify-content: center;
@@ -174,13 +176,16 @@ body {
 }
 
 #finalText {
-  color: #f1f1f1;
+  color: #222;
   font-size: 1.2rem;
   margin: 10px 0;
   text-align: center;
 }
 
-/* 📱 Адаптация под узкие экраны (iPhone SE и др.) */
+.hidden {
+  display: none !important;
+}
+
 @media (max-width: 360px) {
   .intro-text {
     font-size: 1.4rem;
@@ -194,9 +199,6 @@ body {
   .final-text {
     font-size: 1.1rem;
   }
-}
-.hidden {
-  display: none !important;
 }
 
 git commit -m "Fix: добавлен .hidden { display: none }"
