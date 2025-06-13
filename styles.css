@@ -2,77 +2,42 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Orbitron:wght@600&display=swap');
 
 body {
-  background-color: #f4f4f4;
-  color: #000;
+  background: #0d0d0d;
+  overflow: hidden;
+  color: #fff;
   font-family: 'Montserrat', sans-serif;
   margin: 0;
   padding: 0 10px;
+  min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
+  position: relative;
+  z-index: 1;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: url('https://www.transparenttextures.com/patterns/stardust.png');
+  animation: stars 60s linear infinite;
+  opacity: 0.1;
+  z-index: 0;
+}
+
+@keyframes stars {
+  0% { background-position: 0 0; }
+  100% { background-position: 1000px 1000px; }
 }
 
 .container {
   max-width: 480px;
-  text-align: center;
   width: 100%;
+  text-align: center;
   position: relative;
-}
-
-.logo {
-  width: 80px;
-  transition: opacity 1s ease;
-  opacity: 0;
-  margin: 20px auto 10px;
-  display: block;
-}
-
-.logo.fade-in {
-  opacity: 1;
-}
-
-.intro-text {
-  font-family: 'Orbitron';
-  font-size: 1.8rem;
-  color: #e63946;
-  opacity: 0;
-  transform: translateY(-20px);
-  transition: opacity 1s, transform 1s;
-}
-
-.intro-text.slide-in {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.progress-bar {
-  height: 6px;
-  background: #ccc;
-  border-radius: 4px;
-  overflow: hidden;
-  margin: 12px 0;
-}
-
-.progress {
-  height: 100%;
-  width: 0;
-  background: linear-gradient(90deg, #e63946, #f1c40f, #3498db);
-  transition: width 0.4s ease;
-}
-
-.step, .assembly-scene {
-  background: #fff;
-  padding: 16px;
-  border-radius: 12px;
-  margin: 10px 0;
-  display: none;
-  box-shadow: 0 0 12px rgba(0,0,0,0.1);
-}
-
-.step:not(.hidden),
-#final:not(.hidden) {
-  display: block;
+  z-index: 1;
 }
 
 .button {
@@ -89,117 +54,22 @@ body {
 
 .button:hover {
   transform: scale(1.05);
-  box-shadow: 0 0 12px rgba(241, 196, 15, 0.5);
 }
 
-.assembly-scene {
-  position: relative;
-  z-index: 2;
-  max-width: 100%;
-  min-height: 320px;
-  margin: 0 auto;
-  background-color: #fff;
-}
-
-.car-wrapper {
-  position: relative;
-  width: 100%;
-  max-width: 360px;
-  margin: 0 auto;
-  aspect-ratio: 9 / 16;
-}
-
-.car-wrapper .part {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  opacity: 0;
-  transform: scale(0.95);
-  transition: all 0.6s ease;
-}
-
-.car-wrapper .part.visible {
-  opacity: 1;
-  transform: scale(1);
-}
-
-.final-text {
-  margin-top: 20px;
-  font-size: 1.2rem;
-  text-align: center;
-  color: #00ccff;
-  opacity: 0;
-  transition: opacity 1s ease 0.5s;
-}
-
-.final-text.visible {
-  opacity: 1;
-}
-
-.result {
-  font-size: 1.1rem;
-  margin-bottom: 10px;
-}
-
-.alex {
-  margin-top: 16px;
-  color: #f1c40f;
-  font-style: italic;
-  font-size: 1rem;
-  opacity: 0;
-  animation: fadeIn 1s ease forwards;
-}
-
-.alex.visible {
-  opacity: 1;
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
-#final {
-  position: fixed;
-  inset: 0;
-  background: rgba(255, 255, 255, 0.95);
-  z-index: 999;
-  display: none;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
+.step {
+  background: rgba(0,0,0,0.5);
   padding: 20px;
-}
-
-#final:not(.hidden) {
-  display: flex;
-}
-
-#finalText {
-  color: #222;
-  font-size: 1.2rem;
+  border-radius: 12px;
   margin: 10px 0;
-  text-align: center;
 }
 
 .hidden {
   display: none !important;
 }
 
-@media (max-width: 360px) {
-  .intro-text {
-    font-size: 1.4rem;
-  }
-
-  .button {
-    font-size: 0.9rem;
-    padding: 10px 14px;
-  }
-
-  .final-text {
-    font-size: 1.1rem;
-  }
+#final {
+  background: rgba(0, 0, 0, 0.7);
+  padding: 20px;
+  border-radius: 12px;
 }
-git commit -m "Fix: добавлен .hidden { display: none }"
-git push
+
