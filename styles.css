@@ -49,6 +49,18 @@ body {
   z-index: 1;
 }
 
+/* Алекс */
+#alex {
+  font-size: 1rem;
+  color: #f1c40f;
+  font-style: italic;
+  margin-bottom: 20px;
+  min-height: 1.2em;
+  max-width: 90%;
+  word-wrap: break-word;
+}
+
+/* Кнопки */
 .button {
   background: linear-gradient(135deg, #e63946, #f1c40f, #3498db);
   border: none;
@@ -65,6 +77,7 @@ body {
   transform: scale(1.05);
 }
 
+/* Блоки шагов */
 .step {
   background: rgba(0,0,0,0.5);
   padding: 20px;
