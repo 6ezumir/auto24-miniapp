@@ -30,5 +30,5 @@ function typeAlexText(text, elementId, delay = 50) {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  typeAlexText("Привет! Я Алекс — давай соберем твой автомобиль мечты! 🚗", "alex");
+  typeAlexText("Привет! Я Алекс. Соберем авто мечты? 🚗", "alex");
 });
