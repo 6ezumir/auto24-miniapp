@@ -1,53 +1,43 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Собери авто мечты</title>
-  <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Собери Авто Мечты</title>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <div class="stars"></div>
-  <div class="twinkling"></div>
-
   <div class="container">
-    <h1 class="intro-text">🚗 Собери авто мечты</h1>
-    <div class="progress-bar">
-      <div class="progress" id="progress"></div>
-    </div>
+    <h1 id="alex"></h1>
 
     <div class="step" id="step1">
       <p>Какой кузов тебе интересен?</p>
-      <button class="button" onclick="nextStep('Купе')">Купе</button>
-      <button class="button" onclick="nextStep('Седан')">Седан</button>
-      <button class="button" onclick="nextStep('Внедорожник')">Внедорожник</button>
+      <button class="button" onclick="nextStep()">Купе</button>
+      <button class="button" onclick="nextStep()">Седан</button>
+      <button class="button" onclick="nextStep()">Внедорожник</button>
     </div>
 
     <div class="step hidden" id="step2">
       <p>Откуда привезем авто?</p>
-      <button class="button" onclick="nextStep('Корея')">Корея</button>
-      <button class="button" onclick="nextStep('Китай')">Китай</button>
-      <button class="button" onclick="nextStep('Япония')">Япония</button>
+      <button class="button" onclick="nextStep()">Корея</button>
+      <button class="button" onclick="nextStep()">Китай</button>
+      <button class="button" onclick="nextStep()">Япония</button>
     </div>
 
     <div class="step hidden" id="step3">
       <p>Укажи бюджет 🚀</p>
-      <button class="button" onclick="finishGame('до 1 млн')">до 1 млн ₽</button>
-      <button class="button" onclick="finishGame('до 2 млн')">до 2 млн ₽</button>
-      <button class="button" onclick="finishGame('3 млн+')">от 3 млн ₽</button>
-    </div>
-
-    <div class="alex-container">
-      <div class="alex" id="alex"></div>
+      <button class="button" onclick="finishGame()">до 1 млн ₽</button>
+      <button class="button" onclick="finishGame()">до 2 млн ₽</button>
+      <button class="button" onclick="finishGame()">от 3 млн ₽</button>
     </div>
 
     <div class="hidden" id="final">
-      <div class="final-text" id="finalText"></div>
+      <p>Спасибо за выбор! 🚗</p>
       <button class="button" onclick="goToBot()">Перейти в бота</button>
     </div>
   </div>
 
-  <script src="script.js"></script>
+  <script src="script.js" defer></script>
 </body>
 </html>
 <!-- trigger rebuild -->
