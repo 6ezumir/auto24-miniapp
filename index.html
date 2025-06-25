@@ -2,48 +2,138 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Собери Авто Мечты</title>
-  <link rel="stylesheet" href="styles.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>Сценарий MiniApp</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&family=Montserrat&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      font-family: 'Montserrat', sans-serif;
+      background: linear-gradient(145deg, #0e0e0e 60%, #1f1f1f 100%);
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      overflow: hidden;
+    }
+    h1 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: clamp(1.5rem, 5vw, 2.2rem);
+      margin-bottom: 1rem;
+      letter-spacing: 1px;
+      color: #ffffff;
+      text-shadow: 0 0 10px #ff416c80;
+    }
+    .container {
+      width: 92%;
+      max-width: 400px;
+      text-align: center;
+      padding: 2rem 1.5rem;
+      border-radius: 24px;
+      background: rgba(27, 27, 27, 0.92);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(6px);
+      animation: fadeIn 1.2s ease-in-out;
+    }
+    button {
+      background: linear-gradient(135deg, #ff416c, #ff4b2b);
+      border: none;
+      border-radius: 12px;
+      color: white;
+      font-size: 1rem;
+      padding: 0.9rem 1.8rem;
+      margin-top: 2rem;
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      box-shadow: 0 4px 14px rgba(255, 75, 43, 0.4);
+    }
+    button:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 20px rgba(255, 75, 43, 0.6);
+    }
+    .typing {
+      display: inline-block;
+      border-right: .1em solid #fff;
+      white-space: nowrap;
+      overflow: hidden;
+      font-size: clamp(0.9rem, 3.8vw, 1rem);
+      animation: typing 3s steps(50, end), blink-caret 0.75s step-end infinite;
+    }
+    .option-button {
+      width: 100%;
+      margin: 0.5rem 0;
+    }
+    @keyframes typing {
+      from { width: 0 }
+      to { width: 100% }
+    }
+    @keyframes blink-caret {
+      from, to { border-color: transparent }
+      50% { border-color: white }
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
 </head>
 <body>
-  <!-- Параллакс звёзды -->
-  <div class="stars"></div>
-  <div class="stars2"></div>
-  <div class="stars3"></div>
-
-  <div class="container">
-    <h1 id="alex"></h1>
-
-    <div class="step" id="step1">
-      <p>Какой кузов тебе интересен?</p>
-      <button class="button" onclick="nextStep()">Купе</button>
-      <button class="button" onclick="nextStep()">Седан</button>
-      <button class="button" onclick="nextStep()">Внедорожник</button>
-    </div>
-
-    <div class="step hidden" id="step2">
-      <p>Откуда привезем авто?</p>
-      <button class="button" onclick="nextStep()">Корея</button>
-      <button class="button" onclick="nextStep()">Китай</button>
-      <button class="button" onclick="nextStep()">Япония</button>
-    </div>
-
-    <div class="step hidden" id="step3">
-      <p>Укажи бюджет 🚀</p>
-      <button class="button" onclick="finishGame()">до 1 млн ₽</button>
-      <button class="button" onclick="finishGame()">до 2 млн ₽</button>
-      <button class="button" onclick="finishGame()">от 3 млн ₽</button>
-    </div>
-
-    <div class="hidden" id="final">
-      <p>Спасибо за выбор! 🚗</p>
-      <button class="button" onclick="goToBot()">Перейти в бота</button>
-    </div>
+  <div class="container" id="screen1">
+    <h1>🚗 Собери авто мечты</h1>
+    <p class="typing">Привет! Я Алекс. За 2 минуты соберём тебе авто мечты. Без тестов — только ощущения.</p>
+    <button onclick="nextScreen()">Начать</button>
   </div>
 
-  <script src="script.js" defer></script>
+  <div class="container" id="screen2" style="display: none;">
+    <h1>🚘 Какой образ тебе ближе?</h1>
+    <p>Выбери тот, который тебе по душе</p>
+    <button class="option-button" onclick="selectOption('Кроссовер')">Кроссовер</button>
+    <button class="option-button" onclick="selectOption('Седан')">Седан</button>
+  </div>
+
+  <div class="container" id="screen3" style="display: none;">
+    <h1>🌍 Откуда авто тебе ближе?</h1>
+    <p>Выбери страну-поставщика</p>
+    <button class="option-button" onclick="selectCountry('🇰🇷 Корея')">🇰🇷 Корея</button>
+    <button class="option-button" onclick="selectCountry('🇯🇵 Япония')">🇯🇵 Япония</button>
+    <button class="option-button" onclick="selectCountry('🇨🇳 Китай')">🇨🇳 Китай</button>
+  </div>
+
+  <div class="container" id="screen4" style="display: none;">
+    <h1>🚀 Почти готово!</h1>
+    <p>Мы уже собрали твоё авто мечты. Осталось всего одно действие👇</p>
+    <button onclick="window.location.href='https://t.me/auto24serviceofficial_bot'">
+      Перейти в Telegram
+    </button>
+  </div>
+
+  <script>
+    function nextScreen() {
+      document.getElementById('screen1').style.display = 'none';
+      document.getElementById('screen2').style.display = 'block';
+    }
+
+    function selectOption(choice) {
+      console.log("Выбран тип кузова: ", choice);
+      document.getElementById('screen2').style.display = 'none';
+      document.getElementById('screen3').style.display = 'block';
+    }
+
+    function selectCountry(country) {
+      console.log("Выбрана страна: ", country);
+      document.getElementById('screen3').style.display = 'none';
+      document.getElementById('screen4').style.display = 'block';
+    }
+  </script>
 </body>
 </html>
+
 
 <!-- trigger rebuild -->
