@@ -3,12 +3,17 @@ let currentStep = 1;
 function nextStep() {
   document.getElementById('step' + currentStep).classList.add('hidden');
   currentStep++;
-  document.getElementById('step' + currentStep).classList.remove('hidden');
+  if (currentStep <= 3) {
+    document.getElementById('step' + currentStep).classList.remove('hidden');
+  } else {
+    finishGame();
+  }
 }
 
 function finishGame() {
-  document.getElementById('step' + currentStep).classList.add('hidden');
+  document.getElementById('step3').classList.add('hidden');
   document.getElementById('final').classList.remove('hidden');
+  typeAlexText("Анализируем твой выбор...", "finalText", 35); // 👈 эффект печатающегося текста
 }
 
 function goToBot() {
