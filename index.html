@@ -109,6 +109,25 @@
         opacity: 0;
       }
     }
+    .progress-loader {
+      margin-top: 20px;
+      width: 100%;
+      background: #333;
+      border-radius: 20px;
+      overflow: hidden;
+      height: 14px;
+      box-shadow: 0 0 5px #ff4b2b70;
+    }
+    .progress-bar {
+      height: 100%;
+      width: 0;
+      background: linear-gradient(to right, #ff416c, #ff4b2b);
+      animation: fillProgress 3s ease-in-out forwards;
+    }
+    @keyframes fillProgress {
+      from { width: 0; }
+      to { width: 100%; }
+    }
   </style>
 </head>
 <body>
@@ -137,6 +156,7 @@
     <div class="pulse-ring"></div>
     <h1>🚀 Почти готово!</h1>
     <p>Мы уже собрали твоё авто мечты. Осталось всего одно действие👇</p>
+    <div class="progress-loader"><div class="progress-bar" id="progressBar"></div></div>
     <button onclick="window.location.href='https://t.me/auto24serviceofficial_bot'">
       Перейти в Telegram
     </button>
@@ -158,8 +178,16 @@
       console.log("Выбрана страна: ", country);
       document.getElementById('screen3').style.display = 'none';
       document.getElementById('screen4').style.display = 'block';
+
+      // сбрасываем и запускаем прогресс-анимацию при открытии screen4
+      const progressBar = document.getElementById("progressBar");
+      progressBar.style.width = "0";
+      progressBar.style.animation = "none";
+      void progressBar.offsetWidth; // reflow hack
+      progressBar.style.animation = null;
     }
   </script>
 </body>
 </html>
+
 <!-- trigger rebuild -->
