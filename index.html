@@ -1,193 +1,37 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-  <title>Сценарий MiniApp</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Выбор героя</title>
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&family=Montserrat&display=swap" rel="stylesheet">
-  <style>
-    * {
-      box-sizing: border-box;
-    }
-    html, body {
-      margin: 0;
-      padding: 0;
-      width: 100%;
-      height: 100%;
-      font-family: 'Montserrat', sans-serif;
-      background: radial-gradient(circle at top center, #1e1e1e 0%, #0e0e0e 100%);
-      color: white;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-      overflow: hidden;
-    }
-    h1 {
-      font-family: 'Orbitron', sans-serif;
-      font-size: clamp(1.5rem, 5vw, 2.2rem);
-      margin-bottom: 1rem;
-      letter-spacing: 1px;
-      color: #ffffff;
-      text-shadow: 0 0 10px #ff416c80;
-    }
-    .container {
-      width: 92%;
-      max-width: 400px;
-      text-align: center;
-      padding: 2rem 1.5rem;
-      border-radius: 24px;
-      background: rgba(27, 27, 27, 0.92);
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
-      backdrop-filter: blur(6px);
-      animation: fadeIn 1.2s ease-in-out;
-      position: relative;
-    }
-    button {
-      background: linear-gradient(135deg, #ff416c, #ff4b2b);
-      border: none;
-      border-radius: 12px;
-      color: white;
-      font-size: 1rem;
-      padding: 0.9rem 1.8rem;
-      margin-top: 2rem;
-      cursor: pointer;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-      box-shadow: 0 4px 14px rgba(255, 75, 43, 0.4);
-    }
-    button:hover {
-      transform: scale(1.05);
-      box-shadow: 0 6px 20px rgba(255, 75, 43, 0.6);
-    }
-    .typing {
-      display: inline-block;
-      border-right: .1em solid #fff;
-      white-space: nowrap;
-      overflow: hidden;
-      font-size: clamp(0.9rem, 3.8vw, 1rem);
-      animation: typing 3s steps(50, end), blink-caret 0.75s step-end infinite;
-    }
-    .option-button {
-      width: 100%;
-      margin: 0.5rem 0;
-    }
-    @keyframes typing {
-      from { width: 0 }
-      to { width: 100% }
-    }
-    @keyframes blink-caret {
-      from, to { border-color: transparent }
-      50% { border-color: white }
-    }
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    .pulse-ring {
-      position: absolute;
-      top: -20px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 140px;
-      height: 140px;
-      background: radial-gradient(circle, #ff4b2b40 0%, transparent 70%);
-      border-radius: 50%;
-      animation: pulse 2s infinite;
-      z-index: 0;
-    }
-    @keyframes pulse {
-      0% {
-        transform: translateX(-50%) scale(0.95);
-        opacity: 0.8;
-      }
-      70% {
-        transform: translateX(-50%) scale(1.2);
-        opacity: 0;
-      }
-      100% {
-        transform: translateX(-50%) scale(0.95);
-        opacity: 0;
-      }
-    }
-    .progress-loader {
-      margin-top: 20px;
-      width: 100%;
-      background: #333;
-      border-radius: 20px;
-      overflow: hidden;
-      height: 14px;
-      box-shadow: 0 0 5px #ff4b2b70;
-    }
-    .progress-bar {
-      height: 100%;
-      width: 0;
-      background: linear-gradient(to right, #ff416c, #ff4b2b);
-      animation: fillProgress 3s ease-in-out forwards;
-    }
-    @keyframes fillProgress {
-      from { width: 0; }
-      to { width: 100%; }
-    }
-  </style>
-</head>
+  </head>
 <body>
-  <div class="container" id="screen1">
-    <h1>🚗 Собери авто мечты</h1>
-    <p class="typing">Привет! Я Алекс. За 2 минуты соберём тебе авто мечты. Без тестов — только ощущения.</p>
-    <button onclick="nextScreen()">Начать</button>
+  <div class="container" id="step1">
+    <h1>🚘 Привет! Кто ты?</h1>
+    <p>Выбери свой пол, чтобы продолжить</p>
+    <button class="button" onclick="selectGender('Мужчина')">🧔 Мужчина</button>
+    <button class="button" onclick="selectGender('Женщина')">👩 Женщина</button>
   </div>
 
-  <div class="container" id="screen2" style="display: none;">
-    <h1>🚘 Какой образ тебе ближе?</h1>
-    <p>Выбери тот, который тебе по душе</p>
-    <button class="option-button" onclick="selectOption('Кроссовер')">Кроссовер</button>
-    <button class="option-button" onclick="selectOption('Седан')">Седан</button>
+  <div class="container hidden" id="step2">
+    <h1>👤 В каком ты положении?</h1>
+    <div id="options"></div>
   </div>
 
-  <div class="container" id="screen3" style="display: none;">
-    <h1>🌍 Откуда авто тебе ближе?</h1>
-    <p>Выбери страну-поставщика</p>
-    <button class="option-button" onclick="selectCountry('🇰🇷 Корея')">🇰🇷 Корея</button>
-    <button class="option-button" onclick="selectCountry('🇯🇵 Япония')">🇯🇵 Япония</button>
-    <button class="option-button" onclick="selectCountry('🇨🇳 Китай')">🇨🇳 Китай</button>
+  <div class="container hidden" id="step3">
+    <h1 id="characterTitle"></h1>
+    <p id="characterDescription"></p>
+    <p id="characterLegend" style="font-style: italic; margin-top: 1rem;"></p>
+    <button class="button" onclick="goToFinal()">Продолжить</button>
   </div>
 
-  <div class="container" id="screen4" style="display: none;">
-    <div class="pulse-ring"></div>
+  <div class="container hidden" id="final">
     <h1>🚀 Почти готово!</h1>
-    <p>Мы уже собрали твоё авто мечты. Осталось всего одно действие👇</p>
-    <div class="progress-loader"><div class="progress-bar" id="progressBar"></div></div>
-    <button onclick="window.location.href='https://t.me/auto24serviceofficial_bot'">
-      Перейти в Telegram
-    </button>
+    <p>Алекс уже собрал для тебя подборку. Осталось только перейти 👇</p>
+    <button class="button" onclick="goToBot()">Перейти в Telegram</button>
   </div>
-
-  <script>
-    function nextScreen() {
-      document.getElementById('screen1').style.display = 'none';
-      document.getElementById('screen2').style.display = 'block';
-    }
-
-    function selectOption(choice) {
-      console.log("Выбран тип кузова: ", choice);
-      document.getElementById('screen2').style.display = 'none';
-      document.getElementById('screen3').style.display = 'block';
-    }
-
-    function selectCountry(country) {
-      console.log("Выбрана страна: ", country);
-      document.getElementById('screen3').style.display = 'none';
-      document.getElementById('screen4').style.display = 'block';
-
-      // сбрасываем и запускаем прогресс-анимацию при открытии screen4
-      const progressBar = document.getElementById("progressBar");
-      progressBar.style.width = "0";
-      progressBar.style.animation = "none";
-      void progressBar.offsetWidth; // reflow hack
-      progressBar.style.animation = null;
-    }
-  </script>
-</body>
+  </body>
 </html>
 
 <!-- trigger rebuild -->
