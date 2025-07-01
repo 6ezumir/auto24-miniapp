@@ -1,82 +1,55 @@
-body {
-  margin: 0;
-  padding: 0;
-  font-family: 'Montserrat', sans-serif;
-  background: linear-gradient(135deg, #0f0f0f 0%, #1a1a1a 50%, #0f0f0f 100%);
-  color: #fff;
+let selectedGender = '';
+let swiper;
+
+const options = {
+  'Мужчина': [
+    { title: 'Предприниматель', text: 'Премиум, скорость, стиль.' },
+    { title: 'Семьянин', text: 'Комфорт и надёжность.' },
+    { title: 'Студент', text: 'Первая машина — свобода.' }
+  ],
+  'Женщина': [
+    { title: 'Бизнес-леди', text: 'Энергия и уверенность.' },
+    { title: 'Обычная девушка', text: 'Свобода и комфорт.' },
+    { title: 'Студентка', text: 'Стиль и независимость.' }
+  ]
+};
+
+function selectGender(gender) {
+  selectedGender = gender;
+  document.getElementById('step1').classList.add('hidden');
+  const container = document.getElementById('options');
+  container.innerHTML = '';
+  options[gender].forEach(opt => {
+    const slide = document.createElement('div');
+    slide.className = 'swiper-slide';
+    slide.innerHTML = `
+      <h2>${opt.title}</h2>
+      <p>${opt.text}</p>
+      <button class="button" onclick="selectCharacter()">Выбрать</button>
+    `;
+    container.appendChild(slide);
+  });
+  document.getElementById('step2').classList.remove('hidden');
+  if (swiper) swiper.update();
+  else {
+    swiper = new Swiper('.mySwiper', {
+      slidesPerView: 1,
+      spaceBetween: 20,
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true
+      }
+    });
+  }
 }
 
-.logo-container {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  margin: 20px 0;
+function selectCharacter() {
+  document.getElementById('step2').classList.add('hidden');
+  document.getElementById('final').classList.remove('hidden');
 }
 
-.logo {
-  max-width: 120px;
-  height: auto;
-  filter: drop-shadow(0 0 5px #ff0080);
-}
-
-.container {
-  max-width: 400px;
-  margin: 0 auto;
-  padding: 20px;
-  text-align: center;
-}
-
-.hidden {
-  display: none;
-}
-
-h1 {
-  font-family: 'Orbitron', sans-serif;
-  font-size: 1.6rem;
-  margin-bottom: 10px;
-}
-
-p {
-  font-size: 1rem;
-  line-height: 1.4;
-}
-
-.button {
-  display: inline-block;
-  background: linear-gradient(90deg, #ff0080, #7928ca);
-  color: #fff;
-  border: none;
-  padding: 12px 20px;
-  margin: 10px 5px;
-  font-size: 1rem;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: transform 0.2s;
-}
-
-.button:hover {
-  transform: scale(1.05);
-}
-
-.swiper {
-  width: 100%;
-  padding: 20px 0;
-}
-
-.swiper-slide {
-  background: rgba(30, 30, 30, 0.9);
-  border-radius: 10px;
-  padding: 20px;
-  box-sizing: border-box;
-}
-
-.swiper-slide h2 {
-  font-size: 1.2rem;
-  margin-bottom: 10px;
-}
-
-.swiper-slide p {
-  font-size: 0.95rem;
+function goToBot() {
+  window.location.href = "https://t.me/auto24serviceofficial_bot";
 }
 
 
