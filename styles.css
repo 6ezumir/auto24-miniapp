@@ -10,13 +10,15 @@ body {
   width: 100%;
   display: flex;
   justify-content: center;
-  margin: 20px 0;
+  margin: 15px 0;
+  padding: 10px 0;
 }
 
 .logo {
-  max-width: 120px;
+  max-width: 100px;
   height: auto;
-  filter: drop-shadow(0 0 5px #ff0080);
+  opacity: 0.9;
+  filter: drop-shadow(0 0 6px #ff0080);
 }
 
 .container {
@@ -51,11 +53,12 @@ p {
   font-size: 1rem;
   border-radius: 8px;
   cursor: pointer;
-  transition: transform 0.2s;
+  transition: transform 0.2s, box-shadow 0.2s;
 }
 
 .button:hover {
   transform: scale(1.05);
+  box-shadow: 0 0 10px #ff0080;
 }
 
 .swiper {
@@ -78,5 +81,26 @@ p {
 .swiper-slide p {
   font-size: 0.95rem;
 }
+
+/* Адаптив для маленьких экранов */
+@media (max-width: 480px) {
+  .container {
+    padding: 15px;
+  }
+
+  h1 {
+    font-size: 1.3rem;
+  }
+
+  .button {
+    width: 90%;
+    font-size: 1rem;
+  }
+
+  .logo {
+    max-width: 80px;
+  }
+}
+
 
 
