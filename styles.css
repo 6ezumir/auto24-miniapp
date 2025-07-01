@@ -1,51 +1,66 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Orbitron:wght@600&display=swap');
+body {
+  margin: 0;
+  padding: 0;
+  background: #0d0d0d url('https://www.transparenttextures.com/patterns/stardust.png') repeat;
+  font-family: 'Montserrat', sans-serif;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  flex-direction: column;
+}
 
-* { box-sizing: border-box; }
-    body {
-      margin: 0;
-      padding: 0;
-      font-family: 'Montserrat', sans-serif;
-      background: linear-gradient(to bottom, #111, #000);
-      color: white;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
-    }
-    .container {
-      width: 90%; max-width: 400px;
-      padding: 1.5rem;
-      text-align: center;
-      background: rgba(20,20,20,0.9);
-      border-radius: 16px;
-      box-shadow: 0 0 20px rgba(255,255,255,0.05);
-    }
-    h1 {
-      font-family: 'Orbitron', sans-serif;
-      font-size: 1.5rem;
-      margin-bottom: 1rem;
-    }
-    p {
-      font-size: 1rem;
-      margin-bottom: 1.5rem;
-    }
-    .button {
-      display: block;
-      width: 100%;
-      margin: 0.5rem 0;
-      padding: 0.8rem;
-      border: none;
-      border-radius: 10px;
-      background: linear-gradient(135deg, #ff416c, #ff4b2b);
-      color: white;
-      font-size: 1rem;
-      cursor: pointer;
-      transition: 0.3s ease;
-    }
-    .button:hover {
-      transform: scale(1.03);
-    }
-    .hidden {
-      display: none;
-    }
+.container {
+  text-align: center;
+  max-width: 400px;
+  padding: 20px;
+}
+
+.hidden {
+  display: none;
+}
+
+.logo {
+  width: 80px;
+  margin-bottom: 15px;
+}
+
+.button {
+  background: linear-gradient(135deg, #e63946, #f1c40f, #3498db);
+  border: none;
+  padding: 12px 20px;
+  border-radius: 8px;
+  color: #fff;
+  font-weight: 600;
+  margin: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.button:hover {
+  transform: scale(1.05);
+}
+
+.swiper-container {
+  width: 100%;
+  padding-top: 20px;
+  padding-bottom: 40px;
+}
+
+.swiper-slide {
+  background: rgba(255,255,255,0.05);
+  border-radius: 12px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.swiper-slide h2 {
+  margin: 10px 0 5px;
+  font-size: 1.1rem;
+}
+.swiper-slide p {
+  font-size: 0.95rem;
+  opacity: 0.85;
+}
 
