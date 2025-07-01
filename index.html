@@ -1,37 +1,38 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Выбор героя</title>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&family=Montserrat&display=swap" rel="stylesheet">
-  </head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Auto24Service MiniApp</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&family=Montserrat&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
+</head>
 <body>
   <div class="container" id="step1">
-    <h1>🚘 Привет! Кто ты?</h1>
-    <p>Выбери свой пол, чтобы продолжить</p>
+    <img src="https://i.ibb.co/N1d3QmK/logo-miniapp.png" alt="Logo" class="logo" />
+    <h1>🚘 Кто вы?</h1>
+    <p>Выберите свой пол</p>
     <button class="button" onclick="selectGender('Мужчина')">🧔 Мужчина</button>
     <button class="button" onclick="selectGender('Женщина')">👩 Женщина</button>
   </div>
 
   <div class="container hidden" id="step2">
-    <h1>👤 В каком ты положении?</h1>
-    <div id="options"></div>
-  </div>
-
-  <div class="container hidden" id="step3">
-    <h1 id="characterTitle"></h1>
-    <p id="characterDescription"></p>
-    <p id="characterLegend" style="font-style: italic; margin-top: 1rem;"></p>
-    <button class="button" onclick="goToFinal()">Продолжить</button>
+    <h2>Выберите персонажа</h2>
+    <div class="swiper-container">
+      <div class="swiper-wrapper" id="slides"></div>
+      <div class="swiper-pagination"></div>
+    </div>
   </div>
 
   <div class="container hidden" id="final">
-    <h1>🚀 Почти готово!</h1>
-    <p>Алекс уже собрал для тебя подборку. Осталось только перейти 👇</p>
+    <h1>🚀 Готово!</h1>
+    <p>Мы подготовили для вас подборку авто.</p>
     <button class="button" onclick="goToBot()">Перейти в Telegram</button>
   </div>
-  </body>
-</html>
 
+  <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
 <!-- trigger rebuild -->
