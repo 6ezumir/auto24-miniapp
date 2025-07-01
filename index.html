@@ -2,52 +2,35 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Auto24Service MiniApp</title>
-  <link rel="stylesheet" href="styles.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Выбор персонажа</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"/>
+  <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
-  <!-- Логотип -->
-  <div class="logo-container">
-    <img src="logo.png" alt="Auto24Service" class="logo" />
-  </div>
 
-  <!-- Первый экран -->
-  <div class="container" id="step1">
-    <h1>🚘 Привет! Кто ты?</h1>
-    <p>Выбери свой путь</p>
-    <button class="button" onclick="selectGender('Мужчина')">Мужчина</button>
-    <button class="button" onclick="selectGender('Женщина')">Женщина</button>
-  </div>
+<div class="container" id="step1">
+  <h1>🚘 Кто вы?</h1>
+  <button class="button" onclick="selectGender('Мужчина')">Мужчина</button>
+  <button class="button" onclick="selectGender('Женщина')">Женщина</button>
+</div>
 
-  <!-- Второй экран -->
-  <div class="container hidden" id="step2">
-    <h1>Выбери персонажа</h1>
-    <div class="swiper-container">
-      <div class="swiper-wrapper" id="options"></div>
-      <div class="swiper-pagination"></div>
-    </div>
+<div class="container hidden" id="step2">
+  <h1>Выберите персонажа</h1>
+  <div class="swiper mySwiper">
+    <div class="swiper-wrapper" id="options"></div>
   </div>
+  <div class="swiper-pagination"></div>
+</div>
 
-  <!-- Третий экран -->
-  <div class="container hidden" id="step3">
-    <h1 id="characterTitle"></h1>
-    <p id="characterDescription"></p>
-    <p id="characterLegend"></p>
-    <button class="button" onclick="goToFinal()">Далее</button>
-  </div>
+<div class="container hidden" id="final">
+  <h1>🚀 Готово!</h1>
+  <p>Спасибо за выбор. Переходите в Telegram.</p>
+  <button class="button" onclick="goToBot()">Перейти в Telegram</button>
+</div>
 
-  <!-- Финальный экран -->
-  <div class="container hidden" id="final">
-    <h1>🚀 Готово!</h1>
-    <p>Переходи в Telegram, чтобы узнать больше.</p>
-    <button class="button" onclick="goToBot()">Перейти</button>
-  </div>
-
-  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-  <script src="script.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
-
-
 <!-- trigger rebuild -->
