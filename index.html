@@ -2,37 +2,55 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Auto24Service MiniApp</title>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&family=Montserrat&display=swap" rel="stylesheet" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>MiniApp Авто</title>
   <link rel="stylesheet" href="styles.css" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"
+  />
 </head>
 <body>
-  <div class="container" id="step1">
-    <img src="https://i.ibb.co/N1d3QmK/logo-miniapp.png" alt="Logo" class="logo" />
-    <h1>🚘 Кто вы?</h1>
-    <p>Выберите свой пол</p>
-    <button class="button" onclick="selectGender('Мужчина')">🧔 Мужчина</button>
-    <button class="button" onclick="selectGender('Женщина')">👩 Женщина</button>
+  <div class="logo-container">
+    <img src="https://твой-домен/logo.png" alt="Auto24Service" class="logo" />
   </div>
 
+  <!-- Шаг 1: Выбор пола -->
+  <div class="container" id="step1">
+    <h1>🚘 Кто вы?</h1>
+    <p>Выберите пол, чтобы начать</p>
+    <button class="button" onclick="selectGender('Мужчина')">Мужчина</button>
+    <button class="button" onclick="selectGender('Женщина')">Женщина</button>
+  </div>
+
+  <!-- Шаг 2: Свайпер персонажей -->
   <div class="container hidden" id="step2">
-    <h2>Выберите персонажа</h2>
-    <div class="swiper-container">
-      <div class="swiper-wrapper" id="slides"></div>
+    <h1>Выберите персонажа</h1>
+    <div class="swiper">
+      <div class="swiper-wrapper" id="swiperWrapper"></div>
       <div class="swiper-pagination"></div>
     </div>
+    <button class="button" onclick="goToStep3()">Продолжить</button>
   </div>
 
+  <!-- Шаг 3: Описание персонажа -->
+  <div class="container hidden" id="step3">
+    <h1 id="characterTitle"></h1>
+    <p id="characterDescription"></p>
+    <p id="characterLegend"></p>
+    <button class="button" onclick="goToFinal()">Далее</button>
+  </div>
+
+  <!-- Финал -->
   <div class="container hidden" id="final">
-    <h1>🚀 Готово!</h1>
-    <p>Мы подготовили для вас подборку авто.</p>
+    <h1>🚀 Почти готово!</h1>
+    <p>Ваши рекомендации уже ждут.</p>
     <button class="button" onclick="goToBot()">Перейти в Telegram</button>
   </div>
 
-  <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
+
 <!-- trigger rebuild -->
