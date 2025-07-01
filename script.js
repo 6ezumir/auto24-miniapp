@@ -4,35 +4,35 @@ const options = {
   'Мужчина': [
     {
       title: '💼 Предприниматель',
-      text: 'Премиум, скорость и статус.',
-      legend: 'Авто, которое подчеркнёт твою силу и уверенность.'
+      text: 'Премиум и скорость.',
+      legend: 'Выбираешь статус.'
     },
     {
       title: '🧘‍♂️ Обычный парень',
-      text: 'Комфорт и драйв в балансе.',
-      legend: 'Надёжная машина для семьи и себя.'
+      text: 'Комфорт и драйв.',
+      legend: 'Баланс свободы.'
     },
     {
       title: '🎓 Студент',
-      text: 'Автобус — не твоё.',
-      legend: 'Первая машина — свобода и взрослая жизнь.'
+      text: 'Первая машина.',
+      legend: 'Твоя свобода.'
     }
   ],
   'Женщина': [
     {
       title: '👠 Бизнес-леди',
-      text: 'Яркая тачка и встречи.',
-      legend: 'Авто, что подчеркивает твой характер и стиль.'
+      text: 'Стиль и решительность.',
+      legend: 'Твой ритм.'
     },
     {
       title: '👩‍🍼 Обычная девушка',
-      text: 'Свобода и своё авто.',
-      legend: 'Ты достойна выбирать то, что подходит именно тебе.'
+      text: 'Комфорт и независимость.',
+      legend: 'Твоя свобода.'
     },
     {
       title: '🎓 Студентка',
-      text: 'Права и большие планы',
-      legend: 'Машина, чтобы ездить самой и чувствовать уверенность.'
+      text: 'Дерзость и свежесть.',
+      legend: 'Первый опыт.'
     }
   ]
 };
@@ -40,28 +40,33 @@ const options = {
 function selectGender(gender) {
   selectedGender = gender;
   document.getElementById('step1').classList.add('hidden');
-  const container = document.getElementById('options');
-  container.innerHTML = '';
-  options[gender].forEach((opt) => {
-    const btn = document.createElement('button');
-    btn.className = 'button';
-    btn.textContent = opt.label;
-    btn.onclick = () => selectCharacter(opt);
-    container.appendChild(btn);
-  });
-  document.getElementById('step2').classList.remove('hidden');
-}
+  const slidesContainer = document.getElementById('slides');
+  slidesContainer.innerHTML = '';
 
-function selectCharacter(option) {
-  document.getElementById('step2').classList.add('hidden');
-  document.getElementById('characterTitle').innerText = option.title;
-  document.getElementById('characterDescription').innerText = option.text;
-  document.getElementById('characterLegend').innerText = option.legend;
-  document.getElementById('step3').classList.remove('hidden');
+  options[gender].forEach(opt => {
+    const slide = document.createElement('div');
+    slide.className = 'swiper-slide';
+    slide.innerHTML = `
+      <h2>${opt.title}</h2>
+      <p>${opt.text}</p>
+      <p style="font-size:0.9rem; opacity:0.7;">${opt.legend}</p>
+      <button class="button" onclick="goToFinal()">Выбрать</button>
+    `;
+    slidesContainer.appendChild(slide);
+  });
+
+  document.getElementById('step2').classList.remove('hidden');
+
+  new Swiper('.swiper-container', {
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true
+    }
+  });
 }
 
 function goToFinal() {
-  document.getElementById('step3').classList.add('hidden');
+  document.getElementById('step2').classList.add('hidden');
   document.getElementById('final').classList.remove('hidden');
 }
 
