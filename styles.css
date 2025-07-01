@@ -26,41 +26,58 @@ body {
   margin-bottom: 15px;
 }
 
+h1, h2, p {
+  margin: 0.5rem 0;
+}
+
 .button {
-  background: linear-gradient(135deg, #e63946, #f1c40f, #3498db);
+  background: linear-gradient(135deg, #ff0066, #ffcc00, #00ffff);
   border: none;
   padding: 12px 20px;
-  border-radius: 8px;
+  border-radius: 12px;
   color: #fff;
   font-weight: 600;
   margin: 8px;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 15px rgba(255, 0, 102, 0.5);
 }
 .button:hover {
   transform: scale(1.05);
+  box-shadow: 0 0 25px rgba(255, 0, 102, 0.8);
 }
 
 .swiper-container {
   width: 100%;
   padding-top: 20px;
-  padding-bottom: 40px;
+  padding-bottom: 50px;
 }
 
 .swiper-slide {
-  background: rgba(255,255,255,0.05);
-  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 15px;
   padding: 20px;
+  box-shadow: 0 0 15px rgba(255, 0, 102, 0.3);
   display: flex;
   flex-direction: column;
   align-items: center;
 }
+
 .swiper-slide h2 {
-  margin: 10px 0 5px;
-  font-size: 1.1rem;
+  font-size: 1.2rem;
+  color: #ffcc00;
 }
+
 .swiper-slide p {
-  font-size: 0.95rem;
-  opacity: 0.85;
+  font-size: 1rem;
+  color: #ddd;
+}
+
+.swiper-pagination-bullet {
+  background: #ff0066 !important;
+}
+
+.swiper-pagination-bullet-active {
+  background: #ffcc00 !important;
 }
 
