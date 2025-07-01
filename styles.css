@@ -1,9 +1,17 @@
 body {
   margin: 0;
   padding: 0;
-  background: #0f0f0f;
+  background: linear-gradient(135deg, #0f0f0f, #2c003e, #6e00ff);
+  background-size: 400% 400%;
+  animation: gradientShift 15s ease infinite;
   font-family: 'Montserrat', sans-serif;
   color: #fff;
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
 .container {
