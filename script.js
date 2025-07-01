@@ -19,17 +19,22 @@ function selectGender(gender) {
   document.getElementById('step1').classList.add('hidden');
   const container = document.getElementById('options');
   container.innerHTML = '';
+
   options[gender].forEach(opt => {
     const slide = document.createElement('div');
     slide.className = 'swiper-slide';
     slide.innerHTML = `
-      <h2>${opt.title}</h2>
-      <p>${opt.text}</p>
-      <button class="button" onclick="selectCharacter()">Выбрать</button>
+      <div class="card">
+        <h2>${opt.title}</h2>
+        <p>${opt.text}</p>
+        <button class="button" onclick="selectCharacter()">Выбрать</button>
+      </div>
     `;
     container.appendChild(slide);
   });
+
   document.getElementById('step2').classList.remove('hidden');
+
   if (swiper) swiper.update();
   else {
     swiper = new Swiper('.mySwiper', {
@@ -38,6 +43,10 @@ function selectGender(gender) {
       pagination: {
         el: '.swiper-pagination',
         clickable: true
+      },
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev'
       }
     });
   }
