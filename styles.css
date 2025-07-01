@@ -1,26 +1,11 @@
 body {
   margin: 0;
   padding: 0;
-  background: #0f0f0f url('endless-constellation.svg') repeat;
-  background-size: 100px auto; /* Мелкий фон */
+  background: #0f0f0f;
   font-family: 'Montserrat', sans-serif;
   color: #fff;
 }
 
-/* Центрирование логотипа, если он есть */
-.logo-container {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  margin: 20px 0;
-}
-
-.logo {
-  max-width: 120px;
-  height: auto;
-}
-
-/* Общий контейнер */
 .container {
   max-width: 400px;
   margin: 0 auto;
@@ -28,34 +13,36 @@ body {
   text-align: center;
 }
 
-/* Скрытые блоки */
 .hidden {
   display: none;
 }
 
-/* Заголовки */
 h1 {
   font-family: 'Orbitron', sans-serif;
-  font-size: 2rem;
-  margin-bottom: 20px;
+  font-size: 1.6rem;
+  margin-bottom: 10px;
 }
 
-/* Текст */
+.hint {
+  font-size: 0.9rem;
+  color: #ccc;
+  margin-bottom: 10px;
+}
+
 p {
-  font-size: 1.2rem;
-  line-height: 1.5;
+  font-size: 1rem;
+  line-height: 1.4;
 }
 
-/* Кнопка */
 .button {
   display: inline-block;
   background: linear-gradient(90deg, #ff0080, #7928ca);
   color: #fff;
   border: none;
-  padding: 14px 24px;
-  margin: 15px 0;
-  font-size: 1.1rem;
-  border-radius: 10px;
+  padding: 12px 20px;
+  margin: 10px 5px;
+  font-size: 1rem;
+  border-radius: 8px;
   cursor: pointer;
   transition: transform 0.2s;
 }
@@ -64,39 +51,42 @@ p {
   transform: scale(1.05);
 }
 
-/* Свайп карточка */
+.swiper {
+  width: 100%;
+  padding: 20px 0;
+}
+
 .swiper-slide {
-  background: rgba(30, 30, 30, 0.9);
-  border-radius: 12px;
-  padding: 30px;
-  box-sizing: border-box;
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  justify-content: center;
 }
 
-/* Заголовок карточки */
-.swiper-slide h2 {
-  font-size: 1.5rem;
-  margin-bottom: 15px;
+.card {
+  background: #1e1e1e;
+  border-radius: 12px;
+  padding: 20px;
+  width: 90%;
+  box-sizing: border-box;
 }
 
-/* Текст карточки */
-.swiper-slide p {
-  font-size: 1.1rem;
-  margin-bottom: 20px;
+.card h2 {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
 }
 
-/* Пагинация (точки) */
+.card p {
+  font-size: 0.95rem;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+  color: #ff0080;
+}
+
 .swiper-pagination-bullet {
-  background: #fff;
-  opacity: 0.5;
+  background: #ff0080;
 }
 
-.swiper-pagination-bullet-active {
-  background: #ff0080;
-  opacity: 1;
-}
 
 
 
