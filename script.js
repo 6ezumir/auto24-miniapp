@@ -1,38 +1,39 @@
 let selectedGender = '';
+let currentOption = null;
 
 const options = {
   'Мужчина': [
     {
-      title: '💼 Предприниматель',
+      title: 'Предприниматель',
       text: 'Премиум и скорость.',
-      legend: 'Выбираешь статус.'
+      legend: 'Выбираешь статус и драйв.'
     },
     {
-      title: '🧘‍♂️ Обычный парень',
-      text: 'Комфорт и драйв.',
-      legend: 'Баланс свободы.'
+      title: 'Обычный парень',
+      text: 'Комфорт и немного скорости.',
+      legend: 'Надёжность и удобство.'
     },
     {
-      title: '🎓 Студент',
+      title: 'Студент',
       text: 'Первая машина.',
-      legend: 'Твоя свобода.'
+      legend: 'Свобода и новые впечатления.'
     }
   ],
   'Женщина': [
     {
-      title: '👠 Бизнес-леди',
-      text: 'Стиль и решительность.',
-      legend: 'Твой ритм.'
+      title: 'Бизнес-леди',
+      text: 'Стиль и уверенность.',
+      legend: 'Твой имидж важен.'
     },
     {
-      title: '👩‍🍼 Обычная девушка',
+      title: 'Обычная девушка',
       text: 'Комфорт и независимость.',
-      legend: 'Твоя свобода.'
+      legend: 'Авто под твой ритм.'
     },
     {
-      title: '🎓 Студентка',
-      text: 'Дерзость и свежесть.',
-      legend: 'Первый опыт.'
+      title: 'Студентка',
+      text: 'Начало пути.',
+      legend: 'Твоя свобода.'
     }
   ]
 };
@@ -40,33 +41,48 @@ const options = {
 function selectGender(gender) {
   selectedGender = gender;
   document.getElementById('step1').classList.add('hidden');
-  const slidesContainer = document.getElementById('slides');
-  slidesContainer.innerHTML = '';
 
-  options[gender].forEach(opt => {
+  const wrapper = document.getElementById('swiperWrapper');
+  wrapper.innerHTML = '';
+
+  options[gender].forEach((opt, index) => {
     const slide = document.createElement('div');
     slide.className = 'swiper-slide';
     slide.innerHTML = `
       <h2>${opt.title}</h2>
       <p>${opt.text}</p>
-      <p style="font-size:0.9rem; opacity:0.7;">${opt.legend}</p>
-      <button class="button" onclick="goToFinal()">Выбрать</button>
     `;
-    slidesContainer.appendChild(slide);
+    slide.onclick = () => currentOption = opt;
+    wrapper.appendChild(slide);
   });
 
   document.getElementById('step2').classList.remove('hidden');
 
-  new Swiper('.swiper-container', {
+  new Swiper('.swiper', {
+    slidesPerView: 1.2,
+    spaceBetween: 15,
+    centeredSlides: true,
     pagination: {
       el: '.swiper-pagination',
-      clickable: true
-    }
+      clickable: true,
+    },
   });
 }
 
-function goToFinal() {
+function goToStep3() {
+  if (!currentOption) {
+    alert('Пожалуйста, выберите персонажа.');
+    return;
+  }
   document.getElementById('step2').classList.add('hidden');
+  document.getElementById('characterTitle').innerText = currentOption.title;
+  document.getElementById('characterDescription').innerText = currentOption.text;
+  document.getElementById('characterLegend').innerText = currentOption.legend;
+  document.getElementById('step3').classList.remove('hidden');
+}
+
+function goToFinal() {
+  document.getElementById('step3').classList.add('hidden');
   document.getElementById('final').classList.remove('hidden');
 }
 
