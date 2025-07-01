@@ -1,83 +1,82 @@
 body {
   margin: 0;
   padding: 0;
-  background: #0d0d0d url('https://www.transparenttextures.com/patterns/stardust.png') repeat;
+  background: #0f0f0f url('https://i.ibb.co/3kKJpWv/pattern.png') repeat;
   font-family: 'Montserrat', sans-serif;
   color: #fff;
+}
+
+.logo-container {
+  width: 100%;
   display: flex;
   justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  flex-direction: column;
+  margin: 20px 0;
+}
+
+.logo {
+  max-width: 120px;
+  height: auto;
+  filter: drop-shadow(0 0 5px #ff0080);
 }
 
 .container {
-  text-align: center;
   max-width: 400px;
+  margin: 0 auto;
   padding: 20px;
+  text-align: center;
 }
 
 .hidden {
   display: none;
 }
 
-.logo {
-  width: 80px;
-  margin-bottom: 15px;
+h1 {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1.6rem;
+  margin-bottom: 10px;
 }
 
-h1, h2, p {
-  margin: 0.5rem 0;
+p {
+  font-size: 1rem;
+  line-height: 1.4;
 }
 
 .button {
-  background: linear-gradient(135deg, #ff0066, #ffcc00, #00ffff);
+  display: inline-block;
+  background: linear-gradient(90deg, #ff0080, #7928ca);
+  color: #fff;
   border: none;
   padding: 12px 20px;
-  border-radius: 12px;
-  color: #fff;
-  font-weight: 600;
-  margin: 8px;
+  margin: 10px 5px;
+  font-size: 1rem;
+  border-radius: 8px;
   cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: 0 0 15px rgba(255, 0, 102, 0.5);
-}
-.button:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 25px rgba(255, 0, 102, 0.8);
+  transition: transform 0.2s;
 }
 
-.swiper-container {
+.button:hover {
+  transform: scale(1.05);
+}
+
+.swiper {
   width: 100%;
-  padding-top: 20px;
-  padding-bottom: 50px;
+  padding: 20px 0;
 }
 
 .swiper-slide {
-  background: rgba(255, 255, 255, 0.05);
-  border-radius: 15px;
+  background: #1e1e1e;
+  border-radius: 10px;
   padding: 20px;
-  box-shadow: 0 0 15px rgba(255, 0, 102, 0.3);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  box-sizing: border-box;
 }
 
 .swiper-slide h2 {
   font-size: 1.2rem;
-  color: #ffcc00;
+  margin-bottom: 10px;
 }
 
 .swiper-slide p {
-  font-size: 1rem;
-  color: #ddd;
+  font-size: 0.95rem;
 }
 
-.swiper-pagination-bullet {
-  background: #ff0066 !important;
-}
-
-.swiper-pagination-bullet-active {
-  background: #ffcc00 !important;
-}
 
