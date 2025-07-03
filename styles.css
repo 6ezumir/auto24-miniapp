@@ -3,7 +3,7 @@ body {
   padding: 0;
   background: linear-gradient(135deg, #0f0f0f, #2c003e, #6e00ff);
   background-size: 400% 400%;
-  animation: gradientShift 15s ease infinite;
+  animation: gradientShift 20s ease infinite;
   font-family: 'Montserrat', sans-serif;
   color: #fff;
 }
@@ -19,6 +19,16 @@ body {
   margin: 0 auto;
   padding: 20px;
   text-align: center;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.5s forwards;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .hidden {
@@ -28,18 +38,13 @@ body {
 h1 {
   font-family: 'Orbitron', sans-serif;
   font-size: 1.6rem;
-  margin-bottom: 10px;
-}
-
-.hint {
-  font-size: 0.9rem;
-  color: #ccc;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
 }
 
 p {
   font-size: 1rem;
   line-height: 1.4;
+  margin-bottom: 15px;
 }
 
 .button {
@@ -52,49 +57,19 @@ p {
   font-size: 1rem;
   border-radius: 8px;
   cursor: pointer;
-  transition: transform 0.2s;
+  transition: transform 0.2s, box-shadow 0.2s;
 }
 
 .button:hover {
   transform: scale(1.05);
+  box-shadow: 0 0 10px rgba(255, 0, 128, 0.6);
 }
 
-.swiper {
-  width: 100%;
-  padding: 20px 0;
-}
-
-.swiper-slide {
+#storyButtons {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  gap: 10px;
 }
-
-.card {
-  background: #1e1e1e;
-  border-radius: 12px;
-  padding: 20px;
-  width: 90%;
-  box-sizing: border-box;
-}
-
-.card h2 {
-  font-size: 1.2rem;
-  margin-bottom: 10px;
-}
-
-.card p {
-  font-size: 0.95rem;
-}
-
-.swiper-button-next,
-.swiper-button-prev {
-  color: #ff0080;
-}
-
-.swiper-pagination-bullet {
-  background: #ff0080;
-}
-
 
 
 
