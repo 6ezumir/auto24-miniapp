@@ -15,10 +15,13 @@ body {
 }
 
 .container {
-  max-width: 400px;
+  max-width: 420px;
   margin: 0 auto;
   padding: 20px;
   text-align: center;
+}
+
+.container:not(.hidden) {
   opacity: 0;
   transform: translateY(20px);
   animation: fadeInUp 0.8s forwards;
@@ -38,13 +41,15 @@ body {
 h1 {
   font-family: 'Orbitron', sans-serif;
   font-size: 1.8rem;
-  margin-bottom: 15px;
+  margin-bottom: 20px;
+  line-height: 1.3;
 }
 
 p {
   font-size: 1rem;
-  line-height: 1.4;
-  margin-bottom: 15px;
+  line-height: 1.5;
+  margin-bottom: 20px;
+  color: #e0e0e0;
 }
 
 .button {
@@ -52,10 +57,10 @@ p {
   background: linear-gradient(90deg, #ff0080, #7928ca);
   color: #fff;
   border: none;
-  padding: 12px 20px;
-  margin: 10px 5px;
-  font-size: 1rem;
-  border-radius: 8px;
+  padding: 14px 24px;
+  margin: 12px 6px;
+  font-size: 1.05rem;
+  border-radius: 10px;
   cursor: pointer;
   transition: transform 0.2s, box-shadow 0.2s;
   text-decoration: none;
@@ -66,7 +71,7 @@ p {
   box-shadow: 0 0 10px rgba(255, 0, 128, 0.6);
 }
 
-/* Для кнопок выбора вариантов */
+/* Кнопки вариантов */
 .button-variant {
   background: linear-gradient(90deg, #00c6ff, #0072ff);
 }
@@ -75,7 +80,7 @@ p {
   box-shadow: 0 0 10px rgba(0, 198, 255, 0.6);
 }
 
-/* Для кнопок продолжения */
+/* Кнопки продолжения */
 .button-continue {
   background: linear-gradient(90deg, #00b09b, #96c93d);
 }
@@ -84,11 +89,26 @@ p {
   box-shadow: 0 0 10px rgba(0, 176, 155, 0.6);
 }
 
-/* Блок с кнопками вариантов */
+/* Блок кнопок вариантов */
 #storyButtons {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 14px;
+}
+
+/* Логотип */
+.logo-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.logo {
+  width: 80px;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 0 8px rgba(0,0,0,0.5);
 }
 
 
