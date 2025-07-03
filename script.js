@@ -1,8 +1,8 @@
 let selectedGender = '';
 let selectedCharacter = null;
 let currentStep = 0;
+let swiper;
 
-// Пример персонажей
 const characters = {
   'Мужчина': [
     {
@@ -48,20 +48,35 @@ function selectGender(gender) {
   container.innerHTML = '';
 
   characters[gender].forEach((char, index) => {
-    const btn = document.createElement('button');
-    btn.className = 'button';
-    btn.textContent = char.title;
-    btn.onclick = () => startCharacterStory(index);
-    container.appendChild(btn);
+    const slide = document.createElement('div');
+    slide.className = 'swiper-slide';
+    slide.innerHTML = `
+      <h2>${char.title}</h2>
+      <p>${char.intro}</p>
+      <button class="button" onclick="startCharacterStory(${index})">Выбрать</button>
+    `;
+    container.appendChild(slide);
   });
 
   document.getElementById('step2').classList.remove('hidden');
+
+  if (swiper) swiper.update();
+  else {
+    swiper = new Swiper('.mySwiper', {
+      slidesPerView: 1,
+      spaceBetween: 20,
+      pagination: { el: '.swiper-pagination', clickable: true },
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev'
+      }
+    });
+  }
 }
 
 function startCharacterStory(index) {
   selectedCharacter = characters[selectedGender][index];
   currentStep = 0;
-
   document.getElementById('step2').classList.add('hidden');
   document.getElementById('characterTitle').innerText = selectedCharacter.title;
   document.getElementById('characterIntro').innerText = selectedCharacter.intro;
@@ -75,7 +90,6 @@ function goToStory() {
 
 function showStep() {
   const step = selectedCharacter.steps[currentStep];
-  const container = document.getElementById('step4');
   const textElem = document.getElementById('storyText');
   const buttonsElem = document.getElementById('storyButtons');
 
@@ -98,7 +112,7 @@ function showStep() {
     buttonsElem.appendChild(btn);
   }
 
-  container.classList.remove('hidden');
+  document.getElementById('step4').classList.remove('hidden');
 }
 
 function nextStep() {
@@ -110,16 +124,11 @@ function nextStep() {
 
 function showFinal(result) {
   document.getElementById('step4').classList.add('hidden');
-  const finalText = document.getElementById('finalText');
-  const badgeText = document.getElementById('badgeText');
-
-  finalText.textContent = result.ending;
-  badgeText.textContent = `🏆 Достижение: ${result.badge}`;
-
+  document.getElementById('finalText').textContent = result.ending;
+  document.getElementById('badgeText').textContent = `🏆 Достижение: ${result.badge}`;
   document.getElementById('final').classList.remove('hidden');
 }
 
 function goToBot() {
   window.location.href = "https://t.me/auto24serviceofficial_bot";
 }
-
