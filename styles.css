@@ -1,19 +1,37 @@
 body {
   margin: 0;
   padding: 0;
-  background: linear-gradient(135deg, #0f0f0f, #2c003e, #6e00ff);
-  background-size: 400% 400%;
+  /* Фон с логотипом и градиентом */
+  background: 
+    url('logo-bg.png') center center no-repeat,
+    linear-gradient(135deg, #0f0f0f, #2c003e, #6e00ff);
+  background-size: 180px auto, 400% 400%;
+  background-blend-mode: normal;
   animation: gradientShift 20s ease infinite;
   font-family: 'Montserrat', sans-serif;
   color: #fff;
 }
 
+/* Градиент анимация */
 @keyframes gradientShift {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+  0% { background-position: center center, 0% 50%; }
+  50% { background-position: center center, 100% 50%; }
+  100% { background-position: center center, 0% 50%; }
 }
 
+/* Пульсация логотипа */
+@keyframes pulseLogo {
+  0% { background-size: 180px auto, 400% 400%; opacity: 0.3; }
+  50% { background-size: 190px auto, 400% 400%; opacity: 0.5; }
+  100% { background-size: 180px auto, 400% 400%; opacity: 0.3; }
+}
+
+/* Запускаем пульс */
+body {
+  animation: gradientShift 20s ease infinite, pulseLogo 8s ease-in-out infinite;
+}
+
+/* Контейнеры */
 .container {
   max-width: 400px;
   margin: 0 auto;
@@ -25,22 +43,10 @@ body {
   display: none;
 }
 
-.logo-container {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  margin-bottom: 20px;
-}
-
-.logo {
-  max-width: 90px;
-  filter: drop-shadow(0 0 5px #ff0080);
-}
-
 h1 {
   font-family: 'Orbitron', sans-serif;
-  font-size: 1.8rem;
-  margin-bottom: 20px;
+  font-size: 1.6rem;
+  margin-bottom: 15px;
 }
 
 p {
@@ -67,43 +73,27 @@ p {
   box-shadow: 0 0 10px rgba(255, 0, 128, 0.6);
 }
 
-.button-continue {
-  background: linear-gradient(90deg, #00b09b, #96c93d);
-}
-
-.button-continue:hover {
-  box-shadow: 0 0 10px rgba(0, 176, 155, 0.6);
-}
-
 /* Свайпер */
 .swiper {
   width: 100%;
   padding: 20px 0;
 }
 .swiper-slide {
-  display: flex;
-  justify-content: center;
-}
-.card {
-  background: #1e1e1e;
+  background: rgba(30,30,30,0.85);
   border-radius: 12px;
   padding: 20px;
-  width: 90%;
-  box-sizing: border-box;
 }
-.card h2 {
+.swiper-slide h2 {
   font-size: 1.2rem;
   margin-bottom: 10px;
 }
-.card p {
+.swiper-slide p {
   font-size: 0.95rem;
 }
-
 .swiper-button-next,
 .swiper-button-prev {
   color: #ff0080;
 }
-
 .swiper-pagination-bullet {
   background: #ff0080;
 }
