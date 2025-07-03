@@ -12,10 +12,25 @@ const characters = {
         { text: 'Ты мечтаешь о машине, подчеркивающей успех.' },
         { text: 'Тебе предлагают выбор: сэкономить или выбрать роскошь.' },
         { 
-          text: 'Что выберешь?', 
+          text: 'Что выберешь?',
           choices: [
             { label: 'Экономия', result: { ending: 'Ты выбрал разумный подход.', badge: 'Практичный' }},
             { label: 'Стиль', result: { ending: 'Ты выбрал путь максимализма.', badge: 'Максималист' }}
+          ]
+        }
+      ]
+    },
+    {
+      title: 'Семьянин',
+      intro: 'Ты ценишь уют и безопасность.',
+      steps: [
+        { text: 'Ты выбираешь машину для семьи.' },
+        { text: 'Твой выбор: минивэн или кроссовер.' },
+        { 
+          text: 'Что выберешь?',
+          choices: [
+            { label: 'Минивэн', result: { ending: 'Ты выбрал практичность.', badge: 'Семьянин' }},
+            { label: 'Кроссовер', result: { ending: 'Ты выбрал свободу.', badge: 'Путешественник' }}
           ]
         }
       ]
@@ -27,12 +42,27 @@ const characters = {
       intro: 'Ты уверенная в себе женщина, стремящаяся к успеху.',
       steps: [
         { text: 'Ты мечтаешь об автомобиле, подчеркивающем твой стиль.' },
-        { text: 'Тебе предлагают выбор: практичность или эффектность.' },
+        { text: 'Твой выбор: практичность или эффектность.' },
         { 
-          text: 'Что выберешь?', 
+          text: 'Что выберешь?',
           choices: [
-            { label: 'Практичность', result: { ending: 'Ты выбрала надежность.', badge: 'Прагматик' }},
-            { label: 'Эффектность', result: { ending: 'Ты выбрала стиль и смелость.', badge: 'Икона Стиля' }}
+            { label: 'Практичность', result: { ending: 'Ты выбрала надёжность.', badge: 'Прагматик' }},
+            { label: 'Эффектность', result: { ending: 'Ты выбрала стиль и смелость.', badge: 'Икона стиля' }}
+          ]
+        }
+      ]
+    },
+    {
+      title: 'Студентка',
+      intro: 'Ты начинаешь свой путь за рулём.',
+      steps: [
+        { text: 'Ты мечтаешь о доступной и надёжной машине.' },
+        { text: 'Твой выбор: подержанное авто или кредит.' },
+        { 
+          text: 'Что выберешь?',
+          choices: [
+            { label: 'Подержанное авто', result: { ending: 'Ты выбрала разумную экономию.', badge: 'Экономист' }},
+            { label: 'Кредит', result: { ending: 'Ты рискнула ради мечты.', badge: 'Смельчак' }}
           ]
         }
       ]
@@ -47,6 +77,7 @@ function selectGender(gender) {
   const container = document.getElementById('options');
   container.innerHTML = '';
 
+  // создаем HTML-слайды до инициализации Swiper
   characters[gender].forEach((char, index) => {
     const slide = document.createElement('div');
     slide.className = 'swiper-slide';
@@ -60,23 +91,30 @@ function selectGender(gender) {
 
   document.getElementById('step2').classList.remove('hidden');
 
-  if (swiper) swiper.update();
-  else {
-    swiper = new Swiper('.mySwiper', {
-      slidesPerView: 1,
-      spaceBetween: 20,
-      pagination: { el: '.swiper-pagination', clickable: true },
-      navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev'
-      }
-    });
+  // Сначала убиваем старый swiper, если он был
+  if (swiper) {
+    swiper.destroy(true, true);
   }
+
+  // Создаем новый
+  swiper = new Swiper('.mySwiper', {
+    slidesPerView: 1,
+    spaceBetween: 20,
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true
+    },
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev'
+    }
+  });
 }
 
 function startCharacterStory(index) {
   selectedCharacter = characters[selectedGender][index];
   currentStep = 0;
+
   document.getElementById('step2').classList.add('hidden');
   document.getElementById('characterTitle').innerText = selectedCharacter.title;
   document.getElementById('characterIntro').innerText = selectedCharacter.intro;
