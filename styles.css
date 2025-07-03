@@ -19,16 +19,6 @@ body {
   margin: 0 auto;
   padding: 20px;
   text-align: center;
-  opacity: 0;
-  transform: translateY(20px);
-  animation: fadeInUp 0.8s forwards;
-}
-
-@keyframes fadeInUp {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
 }
 
 .hidden {
@@ -39,18 +29,17 @@ body {
   width: 100%;
   display: flex;
   justify-content: center;
-  margin: 20px 0;
+  margin-bottom: 20px;
 }
 
 .logo {
-  max-width: 120px;
-  border-radius: 12px;
-  box-shadow: 0 0 10px rgba(255, 0, 128, 0.6);
+  max-width: 80px;
+  filter: drop-shadow(0 0 5px #ff0080);
 }
 
 h1 {
   font-family: 'Orbitron', sans-serif;
-  font-size: 1.8rem;
+  font-size: 1.6rem;
   margin-bottom: 15px;
 }
 
@@ -71,7 +60,6 @@ p {
   border-radius: 8px;
   cursor: pointer;
   transition: transform 0.2s, box-shadow 0.2s;
-  text-decoration: none;
 }
 
 .button:hover {
@@ -79,24 +67,29 @@ p {
   box-shadow: 0 0 10px rgba(255, 0, 128, 0.6);
 }
 
-.button-continue {
-  background: linear-gradient(90deg, #00b09b, #96c93d);
-}
-
-.button-continue:hover {
-  box-shadow: 0 0 10px rgba(0, 176, 155, 0.6);
-}
-
-.swiper-container {
+/* Свайпер */
+.swiper {
   width: 100%;
   padding: 20px 0;
 }
-
 .swiper-slide {
   background: #1e1e1e;
   border-radius: 12px;
   padding: 20px;
-  box-sizing: border-box;
+}
+.swiper-slide h2 {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+.swiper-slide p {
+  font-size: 0.95rem;
+}
+.swiper-button-next,
+.swiper-button-prev {
+  color: #ff0080;
+}
+.swiper-pagination-bullet {
+  background: #ff0080;
 }
 
 
