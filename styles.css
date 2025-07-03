@@ -1,34 +1,31 @@
 body {
   margin: 0;
   padding: 0;
-  /* Фон с логотипом и градиентом */
-  background: 
-    url('logo-bg.png') no-repeat center top 60px,
-    linear-gradient(135deg, #0f0f0f, #2c003e, #6e00ff);
-  background-size: 180px auto, 400% 400%;
-  background-blend-mode: normal;
+  background: linear-gradient(135deg, #0f0f0f, #2c003e, #6e00ff);
+  background-size: 400% 400%;
   animation: gradientShift 20s ease infinite;
   font-family: 'Montserrat', sans-serif;
   color: #fff;
 }
 
-/* Градиент анимация */
+/* Градиентная анимация */
 @keyframes gradientShift {
-  0% { background-position: center center, 0% 50%; }
-  50% { background-position: center center, 100% 50%; }
-  100% { background-position: center center, 0% 50%; }
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
-/* Пульсация логотипа */
-@keyframes pulseLogo {
-  0% { background-size: 180px auto, 400% 400%; opacity: 0.3; }
-  50% { background-size: 190px auto, 400% 400%; opacity: 0.5; }
-  100% { background-size: 180px auto, 400% 400%; opacity: 0.3; }
+/* Логотип сверху */
+.fixed-logo {
+  width: 100%;
+  text-align: center;
+  padding: 20px 0;
 }
 
-/* Запускаем пульс */
-body {
-  animation: gradientShift 20s ease infinite, pulseLogo 8s ease-in-out infinite;
+.fixed-logo img {
+  max-width: 150px;
+  height: auto;
+  opacity: 0.85;
 }
 
 /* Контейнеры */
