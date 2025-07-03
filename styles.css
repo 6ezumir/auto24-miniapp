@@ -87,10 +87,16 @@ p {
   box-shadow: 0 0 10px rgba(0, 176, 155, 0.6);
 }
 
-#storyButtons {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
+.swiper-container {
+  width: 100%;
+  padding: 20px 0;
+}
+
+.swiper-slide {
+  background: #1e1e1e;
+  border-radius: 12px;
+  padding: 20px;
+  box-sizing: border-box;
 }
 
 
