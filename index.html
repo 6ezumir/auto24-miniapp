@@ -5,7 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Выбор персонажа</title>
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&family=Montserrat&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css"/>
+  <link rel="stylesheet" href="styles.css"/>
 </head>
 <body>
   <div class="container" id="step1">
@@ -19,7 +20,12 @@
 
   <div class="container hidden" id="step2">
     <h1>Выберите персонажа</h1>
-    <div id="options"></div>
+    <div class="swiper-container mySwiper">
+      <div class="swiper-wrapper" id="options"></div>
+      <div class="swiper-pagination"></div>
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
+    </div>
   </div>
 
   <div class="container hidden" id="step3">
@@ -34,11 +40,6 @@
     <div id="storyButtons"></div>
   </div>
 
-  <div class="container hidden" id="step5">
-    <h1>🚘 Выбор автомобиля</h1>
-    <div id="carOptions"></div>
-  </div>
-
   <div class="container hidden" id="final">
     <h1>🎉 Готово!</h1>
     <p id="finalText"></p>
@@ -46,8 +47,10 @@
     <button class="button" onclick="goToBot()">Перейти в Telegram</button>
   </div>
 
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
+
 
 <!-- trigger rebuild -->
