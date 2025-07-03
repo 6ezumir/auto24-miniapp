@@ -21,7 +21,7 @@ body {
   text-align: center;
   opacity: 0;
   transform: translateY(20px);
-  animation: fadeInUp 0.5s forwards;
+  animation: fadeInUp 0.8s forwards;
 }
 
 @keyframes fadeInUp {
@@ -37,7 +37,7 @@ body {
 
 h1 {
   font-family: 'Orbitron', sans-serif;
-  font-size: 1.6rem;
+  font-size: 1.8rem;
   margin-bottom: 15px;
 }
 
@@ -58,6 +58,7 @@ p {
   border-radius: 8px;
   cursor: pointer;
   transition: transform 0.2s, box-shadow 0.2s;
+  text-decoration: none;
 }
 
 .button:hover {
@@ -65,10 +66,29 @@ p {
   box-shadow: 0 0 10px rgba(255, 0, 128, 0.6);
 }
 
+/* Для кнопок выбора вариантов */
+.button-variant {
+  background: linear-gradient(90deg, #00c6ff, #0072ff);
+}
+
+.button-variant:hover {
+  box-shadow: 0 0 10px rgba(0, 198, 255, 0.6);
+}
+
+/* Для кнопок продолжения */
+.button-continue {
+  background: linear-gradient(90deg, #00b09b, #96c93d);
+}
+
+.button-continue:hover {
+  box-shadow: 0 0 10px rgba(0, 176, 155, 0.6);
+}
+
+/* Блок с кнопками вариантов */
 #storyButtons {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 12px;
 }
 
 
