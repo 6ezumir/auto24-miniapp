@@ -1,4 +1,6 @@
 let selectedGender = '';
+let selectedCharacter = null;
+let currentStep = 0;
 let swiper;
 
 // Полный список персонажей
@@ -115,10 +117,12 @@ function selectGender(gender) {
 
   document.getElementById('step2').classList.remove('hidden');
 
-  if (swiper) swiper.update();
-  else {
+  if (swiper) {
+    swiper.update();
+  } else {
     swiper = new Swiper('.mySwiper', {
-      slidesPerView: 1,
+      slidesPerView: 'auto',
+      centeredSlides: true,
       spaceBetween: 20,
       pagination: {
         el: '.swiper-pagination',
@@ -131,9 +135,6 @@ function selectGender(gender) {
     });
   }
 }
-
-let selectedCharacter = null;
-let currentStep = 0;
 
 function startCharacterStory(index) {
   selectedCharacter = characters[selectedGender][index];
@@ -162,7 +163,7 @@ function showStep() {
     });
   } else {
     const btn = document.createElement('button');
-    btn.className = 'button';
+    btn.className = 'button button-continue';
     btn.textContent = 'Далее';
     btn.onclick = () => nextStep();
     buttonsElem.appendChild(btn);
