@@ -3,7 +3,7 @@ body {
   padding: 0;
   /* Фон с логотипом и градиентом */
   background: 
-    url('logo-bg.png') center center no-repeat,
+    url('logo-bg.png') no-repeat center top 60px,
     linear-gradient(135deg, #0f0f0f, #2c003e, #6e00ff);
   background-size: 180px auto, 400% 400%;
   background-blend-mode: normal;
