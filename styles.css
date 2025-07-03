@@ -33,14 +33,14 @@ body {
 }
 
 .logo {
-  max-width: 80px;
+  max-width: 90px;
   filter: drop-shadow(0 0 5px #ff0080);
 }
 
 h1 {
   font-family: 'Orbitron', sans-serif;
-  font-size: 1.6rem;
-  margin-bottom: 15px;
+  font-size: 1.8rem;
+  margin-bottom: 20px;
 }
 
 p {
@@ -67,29 +67,44 @@ p {
   box-shadow: 0 0 10px rgba(255, 0, 128, 0.6);
 }
 
+.button-continue {
+  background: linear-gradient(90deg, #00b09b, #96c93d);
+}
+
+.button-continue:hover {
+  box-shadow: 0 0 10px rgba(0, 176, 155, 0.6);
+}
+
 /* Свайпер */
 .swiper {
   width: 100%;
   padding: 20px 0;
 }
 .swiper-slide {
+  display: flex;
+  justify-content: center;
+}
+.card {
   background: #1e1e1e;
   border-radius: 12px;
   padding: 20px;
+  width: 90%;
+  box-sizing: border-box;
 }
-.swiper-slide h2 {
+.card h2 {
   font-size: 1.2rem;
   margin-bottom: 10px;
 }
-.swiper-slide p {
+.card p {
   font-size: 0.95rem;
 }
+
 .swiper-button-next,
 .swiper-button-prev {
   color: #ff0080;
 }
+
 .swiper-pagination-bullet {
   background: #ff0080;
 }
-
 
