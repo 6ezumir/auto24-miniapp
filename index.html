@@ -1,38 +1,53 @@
-<div class="container" id="step1">
-  <div class="logo-container">
-    <img src="logo.png" alt="Логотип Auto24Service" class="logo">
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Выбор персонажа</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&family=Montserrat&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container" id="step1">
+    <div class="logo-container">
+      <img src="logo.png" alt="Логотип Auto24Service" class="logo">
+    </div>
+    <h1>🚘 Кто вы?</h1>
+    <button class="button" onclick="selectGender('Мужчина')">Мужчина</button>
+    <button class="button" onclick="selectGender('Женщина')">Женщина</button>
   </div>
-  <h1>🚘 Кто вы?</h1>
-  <button class="button" onclick="selectGender('Мужчина')">Мужчина</button>
-  <button class="button" onclick="selectGender('Женщина')">Женщина</button>
-</div>
 
-<div class="container hidden" id="step2">
-  <h1>Выберите персонажа</h1>
-  <div id="options"></div>
-</div>
+  <div class="container hidden" id="step2">
+    <h1>Выберите персонажа</h1>
+    <div id="options"></div>
+  </div>
 
-<div class="container hidden" id="step3">
-  <h1 id="characterTitle"></h1>
-  <p id="characterIntro"></p>
-  <button class="button button-continue" onclick="goToStory()">Продолжить</button>
-</div>
+  <div class="container hidden" id="step3">
+    <h1 id="characterTitle"></h1>
+    <p id="characterIntro"></p>
+    <button class="button button-continue" onclick="goToStory()">Продолжить</button>
+  </div>
 
-<div class="container hidden" id="step4">
-  <h1>История персонажа</h1>
-  <p id="storyText"></p>
-  <div id="storyButtons"></div>
-</div>
+  <div class="container hidden" id="step4">
+    <h1>История персонажа</h1>
+    <p id="storyText"></p>
+    <div id="storyButtons"></div>
+  </div>
 
-<div class="container hidden" id="step5">
-  <h1>🚘 Выбор автомобиля</h1>
-  <div id="carOptions"></div>
-</div>
+  <div class="container hidden" id="step5">
+    <h1>🚘 Выбор автомобиля</h1>
+    <div id="carOptions"></div>
+  </div>
 
-<div class="container hidden" id="final">
-  <h1>🎉 Готово!</h1>
-  <p id="finalText"></p>
-  <p id="badgeText"></p>
-  <button class="button" onclick="goToBot()">Перейти в Telegram</button>
-</div>
+  <div class="container hidden" id="final">
+    <h1>🎉 Готово!</h1>
+    <p id="finalText"></p>
+    <p id="badgeText"></p>
+    <button class="button" onclick="goToBot()">Перейти в Telegram</button>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
+
 <!-- trigger rebuild -->
