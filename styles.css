@@ -31,13 +31,13 @@ body {
 
 h1 {
   font-family: 'Orbitron', sans-serif;
-  font-size: 1.6rem;
-  margin: 20px 0 15px;
+  font-size: 1.8rem;
+  margin: 30px 0 20px;
 }
 
 p {
   font-size: 1rem;
-  line-height: 1.4;
+  line-height: 1.5;
   margin-bottom: 15px;
 }
 
@@ -77,26 +77,38 @@ p {
   transform: translateY(0);
 }
 
-/* Карточка */
+/* Карточка персонажа */
 .card {
-  background: rgba(30,30,30,0.9);
-  border-radius: 12px;
+  background: rgba(30, 30, 30, 0.92);
+  border-radius: 16px;
   padding: 20px;
   width: 90%;
-  max-width: 300px;
+  max-width: 320px;
   margin: 0 auto;
   text-align: center;
+  box-shadow: 0 0 15px rgba(0,0,0,0.3);
+}
+
+/* Аватар персонажа */
+.character-avatar {
+  width: 120px;
+  height: 120px;
+  border-radius: 12px;
+  object-fit: cover;
+  margin-bottom: 12px;
+  box-shadow: 0 0 8px rgba(0,0,0,0.4);
 }
 
 /* Название персонажа */
 .card h2 {
-  font-size: 1.2rem;
-  margin-bottom: 10px;
+  font-size: 1.3rem;
+  margin: 10px 0;
 }
 
 /* Описание */
 .card p {
   font-size: 0.95rem;
+  margin-bottom: 12px;
 }
 
 /* Свайпер стрелки */
@@ -109,4 +121,3 @@ p {
 .swiper-pagination-bullet {
   background: #ff0080;
 }
-
