@@ -99,6 +99,14 @@ p {
   box-shadow: 0 0 8px rgba(0,0,0,0.4);
 }
 
+/* ДОБАВЛЕНО: Альтернативный аватар */
+.avatar {
+  width: 100%;
+  max-width: 150px;
+  border-radius: 12px;
+  margin-bottom: 10px;
+}
+
 /* Название персонажа */
 .card h2 {
   font-size: 1.3rem;
