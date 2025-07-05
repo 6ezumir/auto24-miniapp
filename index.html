@@ -9,40 +9,32 @@
   <link rel="stylesheet" href="styles.css"/>
 </head>
 <body>
-
-  <!-- Фиксированный логотип -->
-  <div class="fixed-logo">
-    <img src="logo-bg.png" alt="Auto24Service">
+  <div class="logo-container">
+    <img src="logo.png" alt="Логотип Auto24Service" class="logo">
   </div>
 
-  <!-- Экран 1: Выбор пола -->
   <div class="container" id="step1">
     <h1>🚘 Кто вы?</h1>
     <button class="button" onclick="selectGender('Мужчина')">Мужчина</button>
     <button class="button" onclick="selectGender('Женщина')">Женщина</button>
   </div>
 
-  <!-- Экран 2: Свайпер персонажей -->
   <div class="container hidden" id="step2">
     <h1>Выберите персонажа</h1>
     <div class="swiper mySwiper">
-      <div class="swiper-wrapper" id="options">
-        <!-- Слайды будут созданы скриптом -->
-      </div>
+      <div class="swiper-wrapper" id="options"></div>
       <div class="swiper-pagination"></div>
       <div class="swiper-button-next"></div>
       <div class="swiper-button-prev"></div>
     </div>
   </div>
 
-  <!-- Экран 3: История персонажа -->
   <div class="container hidden" id="step3">
     <h1 id="characterTitle"></h1>
     <p id="storyText"></p>
     <div id="storyButtons"></div>
   </div>
 
-  <!-- Экран финала -->
   <div class="container hidden" id="final">
     <h1>🎉 Готово!</h1>
     <p id="finalText"></p>
@@ -54,4 +46,5 @@
   <script src="script.js"></script>
 </body>
 </html>
+
 <!-- trigger rebuild -->
