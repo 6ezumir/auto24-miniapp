@@ -8,9 +8,10 @@ const characters = {
     {
       title: 'Предприниматель',
       intro: 'Ты — предприниматель, для кого машина — часть имиджа.',
+      avatar: 'entrepreneur.jpg',
       steps: [
         { text: 'Каждое утро ты стартуешь раньше остальных.' },
-        { 
+        {
           text: 'Ты выбираешь: статус или практичность?',
           choices: [
             { label: 'Статус', result: { ending: 'Ты выбрал путь роскоши!', badge: 'Статусный водитель' } },
@@ -22,6 +23,7 @@ const characters = {
     {
       title: 'Семьянин',
       intro: 'Ты — семьянин, для кого комфорт важнее понтов.',
+      avatar: 'familyman.jpg',
       steps: [
         { text: 'Ты заботишься о безопасности близких.' },
         {
@@ -36,6 +38,7 @@ const characters = {
     {
       title: 'Студент',
       intro: 'Ты — студент, твоя первая машина — это свобода.',
+      avatar: 'student.jpg',
       steps: [
         { text: 'Каждый рубль на счету.' },
         {
@@ -52,6 +55,7 @@ const characters = {
     {
       title: 'Бизнес-леди',
       intro: 'Ты — бизнес-леди, уверенность — твой стиль.',
+      avatar: 'businesswoman.jpg',
       steps: [
         { text: 'Ты любишь внимание и скорость.' },
         {
@@ -66,6 +70,7 @@ const characters = {
     {
       title: 'Обычная девушка',
       intro: 'Ты — обычная девушка, любишь комфорт и независимость.',
+      avatar: 'girl.jpg',
       steps: [
         { text: 'Ты хочешь больше свободы в передвижении.' },
         {
@@ -80,6 +85,7 @@ const characters = {
     {
       title: 'Студентка',
       intro: 'Ты — студентка, любишь стиль и драйв.',
+      avatar: 'studentgirl.jpg',
       steps: [
         { text: 'Ты только получила права и хочешь выделяться.' },
         {
@@ -106,6 +112,7 @@ function selectGender(gender) {
     slide.className = 'swiper-slide';
     slide.innerHTML = `
       <div class="card">
+        <img src="${char.avatar}" alt="${char.title}" class="character-avatar"/>
         <h2>${char.title}</h2>
         <p>${char.intro}</p>
         <button class="button" onclick="startCharacterStory(${index})">Выбрать</button>
@@ -138,9 +145,7 @@ function startCharacterStory(index) {
   currentStep = 0;
 
   document.getElementById('step2').classList.add('hidden');
-
   document.getElementById('characterTitle').textContent = selectedCharacter.title;
-
   showStep();
 }
 
@@ -150,7 +155,6 @@ function showStep() {
   const textElem = document.getElementById('storyText');
   const buttonsElem = document.getElementById('storyButtons');
 
-  // Показываем контейнер с историей
   container.classList.remove('hidden');
 
   textElem.textContent = step.text;
