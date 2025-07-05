@@ -1,31 +1,20 @@
 body {
   margin: 0;
   padding: 0;
-  background: linear-gradient(135deg, #0f0f0f, #2c003e, #6e00ff);
-  background-size: 400% 400%;
+  background: 
+    url('logo-bg.png') no-repeat center top 60px,
+    linear-gradient(135deg, #0f0f0f, #2c003e, #6e00ff);
+  background-size: 180px auto, 400% 400%;
+  background-blend-mode: normal;
   animation: gradientShift 20s ease infinite;
   font-family: 'Montserrat', sans-serif;
   color: #fff;
 }
 
-/* Градиентная анимация */
 @keyframes gradientShift {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-
-/* Логотип сверху */
-.fixed-logo {
-  width: 100%;
-  text-align: center;
-  padding: 20px 0;
-}
-
-.fixed-logo img {
-  max-width: 150px;
-  height: auto;
-  opacity: 0.85;
+  0% { background-position: center center, 0% 50%; }
+  50% { background-position: center center, 100% 50%; }
+  100% { background-position: center center, 0% 50%; }
 }
 
 /* Контейнеры */
@@ -43,7 +32,7 @@ body {
 h1 {
   font-family: 'Orbitron', sans-serif;
   font-size: 1.6rem;
-  margin-bottom: 15px;
+  margin: 20px 0 15px;
 }
 
 p {
@@ -52,6 +41,7 @@ p {
   margin-bottom: 15px;
 }
 
+/* Кнопки */
 .button {
   display: inline-block;
   background: linear-gradient(90deg, #ff0080, #7928ca);
@@ -64,7 +54,6 @@ p {
   cursor: pointer;
   transition: transform 0.2s, box-shadow 0.2s;
 }
-
 .button:hover {
   transform: scale(1.05);
   box-shadow: 0 0 10px rgba(255, 0, 128, 0.6);
@@ -76,21 +65,47 @@ p {
   padding: 20px 0;
 }
 .swiper-slide {
-  background: rgba(30,30,30,0.85);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.4s ease;
+}
+.swiper-slide-active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Карточка */
+.card {
+  background: rgba(30,30,30,0.9);
   border-radius: 12px;
   padding: 20px;
+  width: 90%;
+  max-width: 300px;
+  margin: 0 auto;
+  text-align: center;
 }
-.swiper-slide h2 {
+
+/* Название персонажа */
+.card h2 {
   font-size: 1.2rem;
   margin-bottom: 10px;
 }
-.swiper-slide p {
+
+/* Описание */
+.card p {
   font-size: 0.95rem;
 }
+
+/* Свайпер стрелки */
 .swiper-button-next,
 .swiper-button-prev {
   color: #ff0080;
 }
+
+/* Пагинация */
 .swiper-pagination-bullet {
   background: #ff0080;
 }
