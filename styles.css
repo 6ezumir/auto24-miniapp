@@ -1,20 +1,32 @@
 body {
   margin: 0;
   padding: 0;
-  background: 
-    url('logo-bg.png') no-repeat center top 60px,
-    linear-gradient(135deg, #0f0f0f, #2c003e, #6e00ff);
-  background-size: 180px auto, 400% 400%;
-  background-blend-mode: normal;
+  background: linear-gradient(135deg, #0f0f0f, #2c003e, #6e00ff);
+  background-size: 400% 400%;
   animation: gradientShift 20s ease infinite;
   font-family: 'Montserrat', sans-serif;
   color: #fff;
 }
 
+/* Анимация градиента */
 @keyframes gradientShift {
-  0% { background-position: center center, 0% 50%; }
-  50% { background-position: center center, 100% 50%; }
-  100% { background-position: center center, 0% 50%; }
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Логотип */
+.logo-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+  margin-bottom: 20px;
+}
+.logo {
+  max-width: 180px;
+  height: auto;
+  filter: drop-shadow(0 0 5px rgba(0,0,0,0.5));
 }
 
 /* Контейнеры */
@@ -24,17 +36,18 @@ body {
   padding: 20px;
   text-align: center;
 }
-
 .hidden {
   display: none;
 }
 
+/* Заголовок */
 h1 {
   font-family: 'Orbitron', sans-serif;
   font-size: 1.8rem;
   margin: 30px 0 20px;
 }
 
+/* Описание */
 p {
   font-size: 1rem;
   line-height: 1.5;
@@ -97,14 +110,6 @@ p {
   object-fit: cover;
   margin-bottom: 12px;
   box-shadow: 0 0 8px rgba(0,0,0,0.4);
-}
-
-/* ДОБАВЛЕНО: Альтернативный аватар */
-.avatar {
-  width: 100%;
-  max-width: 150px;
-  border-radius: 12px;
-  margin-bottom: 10px;
 }
 
 /* Название персонажа */
