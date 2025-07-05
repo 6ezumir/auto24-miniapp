@@ -112,7 +112,7 @@ function selectGender(gender) {
     slide.className = 'swiper-slide';
     slide.innerHTML = `
       <div class="card">
-        <img src="${char.image}" alt="${char.title}" class="avatar">
+        <img src="${char.image}" alt="${char.title}" class="character-avatar">
         <h2>${char.title}</h2>
         <p>${char.intro}</p>
         <button class="button" onclick="startCharacterStory(${index})">Выбрать</button>
