@@ -106,9 +106,10 @@ p {
 .character-avatar {
   width: 100%;
   max-width: 150px;
-  aspect-ratio: 1 / 1;
+  height: 150px;              /* фиксированная высота */
   border-radius: 12px;
-  object-fit: cover;
+  object-fit: cover;          /* обрезает лишнее */
+  object-position: center;    /* центрирует содержимое */
   margin: 0 auto 12px;
   box-shadow: 0 0 8px rgba(0,0,0,0.4);
 }
