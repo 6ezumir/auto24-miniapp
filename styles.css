@@ -20,8 +20,8 @@ body {
   width: 100%;
   display: flex;
   justify-content: center;
-  margin-top: 30px;
-  margin-bottom: 20px;
+  margin-top: 20px;       /* Было 30px */
+  margin-bottom: 10px;    /* Было 20px */
 }
 .logo {
   max-width: 160px;
@@ -33,7 +33,7 @@ body {
 .container {
   max-width: 400px;
   margin: 0 auto;
-  padding: 20px;
+  padding: 5px 20px 80px; /* верх:5px, бока:20px, низ:80px — подняли всё выше и оставили место снизу */
   text-align: center;
 }
 .hidden {
@@ -44,7 +44,7 @@ body {
 h1 {
   font-family: 'Orbitron', sans-serif;
   font-size: 1.8rem;
-  margin: 30px 0 20px;
+  margin: 10px 0 15px;   /* Было 30px сверху, теперь 10px — ближе к логотипу */
 }
 
 /* Описание */
@@ -75,7 +75,7 @@ p {
 /* Свайпер */
 .swiper {
   width: 100%;
-  padding: 20px 0;
+  padding: 10px 0; /* Было 20px */
 }
 .swiper-slide {
   display: flex;
