@@ -136,3 +136,13 @@ p {
 .swiper-pagination-bullet {
   background: #ff0080;
 }
+/* Подзаголовок под заголовком выбора персонажа */
+.subtext {
+  font-size: 0.9rem;                  /* небольшой размер */
+  color: rgba(255, 255, 255, 0.7);    /* полупрозрачный белый */
+  margin-top: -10px;                  /* чуть подтягиваем вверх */
+  margin-bottom: 20px;                /* отступ вниз от текста */
+  line-height: 1.4;
+  text-align: center;                 /* по центру */
+}
+
