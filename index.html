@@ -9,20 +9,23 @@
   <link rel="stylesheet" href="styles.css"/>
 </head>
 <body>
+  <!-- Логотип -->
   <div class="logo-container">
     <img src="logo-bg.png" alt="Логотип Auto24Service" class="logo">
   </div>
 
+  <!-- Шаг 1: Выбор пола -->
   <div class="container" id="step1">
     <h1>🚘 Кто вы?</h1>
     <button class="button" onclick="selectGender('Мужчина')">Мужчина</button>
     <button class="button" onclick="selectGender('Женщина')">Женщина</button>
   </div>
 
+  <!-- Шаг 2: Выбор персонажа -->
   <div class="container hidden" id="step2">
-  <h1>Выберите персонажа</h1>
-  <p class="subtext">Чтобы подобрать машину под себя.</p>
-  <div class="swiper mySwiper">
+    <h1>Выберите персонажа</h1>
+    <p class="subtext">Чтобы подобрать машину под себя.</p>
+    <div class="swiper mySwiper">
       <div class="swiper-wrapper" id="options"></div>
       <div class="swiper-pagination"></div>
       <div class="swiper-button-next"></div>
@@ -30,12 +33,14 @@
     </div>
   </div>
 
+  <!-- Шаг 3: История персонажа -->
   <div class="container hidden" id="step3">
     <h1 id="characterTitle"></h1>
     <p id="storyText"></p>
     <div id="storyButtons"></div>
   </div>
 
+  <!-- Финал -->
   <div class="container hidden" id="final">
     <h1>🎉 Готово!</h1>
     <p id="finalText"></p>
@@ -43,6 +48,10 @@
     <button class="button" onclick="goToBot()">Перейти в Telegram</button>
   </div>
 
+  <!-- Иконка машины для анимации -->
+  <img src="car.png" alt="Авто" class="animated-car hidden">
+
+  <!-- Скрипты -->
   <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
   <script src="script.js"></script>
 </body>
