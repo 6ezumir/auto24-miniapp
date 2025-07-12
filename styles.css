@@ -146,19 +146,44 @@ p {
   background: #ff0080;
 }
 
-/* Анимация машины */
-.animated-car {
+/* Контейнер машины и следа */
+.car-container {
   position: fixed;
-  bottom: 0;
-  left: -120px;
-  width: 80px;
-  height: auto;
+  bottom: 20px;
+  left: -100px;
+  width: 100px;
   z-index: 999;
-  transition: transform 1s ease;
+  display: flex;
+  align-items: center;
+  gap: 5px;
 }
-.animated-car.animate {
+
+/* Изображение машины */
+.car-image {
+  width: 100px;
+  height: auto;
+}
+
+/* След */
+.trail {
+  width: 60px;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.4);
+  border-radius: 2px;
+  opacity: 0;
+}
+
+/* Запуск анимации движения */
+.car-container.animate {
   animation: drive 3s forwards;
 }
+
+/* Одновременная анимация следа */
+.car-container.animate .trail {
+  animation: trailFade 3s forwards;
+}
+
+/* Анимация движения машины */
 @keyframes drive {
   0% {
     left: -120px;
@@ -173,6 +198,26 @@ p {
   100% {
     left: 100%;
     opacity: 0;
+  }
+}
+
+/* Анимация появления и исчезания следа */
+@keyframes trailFade {
+  0% {
+    opacity: 0;
+    width: 0;
+  }
+  10% {
+    opacity: 1;
+    width: 60px;
+  }
+  90% {
+    opacity: 1;
+    width: 60px;
+  }
+  100% {
+    opacity: 0;
+    width: 60px;
   }
 }
 
