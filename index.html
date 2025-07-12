@@ -48,14 +48,15 @@
     <button class="button" onclick="goToBot()">Перейти в Telegram</button>
   </div>
 
-  <!-- Иконка машины для анимации -->
-  <img src="car.png" id="carAnimation" class="animated-car hidden" alt="Машина">
+  <!-- Контейнер с машиной и следом -->
+  <div id="carContainer" class="car-container hidden">
+    <img src="car-yellow.jpg" alt="Машина" class="car-image">
+    <div class="trail"></div>
+  </div>
 
   <!-- Скрипты -->
   <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
-
-
 <!-- trigger rebuild -->
