@@ -20,8 +20,8 @@ body {
   width: 100%;
   display: flex;
   justify-content: center;
-  margin-top: 15px;   /* Было 20px */
-  margin-bottom: 5px; /* Было 10px */
+  margin-top: 15px;
+  margin-bottom: 5px;
 }
 .logo {
   max-width: 160px;
@@ -33,7 +33,7 @@ body {
 .container {
   max-width: 400px;
   margin: 0 auto;
-  padding: 0 20px 80px; /* убрали верхний паддинг */
+  padding: 0 20px 80px;
   text-align: center;
 }
 .hidden {
@@ -44,7 +44,16 @@ body {
 h1 {
   font-family: 'Orbitron', sans-serif;
   font-size: 1.8rem;
-  margin: 5px 0 15px; /* Было 10px сверху */
+  margin: 5px 0 15px;
+}
+
+/* Подзаголовок */
+.subtext {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.7);
+  margin-top: -5px;
+  margin-bottom: 20px;
+  line-height: 1.4;
 }
 
 /* Описание */
@@ -75,7 +84,7 @@ p {
 /* Свайпер */
 .swiper {
   width: 100%;
-  padding: 10px 0; /* так и оставим */
+  padding: 10px 0;
 }
 .swiper-slide {
   display: flex;
@@ -106,10 +115,10 @@ p {
 .character-avatar {
   width: 100%;
   max-width: 150px;
-  height: 150px;              /* фиксированная высота */
+  height: 150px;
   border-radius: 12px;
-  object-fit: cover;          /* обрезает лишнее */
-  object-position: center;    /* центрирует содержимое */
+  object-fit: cover;
+  object-position: center;
   margin: 0 auto 12px;
   box-shadow: 0 0 8px rgba(0,0,0,0.4);
 }
@@ -136,13 +145,34 @@ p {
 .swiper-pagination-bullet {
   background: #ff0080;
 }
-/* Подзаголовок под заголовком выбора персонажа */
-.subtext {
-  font-size: 0.9rem;                  /* небольшой размер */
-  color: rgba(255, 255, 255, 0.7);    /* полупрозрачный белый */
-  margin-top: -10px;                  /* чуть подтягиваем вверх */
-  margin-bottom: 20px;                /* отступ вниз от текста */
-  line-height: 1.4;
-  text-align: center;                 /* по центру */
+
+/* Анимация машины */
+.animated-car {
+  position: fixed;
+  bottom: 0;
+  left: -120px;
+  width: 80px;
+  height: auto;
+  z-index: 999;
+  transition: transform 1s ease;
+}
+.animated-car.animate {
+  animation: drive 3s forwards;
+}
+@keyframes drive {
+  0% {
+    left: -120px;
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    left: 100%;
+    opacity: 0;
+  }
 }
 
