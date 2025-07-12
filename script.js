@@ -148,14 +148,13 @@ function startCharacterStory(index) {
   document.getElementById('characterTitle').textContent = selectedCharacter.title;
 
   // Запуск анимации машинки
-  const car = document.getElementById('carAnimation');
-  car.classList.remove('hidden');
-  car.classList.remove('animate');
-  void car.offsetWidth; // перерисовка
-  car.classList.add('animate');
+const car = document.getElementById('carContainer');
+car.classList.remove('hidden');
+car.classList.remove('animate');
+void car.offsetWidth; // перерисовка
+car.classList.add('animate');
 
-  showStep();
-}
+showStep();
 
 function showStep() {
   const step = selectedCharacter.steps[currentStep];
