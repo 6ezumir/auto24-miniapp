@@ -257,9 +257,3 @@ p {
     font-size: 1.4rem;
   }
 }
-.fade-in {
-  opacity: 1 !important;
-  transform: translateY(0) !important;
-  animation: none !important;
-}
-
