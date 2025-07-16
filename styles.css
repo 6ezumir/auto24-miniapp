@@ -243,3 +243,10 @@ p {
     transform: translateY(0);
   }
 }
+/* Контейнер для центрирования кнопок */
+.button-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
