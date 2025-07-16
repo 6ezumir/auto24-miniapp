@@ -45,6 +45,7 @@ h1 {
   font-family: 'Orbitron', sans-serif;
   font-size: 1.8rem;
   margin: 5px 0 15px;
+  text-align: center;
 }
 
 /* Подзаголовок */
@@ -249,4 +250,10 @@ p {
   justify-content: center;
   flex-wrap: wrap;
   gap: 10px;
+}
+/* 🔹 Медиа-запрос для мобильных экранов */
+@media (max-width: 480px) {
+  h1 {
+    font-size: 1.4rem;
+  }
 }
