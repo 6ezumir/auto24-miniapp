@@ -174,7 +174,14 @@ function showStep() {
 
   container.classList.remove('hidden');
 
-  textElem.textContent = step.text;
+  // Сброс и перезапуск анимации текста
+  textElem.classList.remove('fade-in-up');
+  void textElem.offsetWidth;
+  textElem.textContent = currentStep === 0 && selectedCharacter.fullIntro
+    ? selectedCharacter.fullIntro
+    : step.text;
+  textElem.classList.add('fade-in-up');
+
   buttonsElem.innerHTML = '';
 
   if (step.choices) {
@@ -193,6 +200,7 @@ function showStep() {
     buttonsElem.appendChild(btn);
   }
 }
+
 
 function nextStep() {
   currentStep++;
