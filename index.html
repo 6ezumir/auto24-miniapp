@@ -44,6 +44,36 @@
     <div id="storyButtons"></div>
   </div>
 
+  <!-- Шаг 4: Локация старта -->
+<div id="step4" class="step hidden">
+  <h2 class="title">🚘 Локация старта</h2>
+  <p class="subtitle">Где начнётся твой путь?</p>
+
+  <div class="swiper-container" id="locationSwiper">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide">
+        <img src="images/city.jpg" alt="Город" class="location-image">
+        <p>🏙️ Город</p>
+      </div>
+      <div class="swiper-slide">
+        <img src="images/yard.jpg" alt="Двор" class="location-image">
+        <p>🏡 Двор</p>
+      </div>
+      <div class="swiper-slide">
+        <img src="images/beach.jpg" alt="Пляж" class="location-image">
+        <p>🏖️ Пляж</p>
+      </div>
+    </div>
+    <!-- Навигация -->
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+    <div class="swiper-pagination"></div>
+  </div>
+
+  <button id="chooseLocationBtn" class="button">Выбрать локацию</button>
+</div>
+
+
   <!-- Финал -->
   <div class="container hidden" id="final">
     <h1>🎉 Готово!</h1>
