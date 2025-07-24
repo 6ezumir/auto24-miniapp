@@ -256,4 +256,27 @@ function showStep() {
     buttonsElem.appendChild(btn);
   }
 }
+// Инициализация свайпера
+const locationSwiper = new Swiper('#locationSwiper', {
+  slidesPerView: 1,
+  spaceBetween: 20,
+  centeredSlides: true,
+  pagination: {
+    el: '.swiper-pagination',
+    clickable: true,
+  },
+  navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev',
+  },
+});
+
+// Обработка выбора локации
+document.getElementById('chooseLocationBtn').addEventListener('click', () => {
+  const activeSlide = document.querySelector('.swiper-slide-active');
+  const selectedLocation = activeSlide ? activeSlide.querySelector('p').innerText : 'Город';
+  console.log('Выбрана локация:', selectedLocation); // можно передать в Telegram или сохранить
+  goToStep(5); // Переход на следующий шаг
+});
+
 
