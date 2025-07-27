@@ -24,7 +24,6 @@
   </div>
 </div>
 
-
   <!-- Шаг 2: Выбор персонажа -->
   <div class="container hidden" id="step2">
     <h1>Кто вы за рулём?</h1>
@@ -44,35 +43,39 @@
     <div id="storyButtons"></div>
   </div>
 
-<!-- Шаг 4: Локация старта -->
-<div id="step4" class="step hidden">
-  <h2 class="title">🚘 Локация старта</h2>
-  <p class="subtitle">Где начнётся твой путь?</p>
+  <!-- Шаг 4: Локация старта -->
+  <div class="container hidden" id="stepLocation">
+    <h2 class="title">🚘 Локация старта</h2>
+    <p class="subtitle">Где начнётся твой путь?</p>
 
-  <div class="swiper-container" id="locationSwiper">
-    <div class="swiper-wrapper">
-      <div class="swiper-slide">
-        <img src="images/city.jpg" alt="Город" class="location-image">
-        <p>🏙️ Город</p>
+    <div class="swiper mySwiper" id="locationSwiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide" data-location="Город">
+          <img src="images/city.jpg" alt="Город" class="location-image">
+          <p>🏙️ Город</p>
+        </div>
+        <div class="swiper-slide" data-location="Двор">
+          <img src="images/yard.jpg" alt="Двор" class="location-image">
+          <p>🏡 Двор</p>
+        </div>
+        <div class="swiper-slide" data-location="Пляж">
+          <img src="images/beach.jpg" alt="Пляж" class="location-image">
+          <p>🏖️ Пляж</p>
+        </div>
+        <div class="swiper-slide" data-location="Горы">
+          <img src="images/mountains.jpg" alt="Горы" class="location-image">
+          <p>⛰️ Горы</p>
+        </div>
       </div>
-      <div class="swiper-slide">
-        <img src="images/yard.jpg" alt="Двор" class="location-image">
-        <p>🏡 Двор</p>
-      </div>
-      <div class="swiper-slide">
-        <img src="images/beach.jpg" alt="Пляж" class="location-image">
-        <p>🏖️ Пляж</p>
-      </div>
+      <!-- Стрелки -->
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div>
+      <!-- Пагинация -->
+      <div class="swiper-pagination"></div>
     </div>
-    <!-- Стрелки -->
-    <div class="swiper-button-prev"></div>
-    <div class="swiper-button-next"></div>
-    <!-- Пагинация -->
-    <div class="swiper-pagination"></div>
-  </div>
 
-  <button id="chooseLocationBtn" class="button">Выбрать локацию</button>
-</div>
+    <button id="chooseLocationBtn" class="button" onclick="selectLocationAndContinue()">Выбрать локацию</button>
+  </div>
 
   <!-- Финал -->
   <div class="container hidden" id="final">
@@ -84,10 +87,9 @@
 
   <!-- Контейнер с машиной и следом -->
   <div id="carContainer" class="car-container hidden">
-  <img src="car-yellow (1).png" alt="Машина" class="car-image">
-  <div class="trail"></div>
+    <img src="car-yellow (1).png" alt="Машина" class="car-image">
+    <div class="trail"></div>
   </div>
-
 
   <!-- Скрипты -->
   <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
@@ -102,4 +104,5 @@
 
 </body>
 </html>
+
 <!-- trigger rebuild -->
