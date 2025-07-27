@@ -1,3 +1,5 @@
+// ДОБАВЛЕНИЕ: состояние для локации
+let selectedLocation = '';
 let selectedGender = '';
 let selectedCharacter = null;
 let currentStep = 0;
@@ -106,16 +108,11 @@ const characters = {
   ]
 };
 
-
-
-
 function selectGender(gender) {
   selectedGender = gender;
   document.getElementById('step1').classList.add('hidden');
-
   const container = document.getElementById('options');
   container.innerHTML = '';
-
   characters[gender].forEach((char, index) => {
     const slide = document.createElement('div');
     slide.className = 'swiper-slide';
@@ -129,9 +126,7 @@ function selectGender(gender) {
     `;
     container.appendChild(slide);
   });
-
   document.getElementById('step2').classList.remove('hidden');
-
   if (swiper) swiper.update();
   else {
     swiper = new Swiper('.mySwiper', {
@@ -152,17 +147,13 @@ function selectGender(gender) {
 function startCharacterStory(index) {
   selectedCharacter = characters[selectedGender][index];
   currentStep = 0;
-
   document.getElementById('step2').classList.add('hidden');
   document.getElementById('characterTitle').textContent = selectedCharacter.title;
-
-  // Запуск анимации машинки
   const car = document.getElementById('carContainer');
   car.classList.remove('hidden');
   car.classList.remove('animate');
-  void car.offsetWidth; // перерисовка
+  void car.offsetWidth;
   car.classList.add('animate');
-
   showStep();
 }
 
@@ -171,17 +162,12 @@ function showStep() {
   const container = document.getElementById('step3');
   const textElem = document.getElementById('storyText');
   const buttonsElem = document.getElementById('storyButtons');
-
   container.classList.remove('hidden');
 
-  // Сброс и перезапуск анимации текста
   textElem.classList.remove('fade-in-up');
   void textElem.offsetWidth;
-  textElem.textContent = currentStep === 0 && selectedCharacter.fullIntro
-    ? selectedCharacter.fullIntro
-    : step.text;
+  textElem.textContent = currentStep === 0 && selectedCharacter.fullIntro ? selectedCharacter.fullIntro : step.text;
   textElem.classList.add('fade-in-up');
-
   buttonsElem.innerHTML = '';
 
   if (step.choices) {
@@ -196,11 +182,17 @@ function showStep() {
     const btn = document.createElement('button');
     btn.className = 'button';
     btn.textContent = 'Далее';
-    btn.onclick = () => nextStep();
+    btn.onclick = () => {
+      if (currentStep === 0) {
+        document.getElementById('step3').classList.add('hidden');
+        document.getElementById('step4').classList.remove('hidden');
+      } else {
+        nextStep();
+      }
+    };
     buttonsElem.appendChild(btn);
   }
 }
-
 
 function nextStep() {
   currentStep++;
@@ -213,50 +205,16 @@ function showFinal(result) {
   document.getElementById('step3').classList.add('hidden');
   const finalText = document.getElementById('finalText');
   const badgeText = document.getElementById('badgeText');
-
   finalText.textContent = result.ending;
   badgeText.textContent = `🏆 Достижение: ${result.badge}`;
-
   document.getElementById('final').classList.remove('hidden');
 }
 
 function goToBot() {
   window.location.href = "https://t.me/auto24serviceofficial_bot";
 }
-function showStep() {
-  const step = selectedCharacter.steps[currentStep];
-  const container = document.getElementById('step3');
-  const textElem = document.getElementById('storyText');
-  const buttonsElem = document.getElementById('storyButtons');
 
-  container.classList.remove('hidden');
-
-  // 👇 Показываем fullIntro на первом шаге, иначе step.text
-  if (currentStep === 0 && selectedCharacter.fullIntro) {
-    textElem.textContent = selectedCharacter.fullIntro;
-  } else {
-    textElem.textContent = step.text;
-  }
-
-  buttonsElem.innerHTML = '';
-
-  if (step.choices) {
-    step.choices.forEach(choice => {
-      const btn = document.createElement('button');
-      btn.className = 'button';
-      btn.textContent = choice.label;
-      btn.onclick = () => showFinal(choice.result);
-      buttonsElem.appendChild(btn);
-    });
-  } else {
-    const btn = document.createElement('button');
-    btn.className = 'button';
-    btn.textContent = 'Далее';
-    btn.onclick = () => nextStep();
-    buttonsElem.appendChild(btn);
-  }
-}
-// Инициализация свайпера
+// Инициализация свайпера для локации
 const locationSwiper = new Swiper('#locationSwiper', {
   slidesPerView: 1,
   spaceBetween: 20,
@@ -272,11 +230,15 @@ const locationSwiper = new Swiper('#locationSwiper', {
 });
 
 // Обработка выбора локации
-document.getElementById('chooseLocationBtn').addEventListener('click', () => {
-  const activeSlide = document.querySelector('.swiper-slide-active');
-  const selectedLocation = activeSlide ? activeSlide.querySelector('p').innerText : 'Город';
-  console.log('Выбрана локация:', selectedLocation); // можно передать в Telegram или сохранить
-  goToStep(5); // Переход на следующий шаг
-});
+const chooseBtn = document.getElementById('chooseLocationBtn');
+if (chooseBtn) {
+  chooseBtn.addEventListener('click', () => {
+    const activeSlide = document.querySelector('.swiper-slide-active');
+    selectedLocation = activeSlide ? activeSlide.querySelector('p').innerText : 'Город';
+    console.log('Выбрана локация:', selectedLocation);
+    document.getElementById('step4').classList.add('hidden');
+    nextStep();
+  });
+}
 
 
