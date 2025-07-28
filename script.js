@@ -108,6 +108,26 @@ const characters = {
   ]
 };
 
+function showLocationStep() {
+  document.getElementById('step3').classList.add('hidden');
+  document.getElementById('step4').classList.remove('hidden');
+  if (!locationSwiper) {
+    locationSwiper = new Swiper('#locationSwiper', {
+      slidesPerView: 1,
+      spaceBetween: 20,
+      centeredSlides: true,
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+    });
+  }
+}
+
 function selectGender(gender) {
   selectedGender = gender;
   document.getElementById('step1').classList.add('hidden');
@@ -154,7 +174,16 @@ function startCharacterStory(index) {
   car.classList.remove('animate');
   void car.offsetWidth;
   car.classList.add('animate');
-  showStep();
+  document.getElementById('step3').classList.remove('hidden');
+  document.getElementById('storyText').textContent = selectedCharacter.fullIntro;
+  document.getElementById('storyButtons').innerHTML = '<button class="button" onclick="showLocationStep()">Далее</button>';
+}
+
+function nextStep() {
+  currentStep++;
+  if (currentStep < selectedCharacter.steps.length) {
+    showStep();
+  }
 }
 
 function showStep() {
@@ -163,13 +192,11 @@ function showStep() {
   const textElem = document.getElementById('storyText');
   const buttonsElem = document.getElementById('storyButtons');
   container.classList.remove('hidden');
-
   textElem.classList.remove('fade-in-up');
   void textElem.offsetWidth;
   textElem.textContent = currentStep === 0 && selectedCharacter.fullIntro ? selectedCharacter.fullIntro : step.text;
   textElem.classList.add('fade-in-up');
   buttonsElem.innerHTML = '';
-
   if (step.choices) {
     step.choices.forEach(choice => {
       const btn = document.createElement('button');
@@ -182,22 +209,8 @@ function showStep() {
     const btn = document.createElement('button');
     btn.className = 'button';
     btn.textContent = 'Далее';
-    btn.onclick = () => {
-      if (currentStep === 0) {
-        document.getElementById('step3').classList.add('hidden');
-        document.getElementById('step4').classList.remove('hidden');
-      } else {
-        nextStep();
-      }
-    };
+    btn.onclick = () => nextStep();
     buttonsElem.appendChild(btn);
-  }
-}
-
-function nextStep() {
-  currentStep++;
-  if (currentStep < selectedCharacter.steps.length) {
-    showStep();
   }
 }
 
@@ -214,21 +227,6 @@ function goToBot() {
   window.location.href = "https://t.me/auto24serviceofficial_bot";
 }
 
-// Инициализация свайпера для локации
-const locationSwiper = new Swiper('#locationSwiper', {
-  slidesPerView: 1,
-  spaceBetween: 20,
-  centeredSlides: true,
-  pagination: {
-    el: '.swiper-pagination',
-    clickable: true,
-  },
-  navigation: {
-    nextEl: '.swiper-button-next',
-    prevEl: '.swiper-button-prev',
-  },
-});
-
 // Обработка выбора локации
 const chooseBtn = document.getElementById('chooseLocationBtn');
 if (chooseBtn) {
@@ -237,7 +235,7 @@ if (chooseBtn) {
     selectedLocation = activeSlide ? activeSlide.querySelector('p').innerText : 'Город';
     console.log('Выбрана локация:', selectedLocation);
     document.getElementById('step4').classList.add('hidden');
-    nextStep();
+    showStep();
   });
 }
 
