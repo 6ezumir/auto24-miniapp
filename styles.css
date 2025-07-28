@@ -8,7 +8,6 @@ body {
   color: #fff;
 }
 
-/* Анимация градиента */
 @keyframes gradientShift {
   0% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
@@ -40,7 +39,6 @@ body {
   display: none;
 }
 
-/* Заголовок */
 h1 {
   font-family: 'Orbitron', sans-serif;
   font-size: 1.8rem;
@@ -48,7 +46,6 @@ h1 {
   text-align: center;
 }
 
-/* Подзаголовок */
 .subtext {
   font-size: 0.9rem;
   color: rgba(255, 255, 255, 0.7);
@@ -57,14 +54,12 @@ h1 {
   line-height: 1.4;
 }
 
-/* Описание */
 p {
   font-size: 1rem;
   line-height: 1.5;
   margin-bottom: 15px;
 }
 
-/* Кнопки */
 .button {
   display: inline-block;
   background: linear-gradient(90deg, #ff0080, #7928ca);
@@ -82,7 +77,13 @@ p {
   box-shadow: 0 0 10px rgba(255, 0, 128, 0.6);
 }
 
-/* Свайпер */
+.button-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
 .swiper {
   width: 100%;
   padding: 10px 0;
@@ -100,7 +101,6 @@ p {
   transform: translateY(0);
 }
 
-/* Карточка персонажа */
 .card {
   background: rgba(30, 30, 30, 0.92);
   border-radius: 16px;
@@ -112,7 +112,6 @@ p {
   box-shadow: 0 0 15px rgba(0,0,0,0.3);
 }
 
-/* Аватар персонажа */
 .character-avatar {
   width: 100%;
   max-width: 150px;
@@ -124,30 +123,25 @@ p {
   box-shadow: 0 0 8px rgba(0,0,0,0.4);
 }
 
-/* Название персонажа */
 .card h2 {
   font-size: 1.3rem;
   margin: 10px 0;
 }
 
-/* Описание */
 .card p {
   font-size: 0.95rem;
   margin-bottom: 12px;
 }
 
-/* Свайпер стрелки */
 .swiper-button-next,
 .swiper-button-prev {
   color: #ff0080;
 }
 
-/* Пагинация */
 .swiper-pagination-bullet {
   background: #ff0080;
 }
 
-/* Контейнер машины и следа */
 .car-container {
   position: fixed;
   bottom: 20px;
@@ -157,13 +151,11 @@ p {
   z-index: 999;
 }
 
-/* Изображение машины */
 .car-image {
   width: 100px;
   height: auto;
 }
 
-/* След за машиной */
 .trail {
   position: absolute;
   bottom: 20px;
@@ -175,88 +167,116 @@ p {
   filter: blur(6px);
 }
 
-/* Запуск анимации движения */
 .car-container.animate {
   animation: drive 3s forwards;
 }
 
-/* Запуск анимации следа */
 .car-container.animate .trail {
   animation: trailFade 3s forwards;
 }
 
-/* Анимация движения машины */
 @keyframes drive {
-  0% {
-    transform: translateX(0);
-    opacity: 0;
-  }
-  10% {
-    opacity: 1;
-  }
-  90% {
-    opacity: 1;
-  }
-  100% {
-    transform: translateX(600px);
-    opacity: 0;
-  }
+  0% { transform: translateX(0); opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { transform: translateX(600px); opacity: 0; }
 }
-
-/* Анимация следа */
 @keyframes trailFade {
-  0% {
-    opacity: 0;
-    width: 0;
-  }
-  10% {
-    opacity: 0.8;
-    width: 80px;
-  }
-  90% {
-    opacity: 0.8;
-    width: 80px;
-  }
-  100% {
-    opacity: 0;
-    width: 80px;
-  }
+  0% { opacity: 0; width: 0; }
+  10% { opacity: 0.8; width: 80px; }
+  90% { opacity: 0.8; width: 80px; }
+  100% { opacity: 0; width: 80px; }
 }
 
-/* 🔥 Анимация появления элементов */
 .fade-in {
   opacity: 0;
   transform: translateY(20px);
   animation: fadeInUp 0.8s ease forwards;
 }
-.fade-in.delay-1 {
-  animation-delay: 0.3s;
-}
-.fade-in.delay-2 {
-  animation-delay: 0.6s;
-}
-.fade-in.delay-3 {
-  animation-delay: 0.9s;
-}
+.fade-in.delay-1 { animation-delay: 0.3s; }
+.fade-in.delay-2 { animation-delay: 0.6s; }
+.fade-in.delay-3 { animation-delay: 0.9s; }
+
 @keyframes fadeInUp {
   to {
     opacity: 1;
     transform: translateY(0);
   }
 }
-/* Контейнер для центрирования кнопок */
-.button-container {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 10px;
-}
-/* 🔹 Медиа-запрос для мобильных экранов */
+
 @media (max-width: 480px) {
-  h1 {
-    font-size: 1.4rem;
-  }
+  h1 { font-size: 1.4rem; }
 }
+
+/* 🌆 Step4: Локации */
+#step4 {
+  text-align: center;
+  padding: 20px;
+  position: relative;
+  z-index: 2;
+}
+
+#step4 .title {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1.6rem;
+  margin-bottom: 10px;
+}
+
+#step4 .subtitle {
+  font-size: 1rem;
+  margin-bottom: 20px;
+  color: rgba(255,255,255,0.7);
+}
+
+#chooseLocationBtn {
+  margin-top: 20px;
+}
+
+/* swiper для локаций */
+#step4 .swiper {
+  width: 100%;
+  padding: 20px 0;
+}
+
+#step4 .swiper-slide {
+  background: #1a1a1a;
+  border-radius: 16px;
+  overflow: hidden;
+  padding: 10px;
+  text-align: center;
+  transition: transform 0.3s ease, opacity 0.3s;
+  opacity: 0.5;
+  transform: scale(0.95);
+}
+
+#step4 .swiper-slide-active {
+  opacity: 1;
+  transform: scale(1);
+}
+
+#step4 .swiper-slide img.location-image {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  margin-bottom: 10px;
+}
+
+#step4 .swiper-slide p {
+  color: white;
+  font-size: 16px;
+  margin: 0;
+}
+
+#step4 .swiper-button-next,
+#step4 .swiper-button-prev {
+  color: #ff0080;
+}
+
+#step4 .swiper-pagination-bullet {
+  background: #ff0080;
+}
+
+/* 🌊 Волна */
 .neon-wave {
   position: fixed;
   bottom: 0;
@@ -283,60 +303,6 @@ p {
   }
   50% {
     opacity: 1;
-    transform: scaleY(-1.05) scaleX(1.05); /* 👈 чуть больше движение */
+    transform: scaleY(-1.05) scaleX(1.05);
   }
 }
-.fade-in-up {
-  opacity: 0;
-  transform: translateY(20px);
-  animation: fadeInUp 0.6s ease-out forwards;
-}
-
-@keyframes fadeInUp {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-/* Локация свайпер */
-#step4 {
-  text-align: center;
-}
-
-.swiper-container {
-  width: 100%;
-  padding: 20px 0;
-}
-
-.swiper-slide {
-  background: #1a1a1a;
-  border-radius: 16px;
-  overflow: hidden;
-  padding: 10px;
-  text-align: center;
-  transition: transform 0.3s ease;
-}
-
-.swiper-slide img.location-image {
-  width: 100%;
-  height: auto;
-  border-radius: 12px;
-  margin-bottom: 10px;
-}
-
-.swiper-slide p {
-  color: white;
-  font-size: 16px;
-  margin: 0;
-}
-
-.swiper-button-next,
-.swiper-button-prev {
-  color: #fff;
-}
-
-.swiper-pagination-bullet {
-  background: #fff;
-}
-
-
