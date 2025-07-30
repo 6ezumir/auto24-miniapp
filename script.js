@@ -108,11 +108,11 @@ const characters = {
     }
   ]
 };
-
 // Выбор пола
 function selectGender(gender) {
   selectedGender = gender;
   document.getElementById('step1').classList.add('hidden');
+
   const container = document.getElementById('options');
   container.innerHTML = '';
   characters[gender].forEach((char, index) => {
@@ -128,19 +128,23 @@ function selectGender(gender) {
     `;
     container.appendChild(slide);
   });
+
   document.getElementById('step2').classList.remove('hidden');
-  if (swiper) swiper.update();
-  else {
-    swiper = new Swiper('.mySwiper', {
+
+  if (swiper) {
+    swiper.update();
+    swiper.slideTo(0);
+  } else {
+    swiper = new Swiper('.mySwiperCharacters', {
       slidesPerView: 1,
       spaceBetween: 20,
       pagination: {
-        el: '.swiper-pagination',
+        el: '.characters-pagination',
         clickable: true
       },
       navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev'
+        nextEl: '.characters-next',
+        prevEl: '.characters-prev'
       }
     });
   }
@@ -150,13 +154,15 @@ function selectGender(gender) {
 function startCharacterStory(index) {
   selectedCharacter = characters[selectedGender][index];
   currentStep = 0;
+
   document.getElementById('step2').classList.add('hidden');
   document.getElementById('characterTitle').textContent = selectedCharacter.title;
+
   const car = document.getElementById('carContainer');
-  car.classList.remove('hidden');
-  car.classList.remove('animate');
+  car.classList.remove('hidden', 'animate');
   void car.offsetWidth;
   car.classList.add('animate');
+
   document.getElementById('step3').classList.remove('hidden');
   document.getElementById('storyText').textContent = selectedCharacter.fullIntro;
   document.getElementById('storyButtons').innerHTML = '<button class="button" onclick="showLocationStep()">Далее</button>';
@@ -175,10 +181,12 @@ function showStep() {
   const step = selectedCharacter.steps[currentStep];
   const textElem = document.getElementById('storyText');
   const buttonsElem = document.getElementById('storyButtons');
+
   textElem.classList.remove('fade-in-up');
   void textElem.offsetWidth;
   textElem.textContent = step.text;
   textElem.classList.add('fade-in-up');
+
   buttonsElem.innerHTML = '';
   if (step.choices) {
     step.choices.forEach(choice => {
@@ -210,25 +218,32 @@ function goToBot() {
   window.location.href = "https://t.me/auto24serviceofficial_bot";
 }
 
-// Переход к выбору локации (между fullIntro и step 0)
+// Переход к выбору локации
 function showLocationStep() {
   document.getElementById('step3').classList.add('hidden');
   document.getElementById('step4').classList.remove('hidden');
-  if (!locationSwiper) {
-    locationSwiper = new Swiper('#locationSwiper', {
-      slidesPerView: 1,
-      spaceBetween: 20,
-      centeredSlides: true,
-      pagination: {
-        el: '.swiper-pagination',
-        clickable: true,
-      },
-      navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
-      },
-    });
-  }
+
+  // Инициализируем свайпер после рендера
+  setTimeout(() => {
+    if (!locationSwiper) {
+      locationSwiper = new Swiper('.mySwiperLocations', {
+        slidesPerView: 1,
+        spaceBetween: 20,
+        centeredSlides: true,
+        pagination: {
+          el: '.locations-pagination',
+          clickable: true
+        },
+        navigation: {
+          nextEl: '.locations-next',
+          prevEl: '.locations-prev'
+        }
+      });
+    } else {
+      locationSwiper.update();
+      locationSwiper.slideTo(0);
+    }
+  }, 100);
 }
 
 // Обработка кнопки "Выбрать локацию"
@@ -236,14 +251,13 @@ document.addEventListener('DOMContentLoaded', () => {
   const chooseBtn = document.getElementById('chooseLocationBtn');
   if (chooseBtn) {
     chooseBtn.addEventListener('click', () => {
-      const activeSlide = document.querySelector('#locationSwiper .swiper-slide-active');
-      selectedLocation = activeSlide ? activeSlide.querySelector('p')?.innerText || 'Город' : 'Город';
+      const activeSlide = document.querySelector('.mySwiperLocations .swiper-slide-active');
+      selectedLocation = activeSlide?.dataset.location || 'Город';
       console.log('Выбрана локация:', selectedLocation);
       document.getElementById('step4').classList.add('hidden');
-      showStep(); // Показываем step 0
+      showStep(); // Запуск step 0
     });
   }
 });
-
 
 
