@@ -43,37 +43,49 @@
     <div id="storyButtons"></div>
   </div>
 
-  <!-- Шаг 4: Локация старта -->
-  <div class="container hidden" id="step4">
-    <h2 class="title">🚘 Локация старта</h2>
-    <p class="subtitle">Где начнётся твой путь?</p>
-
-    <div class="swiper mySwiperLocations">
-      <div class="swiper-wrapper">
-        <div class="swiper-slide" data-location="Город">
-          <img src="images/city.jpg" alt="Город" class="location-image">
-          <p>🏙️ Город</p>
-        </div>
-        <div class="swiper-slide" data-location="Двор">
-          <img src="images/yard.jpg" alt="Двор" class="location-image">
-          <p>🏡 Двор</p>
-        </div>
-        <div class="swiper-slide" data-location="Пляж">
-          <img src="images/beach.jpg" alt="Пляж" class="location-image">
-          <p>🏖️ Пляж</p>
-        </div>
-        <div class="swiper-slide" data-location="Горы">
-          <img src="images/mountains.jpg" alt="Горы" class="location-image">
-          <p>⛰️ Горы</p>
-        </div>
-      </div>
-      <div class="swiper-button-prev locations-prev"></div>
-      <div class="swiper-button-next locations-next"></div>
-      <div class="swiper-pagination locations-pagination"></div>
-    </div>
-
-    <button id="chooseLocationBtn" class="button">Выбрать локацию</button>
+ <!-- Шаг 4: Выбор автомобиля -->
+<div class="container hidden" id="step4">
+  <h2 class="title">🚗 Выбор автомобиля</h2>
+  <p class="subtitle">Что тебе ближе по духу?</p>
+  <div class="car-options">
+    <button class="button" onclick="selectCar('Седан')">Седан</button>
+    <button class="button" onclick="selectCar('Кроссовер')">Кроссовер</button>
+    <button class="button" onclick="selectCar('Минивэн')">Минивэн</button>
+    <button class="button" onclick="selectCar('Хэтчбек')">Хэтчбек</button>
   </div>
+</div>
+
+<!-- Шаг 5: Локация -->
+<div class="container hidden" id="step5">
+  <h2 class="title">🚘 Локация старта</h2>
+  <p class="subtitle">Где начнётся твой путь?</p>
+
+  <div class="swiper mySwiperLocations">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide" data-location="Город">
+        <img src="images/city.jpg" alt="Город" class="location-image">
+        <p>🏙️ Город</p>
+      </div>
+      <div class="swiper-slide" data-location="Двор">
+        <img src="images/yard.jpg" alt="Двор" class="location-image">
+        <p>🏡 Двор</p>
+      </div>
+      <div class="swiper-slide" data-location="Пляж">
+        <img src="images/beach.jpg" alt="Пляж" class="location-image">
+        <p>🏖️ Пляж</p>
+      </div>
+      <div class="swiper-slide" data-location="Горы">
+        <img src="images/mountains.jpg" alt="Горы" class="location-image">
+        <p>⛰️ Горы</p>
+      </div>
+    </div>
+    <div class="swiper-button-prev locations-prev"></div>
+    <div class="swiper-button-next locations-next"></div>
+    <div class="swiper-pagination locations-pagination"></div>
+  </div>
+
+  <button id="chooseLocationBtn" class="button">Выбрать локацию</button>
+</div>
 
   <!-- Финал -->
   <div class="container hidden" id="final">
