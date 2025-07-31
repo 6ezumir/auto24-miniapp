@@ -167,6 +167,39 @@ function startCharacterStory(index) {
   document.getElementById('storyText').textContent = selectedCharacter.fullIntro;
   document.getElementById('storyButtons').innerHTML = '<button class="button" onclick="showLocationStep()">Далее</button>';
 }
+function goToCarSelection() {
+  document.getElementById('step3').classList.add('hidden');
+  document.getElementById('step4').classList.remove('hidden');
+}
+
+function selectCar(type) {
+  selectedCar = type;
+  console.log('Выбран авто:', selectedCar);
+
+  document.getElementById('step4').classList.add('hidden');
+  document.getElementById('step5').classList.remove('hidden');
+
+  setTimeout(() => {
+    if (!locationSwiper) {
+      locationSwiper = new Swiper('.mySwiperLocations', {
+        slidesPerView: 1,
+        spaceBetween: 20,
+        centeredSlides: true,
+        pagination: {
+          el: '.locations-pagination',
+          clickable: true
+        },
+        navigation: {
+          nextEl: '.locations-next',
+          prevEl: '.locations-prev'
+        }
+      });
+    } else {
+      locationSwiper.update();
+      locationSwiper.slideTo(0);
+    }
+  }, 100);
+}
 
 // Показ следующего шага
 function nextStep() {
