@@ -254,8 +254,12 @@ document.addEventListener('DOMContentLoaded', () => {
       const activeSlide = document.querySelector('.mySwiperLocations .swiper-slide-active');
       selectedLocation = activeSlide?.dataset.location || 'Город';
       console.log('Выбрана локация:', selectedLocation);
+
       document.getElementById('step4').classList.add('hidden');
-      showStep(); // Запуск step 0
+      document.getElementById('step3').classList.remove('hidden');
+
+      currentStep = 0;
+      showStep(); // начинаем с первого шага истории
     });
   }
 });
