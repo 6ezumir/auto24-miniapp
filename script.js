@@ -165,7 +165,7 @@ function startCharacterStory(index) {
 
   document.getElementById('step3').classList.remove('hidden');
   document.getElementById('storyText').textContent = selectedCharacter.fullIntro;
-  document.getElementById('storyButtons').innerHTML = '<button class="button" onclick="showLocationStep()">Далее</button>';
+  document.getElementById('storyButtons').innerHTML = '<button class="button" onclick="goToCarSelection()">Далее</button>';
 }
 function goToCarSelection() {
   document.getElementById('step3').classList.add('hidden');
