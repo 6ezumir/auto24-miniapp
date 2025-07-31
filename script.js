@@ -153,7 +153,7 @@ function selectGender(gender) {
 // Начало истории
 function startCharacterStory(index) {
   selectedCharacter = characters[selectedGender][index];
-  currentStep = 0;
+  currentStep = -1; // пока история не началась
 
   document.getElementById('step2').classList.add('hidden');
   document.getElementById('characterTitle').textContent = selectedCharacter.title;
