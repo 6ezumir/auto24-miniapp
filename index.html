@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Выбор персонажа</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Собери авто мечты</title>
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&family=Montserrat&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css"/>
-  <link rel="stylesheet" href="styles.css"/>
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
@@ -36,30 +36,10 @@
     </div>
   </section>
 
-  <!-- Экран 3: История персонажа -->
+  <!-- Экран 3: Локация -->
   <section id="screen3" class="screen hidden">
-    <h1 id="characterTitle"></h1>
-    <p id="storyText" class="fade-in-up"></p>
-    <div id="storyButtons"></div>
-  </section>
-
-  <!-- Экран 4: Выбор автомобиля -->
-  <section id="screen4" class="screen hidden">
-    <h2 class="title">🚗 Выбор автомобиля</h2>
-    <p class="subtitle">Что тебе ближе по духу?</p>
-    <div class="car-options">
-      <button class="button" onclick="selectCar('Седан')">Седан</button>
-      <button class="button" onclick="selectCar('Кроссовер')">Кроссовер</button>
-      <button class="button" onclick="selectCar('Минивэн')">Минивэн</button>
-      <button class="button" onclick="selectCar('Хэтчбек')">Хэтчбек</button>
-    </div>
-  </section>
-
-  <!-- Экран 5: Выбор локации -->
-  <section id="screen5" class="screen hidden">
     <h2>🚘 Локация старта</h2>
     <p>Где начнётся твой путь?</p>
-
     <div class="swiper mySwiperLocations">
       <div class="swiper-wrapper">
         <div class="swiper-slide location-card" data-location="dvor">
@@ -79,19 +59,37 @@
       <div class="swiper-button-next locations-next"></div>
       <div class="swiper-pagination locations-pagination"></div>
     </div>
-
     <button class="primary-button" id="chooseLocationBtn">Выбрать локацию</button>
   </section>
 
+  <!-- Экран 4: Интро персонажа -->
+  <section id="screen4" class="screen hidden">
+    <h1 id="characterTitle"></h1>
+    <p id="storyText" class="fade-in-up"></p>
+    <div id="storyButtons"></div>
+  </section>
+
+  <!-- Экран 5: Выбор авто -->
+  <section id="screen5" class="screen hidden">
+    <h2 class="title">🚗 Выбор автомобиля</h2>
+    <p class="subtitle">Что тебе ближе по духу?</p>
+    <div class="car-options">
+      <button class="button" onclick="selectCar('Седан')">Седан</button>
+      <button class="button" onclick="selectCar('Кроссовер')">Кроссовер</button>
+      <button class="button" onclick="selectCar('Минивэн')">Минивэн</button>
+      <button class="button" onclick="selectCar('Хэтчбек')">Хэтчбек</button>
+    </div>
+  </section>
+
   <!-- Экран 6: Финал -->
-  <section id="final" class="screen hidden">
+  <section id="screen6" class="screen hidden">
     <h1>🎉 Готово!</h1>
     <p id="finalText"></p>
     <p id="badgeText"></p>
     <button class="button" onclick="goToBot()">Перейти в Telegram</button>
   </section>
 
-  <!-- Контейнер с машиной и следом -->
+  <!-- Анимация машины -->
   <div id="carContainer" class="car-container hidden">
     <img src="car-yellow (1).png" alt="Машина" class="car-image">
     <div class="trail"></div>
@@ -109,5 +107,6 @@
   </div>
 </body>
 </html>
+
 
 <!-- trigger rebuild -->
