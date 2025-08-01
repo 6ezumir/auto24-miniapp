@@ -149,30 +149,72 @@ function selectGender(gender) {
   }
 }
 
+function selectGender(gender) {
+  selectedGender = gender;
+  document.getElementById('screen1').classList.add('hidden');
+  const container = document.getElementById('options');
+  container.innerHTML = '';
+  characters[gender].forEach((char, index) => {
+    const slide = document.createElement('div');
+    slide.className = 'swiper-slide';
+    slide.innerHTML = `
+      <div class="card">
+        <img src="${char.image}" alt="${char.title}" class="character-avatar">
+        <h2>${char.title}</h2>
+        <p>${char.intro}</p>
+        <button class="button" onclick="startCharacterStory(${index})">Выбрать</button>
+      </div>
+    `;
+    container.appendChild(slide);
+  });
+  document.getElementById('screen2').classList.remove('hidden');
+
+  if (swiper) {
+    swiper.update();
+    swiper.slideTo(0);
+  } else {
+    swiper = new Swiper('.mySwiperCharacters', {
+      slidesPerView: 1,
+      spaceBetween: 20,
+      pagination: {
+        el: '.characters-pagination',
+        clickable: true
+      },
+      navigation: {
+        nextEl: '.characters-next',
+        prevEl: '.characters-prev'
+      }
+    });
+  }
+}
+
 function startCharacterStory(index) {
   selectedCharacter = characters[selectedGender][index];
   currentStep = -1;
   document.getElementById('screen2').classList.add('hidden');
   document.getElementById('characterTitle').textContent = selectedCharacter.title;
+
+  // Показываем авто-анимацию и историю
   const car = document.getElementById('carContainer');
   car.classList.remove('hidden', 'animate');
   void car.offsetWidth;
   car.classList.add('animate');
-  document.getElementById('screen3').classList.remove('hidden');
+
+  document.getElementById('screen4').classList.remove('hidden');
   document.getElementById('storyText').textContent = selectedCharacter.fullIntro;
   document.getElementById('storyButtons').innerHTML = '<button class="button" onclick="goToCarSelection()">Далее</button>';
 }
 
 function goToCarSelection() {
-  document.getElementById('screen3').classList.add('hidden');
-  document.getElementById('screen4').classList.remove('hidden');
+  document.getElementById('screen4').classList.add('hidden');
+  document.getElementById('screen5').classList.remove('hidden');
 }
 
 function selectCar(type) {
   selectedCar = type;
-  console.log('Выбран авто:', selectedCar);
-  document.getElementById('screen4').classList.add('hidden');
-  document.getElementById('screen5').classList.remove('hidden');
+  document.getElementById('screen5').classList.add('hidden');
+  document.getElementById('screen3').classList.remove('hidden');
+
   setTimeout(() => {
     if (!locationSwiper) {
       locationSwiper = new Swiper('.mySwiperLocations', {
@@ -194,6 +236,7 @@ function selectCar(type) {
     }
   }, 100);
 }
+
 
 document.addEventListener('DOMContentLoaded', () => {
   const chooseBtn = document.getElementById('chooseLocationBtn');
