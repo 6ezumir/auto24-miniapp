@@ -55,36 +55,36 @@
   </div>
 </div>
 
-<!-- Шаг 5: Локация -->
-<div class="container hidden" id="step5">
-  <h2 class="title">🚘 Локация старта</h2>
-  <p class="subtitle">Где начнётся твой путь?</p>
+<div id="step5" class="step hidden">
+  <h2>🚘 Локация старта</h2>
+  <p>Где начнётся твой путь?</p>
 
   <div class="swiper mySwiperLocations">
     <div class="swiper-wrapper">
-      <div class="swiper-slide" data-location="Город">
-        <img src="images/city.jpg" alt="Город" class="location-image">
-        <p>🏙️ Город</p>
+
+      <div class="swiper-slide location-card" data-location="dvor">
+        <img src="dvor.jpg" alt="Двор">
+        <p>🏢 Двор</p>
       </div>
-      <div class="swiper-slide" data-location="Двор">
-        <img src="images/yard.jpg" alt="Двор" class="location-image">
-        <p>🏡 Двор</p>
+
+      <div class="swiper-slide location-card" data-location="city">
+        <img src="city.jpg" alt="Улица">
+        <p>🌆 Улица</p>
       </div>
-      <div class="swiper-slide" data-location="Пляж">
-        <img src="images/beach.jpg" alt="Пляж" class="location-image">
-        <p>🏖️ Пляж</p>
+
+      <div class="swiper-slide location-card" data-location="house">
+        <img src="house.jpg" alt="Частный дом">
+        <p>🏡 Частный дом</p>
       </div>
-      <div class="swiper-slide" data-location="Горы">
-        <img src="images/mountains.jpg" alt="Горы" class="location-image">
-        <p>⛰️ Горы</p>
-      </div>
+
     </div>
+
     <div class="swiper-button-prev locations-prev"></div>
     <div class="swiper-button-next locations-next"></div>
     <div class="swiper-pagination locations-pagination"></div>
   </div>
 
-  <button id="chooseLocationBtn" class="button">Выбрать локацию</button>
+  <button class="primary-button" id="chooseLocationBtn">Выбрать локацию</button>
 </div>
 
   <!-- Финал -->
