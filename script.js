@@ -253,3 +253,27 @@ function showFinal(result) {
 function goToBot() {
   window.location.href = "https://t.me/auto24serviceofficial_bot";
 }
+const locationSwiper = new Swiper(".mySwiperLocations", {
+  slidesPerView: 1,
+  spaceBetween: 20,
+  loop: true,
+  navigation: {
+    nextEl: ".locations-next",
+    prevEl: ".locations-prev",
+  },
+  pagination: {
+    el: ".locations-pagination",
+    clickable: true,
+  },
+});
+
+// Кнопка выбора локации
+document.getElementById("chooseLocationBtn").addEventListener("click", () => {
+  const activeSlide = document.querySelector(".mySwiperLocations .swiper-slide-active");
+  const selectedLocation = activeSlide?.dataset.location;
+
+  if (selectedLocation) {
+    console.log("Локация выбрана:", selectedLocation);
+    // здесь переход к следующему экрану
+  }
+});
