@@ -329,4 +329,40 @@ p {
   justify-content: center;
   padding: 10px 0;
 }
+.mySwiperLocations {
+  width: 100%;
+  padding: 10px 0;
+}
+
+.mySwiperLocations .swiper-slide {
+  background: none;
+  opacity: 1;
+  transform: scale(1);
+}
+
+.mySwiperLocations .swiper-slide img {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  object-fit: cover;
+  max-height: 300px;
+  filter: none;
+  opacity: 1;
+}
+
+.mySwiperLocations .swiper-slide p {
+  color: white;
+  font-size: 1rem;
+  margin-top: 8px;
+}
+
+.locations-prev,
+.locations-next {
+  color: #ff0080;
+}
+
+.locations-pagination .swiper-pagination-bullet {
+  background: #ff0080;
+}
+
 
