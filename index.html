@@ -37,30 +37,38 @@
   </section>
 
   <!-- Экран 3: Локация -->
-  <section id="screen3" class="screen hidden">
-    <h2>🚘 Локация старта</h2>
-    <p>Где начнётся твой путь?</p>
-    <div class="swiper mySwiperLocations">
-      <div class="swiper-wrapper">
-        <div class="swiper-slide location-card" data-location="dvor">
-          <img src="dvor.jpg" alt="Двор">
-          <p>🏢 Двор</p>
-        </div>
-        <div class="swiper-slide location-card" data-location="city">
-          <img src="city.jpg" alt="Улица">
-          <p>🌆 Улица</p>
-        </div>
-        <div class="swiper-slide location-card" data-location="house">
-          <img src="house.jpg" alt="Частный дом">
-          <p>🏡 Частный дом</p>
-        </div>
+<section id="screen3" class="screen hidden">
+  <h2>🚘 Локация старта</h2>
+  <p>Где начнётся твой путь?</p>
+
+  <div class="swiper mySwiperLocations">
+    <div class="swiper-wrapper">
+
+      <div class="swiper-slide location-card" data-location="dvor">
+        <img src="dvor.jpg" alt="Двор" class="location-img">
+        <p>🏢 Двор</p>
       </div>
-      <div class="swiper-button-prev locations-prev"></div>
-      <div class="swiper-button-next locations-next"></div>
-      <div class="swiper-pagination locations-pagination"></div>
+
+      <div class="swiper-slide location-card" data-location="city">
+        <img src="city.jpg" alt="Улица" class="location-img">
+        <p>🌆 Улица</p>
+      </div>
+
+      <div class="swiper-slide location-card" data-location="house">
+        <img src="house.jpg" alt="Частный дом" class="location-img">
+        <p>🏡 Частный дом</p>
+      </div>
+
     </div>
-    <button class="primary-button" id="chooseLocationBtn">Выбрать локацию</button>
-  </section>
+
+    <div class="swiper-button-prev locations-prev"></div>
+    <div class="swiper-button-next locations-next"></div>
+    <div class="swiper-pagination locations-pagination"></div>
+  </div>
+
+  <button class="primary-button" id="chooseLocationBtn">Выбрать локацию</button>
+</section>
+
 
   <!-- Экран 4: Интро персонажа -->
   <section id="screen4" class="screen hidden">
