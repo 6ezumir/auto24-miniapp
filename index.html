@@ -15,17 +15,17 @@
     <img src="logo-bg.png" alt="Логотип Auto24Service" class="logo">
   </div>
 
-  <!-- Шаг 1: Выбор пола -->
-  <div id="step1">
+  <!-- Экран 1: Выбор пола -->
+  <section id="screen1" class="screen active">
     <h1 class="fade-in">Чтобы выбрать подходящего персонажа и подобрать авто — определим базу: кто вы?</h1>
     <div class="fade-in delay-1 button-container">
       <button class="button" onclick="selectGender('Мужчина')">Мужчина</button>
       <button class="button" onclick="selectGender('Женщина')">Женщина</button>
     </div>
-  </div>
+  </section>
 
-  <!-- Шаг 2: Выбор персонажа -->
-  <div class="container hidden" id="step2">
+  <!-- Экран 2: Выбор персонажа -->
+  <section id="screen2" class="screen hidden">
     <h1>Кто вы за рулём?</h1>
     <p class="subtext">Выберите персонажа, и мы подберём авто под ваш стиль.</p>
     <div class="swiper mySwiperCharacters">
@@ -34,66 +34,62 @@
       <div class="swiper-button-next characters-next"></div>
       <div class="swiper-button-prev characters-prev"></div>
     </div>
-  </div>
+  </section>
 
-  <!-- Шаг 3: История персонажа -->
-  <div class="container hidden" id="step3">
+  <!-- Экран 3: История персонажа -->
+  <section id="screen3" class="screen hidden">
     <h1 id="characterTitle"></h1>
     <p id="storyText" class="fade-in-up"></p>
     <div id="storyButtons"></div>
-  </div>
+  </section>
 
- <!-- Шаг 4: Выбор автомобиля -->
-<div class="container hidden" id="step4">
-  <h2 class="title">🚗 Выбор автомобиля</h2>
-  <p class="subtitle">Что тебе ближе по духу?</p>
-  <div class="car-options">
-    <button class="button" onclick="selectCar('Седан')">Седан</button>
-    <button class="button" onclick="selectCar('Кроссовер')">Кроссовер</button>
-    <button class="button" onclick="selectCar('Минивэн')">Минивэн</button>
-    <button class="button" onclick="selectCar('Хэтчбек')">Хэтчбек</button>
-  </div>
-</div>
+  <!-- Экран 4: Выбор автомобиля -->
+  <section id="screen4" class="screen hidden">
+    <h2 class="title">🚗 Выбор автомобиля</h2>
+    <p class="subtitle">Что тебе ближе по духу?</p>
+    <div class="car-options">
+      <button class="button" onclick="selectCar('Седан')">Седан</button>
+      <button class="button" onclick="selectCar('Кроссовер')">Кроссовер</button>
+      <button class="button" onclick="selectCar('Минивэн')">Минивэн</button>
+      <button class="button" onclick="selectCar('Хэтчбек')">Хэтчбек</button>
+    </div>
+  </section>
 
-<div id="step5" class="step hidden">
-  <h2>🚘 Локация старта</h2>
-  <p>Где начнётся твой путь?</p>
+  <!-- Экран 5: Выбор локации -->
+  <section id="screen5" class="screen hidden">
+    <h2>🚘 Локация старта</h2>
+    <p>Где начнётся твой путь?</p>
 
-  <div class="swiper mySwiperLocations">
-    <div class="swiper-wrapper">
-
-      <div class="swiper-slide location-card" data-location="dvor">
-        <img src="dvor.jpg" alt="Двор">
-        <p>🏢 Двор</p>
+    <div class="swiper mySwiperLocations">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide location-card" data-location="dvor">
+          <img src="dvor.jpg" alt="Двор">
+          <p>🏢 Двор</p>
+        </div>
+        <div class="swiper-slide location-card" data-location="city">
+          <img src="city.jpg" alt="Улица">
+          <p>🌆 Улица</p>
+        </div>
+        <div class="swiper-slide location-card" data-location="house">
+          <img src="house.jpg" alt="Частный дом">
+          <p>🏡 Частный дом</p>
+        </div>
       </div>
-
-      <div class="swiper-slide location-card" data-location="city">
-        <img src="city.jpg" alt="Улица">
-        <p>🌆 Улица</p>
-      </div>
-
-      <div class="swiper-slide location-card" data-location="house">
-        <img src="house.jpg" alt="Частный дом">
-        <p>🏡 Частный дом</p>
-      </div>
-
+      <div class="swiper-button-prev locations-prev"></div>
+      <div class="swiper-button-next locations-next"></div>
+      <div class="swiper-pagination locations-pagination"></div>
     </div>
 
-    <div class="swiper-button-prev locations-prev"></div>
-    <div class="swiper-button-next locations-next"></div>
-    <div class="swiper-pagination locations-pagination"></div>
-  </div>
+    <button class="primary-button" id="chooseLocationBtn">Выбрать локацию</button>
+  </section>
 
-  <button class="primary-button" id="chooseLocationBtn">Выбрать локацию</button>
-</div>
-
-  <!-- Финал -->
-  <div class="container hidden" id="final">
+  <!-- Экран 6: Финал -->
+  <section id="final" class="screen hidden">
     <h1>🎉 Готово!</h1>
     <p id="finalText"></p>
     <p id="badgeText"></p>
     <button class="button" onclick="goToBot()">Перейти в Telegram</button>
-  </div>
+  </section>
 
   <!-- Контейнер с машиной и следом -->
   <div id="carContainer" class="car-container hidden">
@@ -111,7 +107,6 @@
       <path d="M0,40 C300,140 900,-60 1200,40 L1200,120 L0,120 Z" fill="#ff0055" />
     </svg>
   </div>
-
 </body>
 </html>
 
