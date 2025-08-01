@@ -320,3 +320,19 @@ document.getElementById("chooseLocationBtn").addEventListener("click", () => {
     // здесь переход к следующему экрану
   }
 });
+document.addEventListener('DOMContentLoaded', () => {
+  const chooseBtn = document.getElementById('chooseLocationBtn');
+  if (chooseBtn) {
+    chooseBtn.addEventListener('click', () => {
+      const activeSlide = document.querySelector('.mySwiperLocations .swiper-slide-active');
+      selectedLocation = activeSlide?.dataset.location || 'Город';
+      console.log('Выбрана локация:', selectedLocation);
+
+      document.getElementById('screen3').classList.add('hidden');
+      document.getElementById('screen6').classList.remove('hidden');
+      document.getElementById('finalText').textContent = `Ты стартуешь из локации: ${selectedLocation}`;
+      document.getElementById('badgeText').textContent = `🚘 Авто: ${selectedCar}`;
+    });
+  }
+});
+
