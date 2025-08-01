@@ -1,11 +1,13 @@
-// ДОБАВЛЕНИЕ: состояние для локации
+// Объявление переменных
 let selectedLocation = '';
 let selectedGender = '';
 let selectedCharacter = null;
+let selectedCar = '';
 let currentStep = 0;
 let swiper;
 let locationSwiper;
 
+// Словарь персонажей
 const characters = {
   'Мужчина': [
     {
@@ -109,26 +111,9 @@ const characters = {
   ]
 };
 
-
-// === Состояния ===
-let selectedGender = '';
-let selectedCharacter = null;
-let selectedLocation = '';
-let selectedCar = '';
-let currentStep = 0;
-let swiperCharacters;
-let swiperLocations;
-
-// === Выбор пола ===
 function selectGender(gender) {
   selectedGender = gender;
   document.getElementById('screen1').classList.add('hidden');
-  document.getElementById('screen2').classList.remove('hidden');
-  renderCharacters(gender);
-}
-
-// === Отрисовка персонажей ===
-function renderCharacters(gender) {
   const container = document.getElementById('options');
   container.innerHTML = '';
   characters[gender].forEach((char, index) => {
@@ -139,17 +124,17 @@ function renderCharacters(gender) {
         <img src="${char.image}" alt="${char.title}" class="character-avatar">
         <h2>${char.title}</h2>
         <p>${char.intro}</p>
-        <button class="button" onclick="selectCharacter(${index})">Выбрать</button>
+        <button class="button" onclick="startCharacterStory(${index})">Выбрать</button>
       </div>
     `;
     container.appendChild(slide);
   });
-
-  if (swiperCharacters) {
-    swiperCharacters.update();
-    swiperCharacters.slideTo(0);
+  document.getElementById('screen2').classList.remove('hidden');
+  if (swiper) {
+    swiper.update();
+    swiper.slideTo(0);
   } else {
-    swiperCharacters = new Swiper('.mySwiperCharacters', {
+    swiper = new Swiper('.mySwiperCharacters', {
       slidesPerView: 1,
       spaceBetween: 20,
       pagination: {
@@ -164,113 +149,107 @@ function renderCharacters(gender) {
   }
 }
 
-// === Выбор персонажа ===
-function selectCharacter(index) {
+function startCharacterStory(index) {
   selectedCharacter = characters[selectedGender][index];
+  currentStep = -1;
   document.getElementById('screen2').classList.add('hidden');
+  document.getElementById('characterTitle').textContent = selectedCharacter.title;
+  const car = document.getElementById('carContainer');
+  car.classList.remove('hidden', 'animate');
+  void car.offsetWidth;
+  car.classList.add('animate');
   document.getElementById('screen3').classList.remove('hidden');
-  initLocationSwiper();
+  document.getElementById('storyText').textContent = selectedCharacter.fullIntro;
+  document.getElementById('storyButtons').innerHTML = '<button class="button" onclick="goToCarSelection()">Далее</button>';
 }
 
-// === Инициализация свайпера локаций ===
-function initLocationSwiper() {
-  if (swiperLocations) {
-    swiperLocations.update();
-    swiperLocations.slideTo(0);
-  } else {
-    swiperLocations = new Swiper('.mySwiperLocations', {
-      slidesPerView: 1,
-      spaceBetween: 20,
-      centeredSlides: true,
-      pagination: {
-        el: '.locations-pagination',
-        clickable: true
-      },
-      navigation: {
-        nextEl: '.locations-next',
-        prevEl: '.locations-prev'
-      }
-    });
-  }
+function goToCarSelection() {
+  document.getElementById('screen3').classList.add('hidden');
+  document.getElementById('screen4').classList.remove('hidden');
 }
 
-// === Выбор локации ===
+function selectCar(type) {
+  selectedCar = type;
+  console.log('Выбран авто:', selectedCar);
+  document.getElementById('screen4').classList.add('hidden');
+  document.getElementById('screen5').classList.remove('hidden');
+  setTimeout(() => {
+    if (!locationSwiper) {
+      locationSwiper = new Swiper('.mySwiperLocations', {
+        slidesPerView: 1,
+        spaceBetween: 20,
+        centeredSlides: true,
+        pagination: {
+          el: '.locations-pagination',
+          clickable: true
+        },
+        navigation: {
+          nextEl: '.locations-next',
+          prevEl: '.locations-prev'
+        }
+      });
+    } else {
+      locationSwiper.update();
+      locationSwiper.slideTo(0);
+    }
+  }, 100);
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   const chooseBtn = document.getElementById('chooseLocationBtn');
   if (chooseBtn) {
     chooseBtn.addEventListener('click', () => {
-      const active = document.querySelector('.mySwiperLocations .swiper-slide-active');
-      selectedLocation = active?.dataset.location || 'Город';
-      document.getElementById('screen3').classList.add('hidden');
-      document.getElementById('screen4').classList.remove('hidden');
-      startStory();
+      const activeSlide = document.querySelector('.mySwiperLocations .swiper-slide-active');
+      selectedLocation = activeSlide?.dataset.location || 'Город';
+      console.log('Выбрана локация:', selectedLocation);
+      document.getElementById('screen5').classList.add('hidden');
+      document.getElementById('screen3').classList.remove('hidden');
+      currentStep = 0;
+      showStep();
     });
   }
 });
 
-// === История персонажа ===
-function startStory() {
-  currentStep = 0;
-  document.getElementById('characterTitle').textContent = selectedCharacter.title;
-  showStep();
+function nextStep() {
+  currentStep++;
+  if (currentStep < selectedCharacter.steps.length) {
+    showStep();
+  }
 }
 
 function showStep() {
   const step = selectedCharacter.steps[currentStep];
-  const text = document.getElementById('storyText');
-  const buttons = document.getElementById('storyButtons');
-  text.classList.remove('fade-in-up');
-  void text.offsetWidth;
-  text.textContent = step.text;
-  text.classList.add('fade-in-up');
-  buttons.innerHTML = '';
-
+  const textElem = document.getElementById('storyText');
+  const buttonsElem = document.getElementById('storyButtons');
+  textElem.classList.remove('fade-in-up');
+  void textElem.offsetWidth;
+  textElem.textContent = step.text;
+  textElem.classList.add('fade-in-up');
+  buttonsElem.innerHTML = '';
   if (step.choices) {
     step.choices.forEach(choice => {
       const btn = document.createElement('button');
       btn.className = 'button';
       btn.textContent = choice.label;
       btn.onclick = () => showFinal(choice.result);
-      buttons.appendChild(btn);
+      buttonsElem.appendChild(btn);
     });
   } else {
-    const nextBtn = document.createElement('button');
-    nextBtn.className = 'button';
-    nextBtn.textContent = 'Далее';
-    nextBtn.onclick = () => {
-      currentStep++;
-      showStep();
-    };
-    buttons.appendChild(nextBtn);
+    const btn = document.createElement('button');
+    btn.className = 'button';
+    btn.textContent = 'Далее';
+    btn.onclick = () => nextStep();
+    buttonsElem.appendChild(btn);
   }
 }
 
-// === Выбор авто ===
-function goToCarSelection() {
-  document.getElementById('screen4').classList.add('hidden');
-  document.getElementById('screen5').classList.remove('hidden');
-}
-
-function selectCar(type) {
-  selectedCar = type;
-  showFinal({
-    ending: `Ты выбрал ${type} — отличный выбор!`,
-    badge: 'Победитель кастомизации'
-  });
-}
-
-// === Финальный экран ===
 function showFinal(result) {
-  const screens = ['screen4', 'screen5'];
-  screens.forEach(id => document.getElementById(id)?.classList.add('hidden'));
+  document.getElementById('screen3').classList.add('hidden');
   document.getElementById('finalText').textContent = result.ending;
   document.getElementById('badgeText').textContent = `🏆 Достижение: ${result.badge}`;
   document.getElementById('final').classList.remove('hidden');
 }
 
-// === В Telegram ===
 function goToBot() {
-  window.location.href = 'https://t.me/auto24serviceofficial_bot';
+  window.location.href = "https://t.me/auto24serviceofficial_bot";
 }
-
-
