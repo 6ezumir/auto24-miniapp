@@ -314,6 +314,8 @@ p {
   border-radius: 12px;
   object-fit: cover;
   max-height: 300px;
+  filter: none; /* <== добавь */
+  opacity: 1;   /* <== добавь */
 }
 
 .location-card p {
