@@ -208,37 +208,20 @@ p {
   h1 { font-size: 1.4rem; }
 }
 
-/* 🌆 Step4: Локации */
-#step4 {
+/* 🌆 Локации - экранированный ID */
+#screen3 {
   text-align: center;
   padding: 20px;
   position: relative;
   z-index: 2;
 }
 
-#step4 .title {
-  font-family: 'Orbitron', sans-serif;
-  font-size: 1.6rem;
-  margin-bottom: 10px;
-}
-
-#step4 .subtitle {
-  font-size: 1rem;
-  margin-bottom: 20px;
-  color: rgba(255,255,255,0.7);
-}
-
-#chooseLocationBtn {
-  margin-top: 20px;
-}
-
-/* swiper для локаций */
-#step4 .swiper {
+#screen3 .swiper {
   width: 100%;
   padding: 20px 0;
 }
 
-#step4 .swiper-slide {
+#screen3 .swiper-slide {
   background: #1a1a1a;
   border-radius: 16px;
   overflow: hidden;
@@ -249,30 +232,30 @@ p {
   transform: scale(0.95);
 }
 
-#step4 .swiper-slide-active {
+#screen3 .swiper-slide-active {
   opacity: 1;
   transform: scale(1);
 }
 
-#step4 .swiper-slide img.location-image {
+#screen3 .swiper-slide img.location-image {
   width: 100%;
   height: auto;
   border-radius: 12px;
   margin-bottom: 10px;
 }
 
-#step4 .swiper-slide p {
+#screen3 .swiper-slide p {
   color: white;
   font-size: 16px;
   margin: 0;
 }
 
-#step4 .swiper-button-next,
-#step4 .swiper-button-prev {
+#screen3 .swiper-button-next,
+#screen3 .swiper-button-prev {
   color: #ff0080;
 }
 
-#step4 .swiper-pagination-bullet {
+#screen3 .swiper-pagination-bullet {
   background: #ff0080;
 }
 
@@ -306,6 +289,7 @@ p {
     transform: scaleY(-1.05) scaleX(1.05);
   }
 }
+
 .car-options {
   display: flex;
   flex-wrap: wrap;
@@ -313,7 +297,7 @@ p {
   gap: 12px;
   margin-top: 20px;
 }
-/* Стили для карточки локации */
+
 .location-card {
   background: rgba(255, 255, 255, 0.05);
   padding: 16px;
@@ -337,6 +321,7 @@ p {
   font-size: 1.1rem;
   font-weight: 500;
 }
+
 .mySwiperLocations {
   display: flex;
   justify-content: center;
