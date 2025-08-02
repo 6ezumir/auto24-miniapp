@@ -335,4 +335,37 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 });
+// Свайпер для выбора авто
+const carSwiper = new Swiper(".mySwiperCars", {
+  slidesPerView: 1,
+  spaceBetween: 20,
+  loop: true,
+  navigation: {
+    nextEl: ".cars-next",
+    prevEl: ".cars-prev",
+  },
+  pagination: {
+    el: ".cars-pagination",
+    clickable: true,
+  },
+});
+
+// Кнопка выбора авто
+const chooseCarBtn = document.getElementById("chooseCarBtn");
+if (chooseCarBtn) {
+  chooseCarBtn.addEventListener("click", () => {
+    const activeCar = document.querySelector(".mySwiperCars .swiper-slide-active");
+    const selectedCar = activeCar?.dataset.car || "🚗 автомобиль";
+
+    console.log("Выбран авто:", selectedCar);
+
+    // Переход на финальный экран
+    document.getElementById("screen5").classList.add("hidden");
+    document.getElementById("screen6").classList.remove("hidden");
+
+    document.getElementById("finalText").textContent = `Ты стартуешь из локации: ${selectedLocation}`;
+    document.getElementById("badgeText").textContent = `🚘 авто: ${selectedCar}`;
+  });
+}
+
 
