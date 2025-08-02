@@ -215,6 +215,10 @@ p {
   position: relative;
   z-index: 2;
 }
+#screen3 #chooseLocationBtn {
+  display: block;
+  margin: 20px auto 0 auto;
+}
 
 #screen3 .swiper {
   width: 100%;
