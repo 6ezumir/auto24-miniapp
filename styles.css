@@ -499,7 +499,7 @@ p {
 }
 .car-card img {
   width: auto;
-  max-height: 150px; /* было 180px */
+  max-height: 165px; /* было 180px */
   object-fit: contain;
   border-radius: 12px;
   margin: 0 auto;
