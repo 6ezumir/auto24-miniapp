@@ -237,22 +237,6 @@ function selectCar(type) {
   }, 100);
 }
 
-
-document.addEventListener('DOMContentLoaded', () => {
-  const chooseBtn = document.getElementById('chooseLocationBtn');
-  if (chooseBtn) {
-    chooseBtn.addEventListener('click', () => {
-      const activeSlide = document.querySelector('.mySwiperLocations .swiper-slide-active');
-      selectedLocation = activeSlide?.dataset.location || 'Город';
-      console.log('Выбрана локация:', selectedLocation);
-      document.getElementById('screen5').classList.add('hidden');
-      document.getElementById('screen3').classList.remove('hidden');
-      currentStep = 0;
-      showStep();
-    });
-  }
-});
-
 function nextStep() {
   currentStep++;
   if (currentStep < selectedCharacter.steps.length) {
