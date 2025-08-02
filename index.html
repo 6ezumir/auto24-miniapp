@@ -75,15 +75,31 @@
 
   <!-- Экран 5: Выбор авто -->
   <section id="screen5" class="screen hidden">
-    <h2 class="title">🚗 Выбор автомобиля</h2>
-    <p class="subtitle">Что тебе ближе по духу?</p>
-    <div class="car-options">
-      <button class="button" onclick="selectCar('Седан')">Седан</button>
-      <button class="button" onclick="selectCar('Кроссовер')">Кроссовер</button>
-      <button class="button" onclick="selectCar('Минивэн')">Минивэн</button>
-      <button class="button" onclick="selectCar('Хэтчбек')">Хэтчбек</button>
+  <h2 class="title fade-in">🚘 Выбери автомобиль</h2>
+  <p class="subtitle fade-in delay-1">Что тебе ближе по духу?</p>
+
+  <div class="swiper mySwiperCars fade-in delay-2">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide car-card" data-car="Hyundai Sonata">
+        <img src="sonata.jpg" alt="Hyundai Sonata">
+        <h3>Hyundai Sonata</h3>
+        <p>Городской комфорт и стиль.</p>
+      </div>
+      <div class="swiper-slide car-card" data-car="Kia Sportage">
+        <img src="sportage.jpg" alt="Kia Sportage">
+        <h3>Kia Sportage</h3>
+        <p>Для активной и динамичной жизни.</p>
+      </div>
+      <!-- Можешь добавить больше авто -->
     </div>
-  </section>
+
+    <div class="swiper-button-next cars-next"></div>
+    <div class="swiper-button-prev cars-prev"></div>
+    <div class="swiper-pagination cars-pagination"></div>
+  </div>
+
+  <button class="button fade-in delay-3" id="chooseCarBtn">Выбрать авто</button>
+</section>
 
   <!-- Экран 6: Финал -->
   <section id="screen6" class="screen hidden">
