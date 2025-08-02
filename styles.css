@@ -511,9 +511,18 @@ p {
   text-align: center;
   font-size: 1.2rem;
   margin-top: 5px;
+  margin-bottom: 5px;
   color: #fff;
 }
 
+#chooseCarBtn {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+  width: 90%;
+}
 /* Кнопка "Выбрать авто" */
 #chooseCarBtn {
   position: relative;
