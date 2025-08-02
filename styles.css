@@ -262,6 +262,23 @@ p {
 #screen3 .swiper-pagination-bullet {
   background: #ff0080;
 }
+#screen4 {
+  text-align: center;
+  padding: 20px;
+}
+
+#storyText {
+  max-width: 90%;
+  margin: 0 auto 20px auto;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+#storyButtons {
+  display: flex;
+  justify-content: center;
+}
+
 
 /* 🌊 Волна */
 .neon-wave {
