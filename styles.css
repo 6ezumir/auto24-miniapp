@@ -497,16 +497,14 @@ p {
 .swiper-pagination.cars-pagination {
   margin-top: 10px;
 }
-.car-slide img {
-  width: 100%;
-  height: auto;
-  max-height: 180px; /* меньше высота */
+.car-card img {
+  width: auto;
+  max-height: 140px; /* было 180px */
   object-fit: contain;
   border-radius: 12px;
-  margin-bottom: 10px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  margin: 0 auto;
+  display: block;
 }
-
 .car-slide p {
   text-align: center;
   font-size: 1.2rem;
