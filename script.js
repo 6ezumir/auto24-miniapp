@@ -212,8 +212,8 @@ function goToCarSelection() {
 
 function selectCar(type) {
   selectedCar = type;
-  document.getElementById('screen5').classList.add('hidden');
-  document.getElementById('screen3').classList.remove('hidden');
+  document.getElementById('screen3').classList.add('hidden');
+  document.getElementById('screen5').classList.remove('hidden');
 
   setTimeout(() => {
     if (!locationSwiper) {
