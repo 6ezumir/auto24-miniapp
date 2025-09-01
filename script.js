@@ -191,18 +191,12 @@ function selectGender(gender) {
 function startCharacterStory(index) {
   selectedCharacter = characters[selectedGender][index];
   currentStep = -1;
+
+  // Скрываем экран выбора персонажа
   document.getElementById('screen2').classList.add('hidden');
-  document.getElementById('characterTitle').textContent = selectedCharacter.title;
 
-  // Показываем авто-анимацию и историю
-  const car = document.getElementById('carContainer');
-  car.classList.remove('hidden', 'animate');
-  void car.offsetWidth;
-  car.classList.add('animate');
-
-  document.getElementById('screen4').classList.remove('hidden');
-  document.getElementById('storyText').textContent = selectedCharacter.fullIntro;
-  document.getElementById('storyButtons').innerHTML = '<button class="button" onclick="goToCarSelection()">Далее</button>';
+  // Показываем экран выбора локации
+  document.getElementById('screen3').classList.remove('hidden');
 }
 
 function goToCarSelection() {
