@@ -285,19 +285,25 @@ document.getElementById("chooseLocationBtn").addEventListener("click", () => {
     // здесь переход к следующему экрану
   }
 });
-document.addEventListener('DOMContentLoaded', () => {
-  const chooseBtn = document.getElementById('chooseLocationBtn');
-  if (chooseBtn) {
-    chooseBtn.addEventListener('click', () => {
-      const activeSlide = document.querySelector('.mySwiperLocations .swiper-slide-active');
-      selectedLocation = activeSlide?.dataset.location || 'Город';
-      console.log('Выбрана локация:', selectedLocation);
+document.getElementById("chooseLocationBtn").addEventListener("click", () => {
+  const activeSlide = document.querySelector(".mySwiperLocations .swiper-slide-active");
+  selectedLocation = activeSlide?.dataset.location || "Город";
 
-      document.getElementById('screen3').classList.add('hidden');
-      document.getElementById('screen6').classList.remove('hidden');
-      document.getElementById('finalText').textContent = `Ты стартуешь из локации: ${selectedLocation}`;
-      document.getElementById('badgeText').textContent = `🚘 Авто: ${selectedCar}`;
-    });
+  console.log("Выбрана локация:", selectedLocation);
+
+  // Скрываем экраны
+  document.getElementById("screen3").classList.add("hidden");
+  document.getElementById("screen6").classList.add("hidden"); // чтобы не висел
+
+  // Переход к истории
+  document.getElementById("screen4").classList.remove("hidden");
+
+  // Заполняем данные
+  document.getElementById("characterTitle").textContent = selectedCharacter.title;
+  document.getElementById("storyText").textContent = selectedCharacter.fullIntro;
+  document.getElementById("storyButtons").innerHTML = '<button class="button" onclick="goToCarSelection()">Далее</button>';
+});
+
   }
 });
 // Свайпер для выбора авто
