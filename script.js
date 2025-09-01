@@ -332,5 +332,21 @@ if (chooseCarBtn) {
     document.getElementById("badgeText").textContent = `🚘 авто: ${selectedCar}`;
   });
 }
+document.getElementById("chooseLocationBtn").addEventListener("click", () => {
+  const activeSlide = document.querySelector(".mySwiperLocations .swiper-slide-active");
+  selectedLocation = activeSlide?.dataset.location || "Город";
+
+  console.log("Выбрана локация:", selectedLocation);
+
+  // Переход к истории
+  document.getElementById("screen3").classList.add("hidden");
+  document.getElementById("screen4").classList.remove("hidden");
+
+  // Заполняем текст истории
+  document.getElementById("characterTitle").textContent = selectedCharacter.title;
+  document.getElementById("storyText").textContent = selectedCharacter.fullIntro;
+  document.getElementById("storyButtons").innerHTML = '<button class="button" onclick="goToCarSelection()">Далее</button>';
+});
+
 
 
