@@ -409,6 +409,11 @@ p {
   opacity: 1;   /* <== добавь */
 }
 
+#screen3 .mySwiperLocations {
+  max-width: 320px;
+  margin: 0 auto;
+}
+
 .location-card p {
   margin-top: 10px;
   font-size: 1.1rem;
