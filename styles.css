@@ -215,9 +215,24 @@ p {
   position: relative;
   z-index: 2;
 }
-#screen3 #chooseLocationBtn {
+#screen3 
+#chooseLocationBtn {
   display: block;
-  margin: 20px auto 0 auto;
+  margin: 25px auto 0 auto;
+  padding: 12px 24px;
+  font-size: 16px;
+  background: linear-gradient(135deg, #ff007f, #6e00ff);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  box-shadow: 0 0 12px rgba(255, 0, 127, 0.5);
+  font-family: 'Orbitron', sans-serif;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+#chooseLocationBtn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 16px rgba(255, 0, 127, 0.8); /* Обновил стили кнопки выбора локации (#chooseLocationBtn) */
 }
 
 #screen3 .swiper {
