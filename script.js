@@ -272,7 +272,7 @@ function goToBot() {
 const carSwiper = new Swiper(".mySwiperCars", {
   slidesPerView: 1,
   spaceBetween: 20,
-  loop: true,
+  loop: false,
   navigation: {
     nextEl: ".cars-next",
     prevEl: ".cars-prev"
