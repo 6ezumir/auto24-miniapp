@@ -545,12 +545,19 @@ p {
 }
 
 #chooseCarBtn {
-  position: fixed;
-  bottom: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 10;
-  width: 90%;
+  display: block;
+  margin: 40px auto;
+  font-size: 18px;
+  padding: 12px 24px;
+  background: linear-gradient(135deg, #ff007f, #6e00ff);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  box-shadow: 0 0 12px rgba(255, 0, 127, 0.5);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
 }
 /* Кнопка "Выбрать авто" */
 #chooseCarBtn {
