@@ -210,24 +210,27 @@ p {
 
 /* 🌆 Локации - экранированный ID */
 #screen3 {
-  height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  align-items: center;
+  height: 100vh;
+  overflow: hidden;
   padding: 20px;
   box-sizing: border-box;
-  overflow: hidden;
-  text-align: center;
   position: relative;
 }
 
 #screen3 
 #chooseLocationBtn {
-  display: block;
-  margin: 25px auto 0 auto;
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
   padding: 12px 24px;
   font-size: 16px;
-  background: linear-gradient(135deg, #ff007f, #6e00ff);
+  background: linear-gradient(135deg, #ff007f, #fee0ff);
   color: white;
   border: none;
   border-radius: 12px;
@@ -237,9 +240,10 @@ p {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 #chooseLocationBtn:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 16px rgba(255, 0, 127, 0.8); /* Обновил стили кнопки выбора локации (#chooseLocationBtn) */
+  transform: translateX(-50%) scale(1.05);
+  box-shadow: 0 0 16px rgba(255, 0, 127, 0.8);
 }
+
 
 #screen3 .swiper {
   width: 100%;
