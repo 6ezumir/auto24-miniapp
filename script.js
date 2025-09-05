@@ -7,6 +7,15 @@ let currentStep = 0;
 let swiper;
 let locationSwiper;
 
+// Универсальная функция показа нужного экрана
+function showScreen(id) {
+  document.querySelectorAll('.screen').forEach(screen => {
+    screen.classList.add('hidden');
+  });
+  const target = document.getElementById(id);
+  if (target) target.classList.remove('hidden');
+}
+
 // Словарь персонажей
 const characters = {
   'Мужчина': [
@@ -114,7 +123,6 @@ const characters = {
 // Выбор пола
 function selectGender(gender) {
   selectedGender = gender;
-  document.getElementById('screen1').classList.add('hidden');
   const container = document.getElementById('options');
   container.innerHTML = '';
 
@@ -132,7 +140,7 @@ function selectGender(gender) {
     container.appendChild(slide);
   });
 
-  document.getElementById('screen2').classList.remove('hidden');
+  showScreen('screen2');
 
   if (swiper) {
     swiper.update();
@@ -157,8 +165,7 @@ function selectGender(gender) {
 function startCharacterStory(index) {
   selectedCharacter = characters[selectedGender][index];
   currentStep = -1;
-  document.getElementById('screen2').classList.add('hidden');
-  document.getElementById('screen3').classList.remove('hidden');
+  showScreen('screen3');
 
   setTimeout(() => {
     if (!locationSwiper) {
@@ -189,9 +196,7 @@ document.getElementById("chooseLocationBtn").addEventListener("click", () => {
 
   console.log("Выбрана локация:", selectedLocation);
 
-  // Переход к истории
-  document.getElementById("screen3").classList.add("hidden");
-  document.getElementById("screen4").classList.remove("hidden");
+  showScreen("screen4");
 
   document.getElementById("characterTitle").textContent = selectedCharacter.title;
   document.getElementById("storyText").textContent = selectedCharacter.fullIntro;
@@ -200,8 +205,7 @@ document.getElementById("chooseLocationBtn").addEventListener("click", () => {
 
 // Переход к выбору авто
 function goToCarSelection() {
-  document.getElementById('screen4').classList.add('hidden');
-  document.getElementById('screen5').classList.remove('hidden');
+  showScreen('screen5');
 }
 
 // Выбор авто
@@ -213,9 +217,7 @@ if (chooseCarBtn) {
 
     console.log("Выбран авто:", selectedCar);
 
-    // Переход на финал
-    document.getElementById("screen5").classList.add("hidden");
-    document.getElementById("screen6").classList.remove("hidden");
+    showScreen("screen6");
 
     document.getElementById("finalText").textContent = `Ты стартуешь из локации: ${selectedLocation}`;
     document.getElementById("badgeText").textContent = `🚘 авто: ${selectedCar}`;
@@ -258,8 +260,7 @@ function showStep() {
 }
 
 function showFinal(result) {
-  document.getElementById('screen4').classList.add('hidden');
-  document.getElementById('screen6').classList.remove('hidden');
+  showScreen('screen6');
   document.getElementById('finalText').textContent = result.ending;
   document.getElementById('badgeText').textContent = `🏆 Достижение: ${result.badge}`;
 }
