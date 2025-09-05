@@ -210,11 +210,17 @@ p {
 
 /* 🌆 Локации - экранированный ID */
 #screen3 {
-  text-align: center;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   padding: 20px;
+  box-sizing: border-box;
+  overflow: hidden;
+  text-align: center;
   position: relative;
-  z-index: 2;
 }
+
 #screen3 
 #chooseLocationBtn {
   display: block;
