@@ -247,6 +247,10 @@ p {
   position: relative;
 }
 
+#screen3 {
+  padding-bottom: 100px; /* поднимает контент вверх */
+  overflow-y: auto;      /* чтобы можно было скроллить на маленьких экранах */
+}
 
 #screen3 .swiper-slide {
   background: #1a1a1a;
