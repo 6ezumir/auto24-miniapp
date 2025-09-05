@@ -223,11 +223,8 @@ p {
 
 #screen3 
 #chooseLocationBtn {
-  position: fixed;
-  bottom: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 10;
+  display: block;
+  margin: 25px auto 0 auto;
   padding: 12px 24px;
   font-size: 16px;
   background: linear-gradient(135deg, #ff007f, #fee0ff);
