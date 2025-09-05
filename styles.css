@@ -621,8 +621,13 @@ p {
   display: none;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between; /* 👈 помогает разместить карточку + кнопку */
+  height: 100vh; /* 👈 экран по высоте */
+  overflow: hidden; /* 👈 отключаем скролл */
+  padding: 20px;
+  box-sizing: border-box;
 }
+
 
 .screen:not(.hidden) {
   display: flex;
