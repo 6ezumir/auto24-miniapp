@@ -635,5 +635,13 @@ p {
 .screen:not(.hidden) {
   display: flex;
 }
+.screen.hidden {
+  display: none !important;
+  visibility: hidden;
+  height: 0 !important;
+  overflow: hidden;
+  opacity: 0;
+}
+
 
 
