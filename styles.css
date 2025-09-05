@@ -620,7 +620,6 @@ p {
   justify-content: center;
 }
 
-.screen.active,
 .screen:not(.hidden) {
   display: flex;
 }
