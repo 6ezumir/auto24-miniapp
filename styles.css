@@ -230,18 +230,18 @@ p {
   margin: 25px auto 0 auto;
   padding: 12px 24px;
   font-size: 16px;
-  background: linear-gradient(135deg, #ff007f, #fee0ff);
+  background: linear-gradient(90deg, #ff007a, #ff6ec4); /* более спокойный градиент */
   color: white;
   border: none;
-  border-radius: 12px;
-  box-shadow: 0 0 12px rgba(255, 0, 127, 0.5);
-  font-family: 'Orbitron', sans-serif;
+  border-radius: 8px;
   cursor: pointer;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  font-family: 'Orbitron', sans-serif;
+  transition: none;
+  box-shadow: none;
 }
 #chooseLocationBtn:hover {
-  transform: translateX(-50%) scale(1.05);
-  box-shadow: 0 0 16px rgba(255, 0, 127, 0.8);
+  transform: none;
+  box-shadow: none;
 }
 
 
