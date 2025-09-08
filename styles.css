@@ -214,18 +214,17 @@ p {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start; /* 👈 всё прижато вверх */
-  min-height: 100vh;           /* 👈 безопасная высота */
-  padding: 20px 20px;          /* 👈 базовые отступы */
+  justify-content: flex-start;    /* 👈 прижать вверх */
+  padding: 20px 16px 20px;        /* 👈 отступы по краям */
   box-sizing: border-box;
   max-width: 500px;
   margin: 0 auto;
   text-align: center;
-  overflow-y: auto;            /* 👈 скролл, если вдруг не влезает */
+  overflow: visible;              /* 👈 если нет скролла */
   position: relative;
-  gap: 20px;                   /* 👈 равные отступы между блоками */
+  min-height: auto;               /* 👈 убираем 100vh */
+  gap: 16px;                      /* 👈 красивое расстояние между блоками */
 }
-
 /* #chooseLocationBtn {
   display: block;
   margin: 25px auto 0 auto;
