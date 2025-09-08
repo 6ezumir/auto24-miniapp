@@ -225,24 +225,26 @@ p {
   position: relative;
 }
 
-#chooseLocationBtn {
+/* #chooseLocationBtn {
   display: block;
   margin: 25px auto 0 auto;
   padding: 12px 24px;
   font-size: 16px;
-  background: linear-gradient(90deg, #ff007a, #ff6ec4); /* более спокойный градиент */
+  background: linear-gradient(90deg, #f007a, #ffeec4); 
   color: white;
   border: none;
-  border-radius: 8px;
-  cursor: pointer;
+  border-radius: 12px;
+  box-shadow: 0 0 12px rgba(255, 0, 127, 0.5);
   font-family: 'Orbitron', sans-serif;
-  transition: none;
-  box-shadow: none;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
+
 #chooseLocationBtn:hover {
-  transform: none;
-  box-shadow: none;
-}
+  transform: translateX(-50%) scale(1.05);
+  box-shadow: 0 0 16px rgba(255, 0, 127, 0.8);
+} */
+
 
 
 #screen3 .swiper {
