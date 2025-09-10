@@ -76,9 +76,15 @@
 
   <!-- Экран 4: Интро персонажа -->
   <section id="screen4" class="screen hidden">
-  <h1 id="characterTitle" class="fade-in"></h1>
-  <p id="storyText" class="fade-in delay-1"></p>
-  <div id="storyButtons" class="fade-in delay-1"></div>
+  <!-- ✅ Анимация машины -->
+  <div id="carContainer" class="car-container hidden">
+    <img src="car-yellow (1).png" alt="Машина" class="car-image">
+    <div class="trail"></div>
+  </div>
+
+  <h1 id="characterTitle"></h1>
+  <p id="storyText"></p>
+  <div id="storyButtons"></div>
 </section>
 
   <!-- Экран 5: Выбор авто -->
@@ -130,12 +136,6 @@
     <p id="badgeText"></p>
     <button class="button" onclick="goToBot()">Перейти в Telegram</button>
   </section>
-
-  <!-- Анимация машины -->
-  <div id="carContainer" class="car-container hidden">
-    <img src="car-yellow (1).png" alt="Машина" class="car-image">
-    <div class="trail"></div>
-  </div>
 
   <!-- Скрипты -->
   <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
