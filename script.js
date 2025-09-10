@@ -201,7 +201,17 @@ document.getElementById("chooseLocationBtn").addEventListener("click", () => {
   document.getElementById("characterTitle").textContent = selectedCharacter.title;
   document.getElementById("storyText").textContent = selectedCharacter.fullIntro;
   document.getElementById("storyButtons").innerHTML = '<button class="button" onclick="goToCarSelection()">Далее</button>';
+  
+  // ✅ Показать машину
+  const car = document.getElementById("carContainer");
+  if (car) {
+    car.classList.remove("hidden");   // показать
+    car.classList.remove("animate");  // сбросить анимацию
+    void car.offsetWidth;             // перезапустить анимацию
+    car.classList.add("animate");     // запустить снова
+  }
 });
+
 
 // Переход к выбору авто
 function goToCarSelection() {
