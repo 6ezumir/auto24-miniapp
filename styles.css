@@ -214,49 +214,41 @@ p {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start;    /* 👈 прижать вверх */
-  padding: 20px 16px 20px;        /* 👈 отступы по краям */
+  justify-content: flex-start;
+  padding: 16px;
   box-sizing: border-box;
   max-width: 500px;
   margin: 0 auto;
   text-align: center;
-  overflow: visible;              /* 👈 если нет скролла */
+  overflow: visible;
   position: relative;
-  min-height: auto;               /* 👈 убираем 100vh */
-  gap: 16px;                      /* 👈 красивое расстояние между блоками */
-}
-/* #chooseLocationBtn {
-  display: block;
-  margin: 25px auto 0 auto;
-  padding: 12px 24px;
-  font-size: 16px;
-  background: linear-gradient(90deg, #f007a, #ffeec4); 
-  color: white;
-  border: none;
-  border-radius: 12px;
-  box-shadow: 0 0 12px rgba(255, 0, 127, 0.5);
-  font-family: 'Orbitron', sans-serif;
-  cursor: pointer;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  min-height: auto;
+  gap: 12px;
 }
 
-#chooseLocationBtn:hover {
-  transform: translateX(-50%) scale(1.05);
-  box-shadow: 0 0 16px rgba(255, 0, 127, 0.8);
-} */
+#screen3 h1 {
+  margin-top: 0;
+  margin-bottom: 8px;
+  font-size: 20px;
+}
 
-
+#screen3 p {
+  margin-top: 0;
+  margin-bottom: 8px;
+  font-size: 14px;
+}
 
 #screen3 .swiper {
   width: 100%;
-  padding: 20px 0;
+  padding: 0;
+  margin: 8px 0;
 }
 
 #screen3 .swiper-slide {
   background: #1a1a1a;
   border-radius: 16px;
   overflow: hidden;
-  padding: 10px;
+  padding: 6px;
   text-align: center;
   transition: transform 0.3s ease, opacity 0.3s;
   opacity: 0.5;
@@ -272,13 +264,32 @@ p {
   width: 100%;
   height: auto;
   border-radius: 12px;
-  margin-bottom: 10px;
+  margin-bottom: 8px;
 }
 
 #screen3 .swiper-slide p {
   color: white;
-  font-size: 16px;
+  font-size: 14px;
   margin: 0;
+}
+
+#chooseLocationBtn {
+  margin-top: 12px;
+  font-size: 16px;
+  padding: 10px 24px;
+  font-family: 'Orbitron', sans-serif;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  background: linear-gradient(90deg, #f007a, #ffeec4);
+  color: white;
+  box-shadow: 0 0 12px rgba(255, 0, 127, 0.5);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#chooseLocationBtn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 16px rgba(255, 0, 127, 0.8);
 }
 
 #screen3 .swiper-button-next,
@@ -289,6 +300,7 @@ p {
 #screen3 .swiper-pagination-bullet {
   background: #ff0080;
 }
+
 #screen4 {
   text-align: center;
   padding: 20px;
