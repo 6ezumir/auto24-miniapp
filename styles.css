@@ -215,16 +215,14 @@ p {
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  padding: 8px 12px 8px;
-  padding-top: 8px; /* уменшить отступ сверху */
-  box-sizing: border-box;
-  max-width: 500px;
+  padding: 16px;
+  max-width: 420px;
   margin: 0 auto;
-  text-align: center;  
+  text-align: center;
+  box-sizing: border-box;
+  min-height: 100vh;
+  gap: 16px;
   overflow: hidden;
-  position: relative;
-  min-height: auto;
-  gap: 8px;
 }
 
 #screen3 h1 {
@@ -431,6 +429,39 @@ p {
   margin-top: 20px;
 }
 
+/* Обёртка слайдера */
+.mySwiperLocations {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-grow: 1;
+  max-height: 60vh;
+  padding: 10px 0;
+  overflow: hidden;
+  max-width: 320px;
+  margin: 0 auto;
+}
+
+/* Слайд */
+.mySwiperLocations .swiper-slide {
+  background: none;
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Изображение локации */
+.mySwiperLocations .swiper-slide img,
+.location-card img {
+  width: 100%;
+  height: auto;
+  max-height: 300px;
+  object-fit: cover;
+  border-radius: 12px;
+  filter: none;
+  opacity: 1;
+}
+
+/* Карточка локации */
 .location-card {
   background: rgba(255, 255, 255, 0.05);
   padding: 8px;
@@ -438,75 +469,35 @@ p {
   text-align: center;
   box-shadow: 0 0 20px rgba(255, 255, 255, 0.05);
   width: 100%;
-  max-width: 320%;
-  margin: 0 auto;
-}
-
-.location-card img {
-  width: 100%;
-  height: auto;
-  border-radius: 12px;
-  object-fit: cover;
-  max-height: 300px;
-  filter: none; /* <== добавь */
-  opacity: 1;   /* <== добавь */
-}
-
-#screen3 .mySwiperLocations {
   max-width: 320px;
   margin: 0 auto;
 }
 
-.location-card p {
-  margin-top: 10px;
-  font-size: 1.1rem;
-  font-weight: 500;
-}
-
-.mySwiperLocations {
-  display: flex;
-  justify-content: center;
-  padding: 10px 0;
-}
-.mySwiperLocations {
-  flex-grow: 1;
-  max-height: 60vh;
-  overflow: hidden;
-  padding: 10px 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.mySwiperLocations .swiper-slide {
-  background: none;
-  opacity: 1;
-  transform: scale(1);
-}
-
-.mySwiperLocations .swiper-slide img {
-  width: 100%;
-  height: auto;
-  border-radius: 12px;
-  object-fit: cover;
-  max-height: 300px;
-  filter: none;
-  opacity: 1;
-}
-
+/* Название локации */
+.location-card p,
 .mySwiperLocations .swiper-slide p {
   color: white;
   font-size: 1rem;
   margin-top: 8px;
 }
 
+.location-card p {
+  font-size: 1.1rem;
+  font-weight: 500;
+  margin-top: 10px;
+}
+
+/* Кнопки навигации */
 .locations-prev,
 .locations-next {
   color: #ff0080;
 }
 
+/* Буллеты пагинации */
 .locations-pagination .swiper-pagination-bullet {
   background: #ff0080;
+}
+
 }
 /* ==== Свайпер для выбора авто (screen5) ==== */
 .mySwiperCars {
