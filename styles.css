@@ -661,5 +661,18 @@ p {
   opacity: 0;
 }
 
+/* Для того, чтобы экран выбора стартат локации был таким же, как и экран выбора персонажа. Для этого также в html код был обёрнут в контейнер */
+.location-wrapper {
+  width: 100%;
+  max-width: 320px;
+  margin: 0 auto;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+
 
 
