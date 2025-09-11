@@ -443,11 +443,6 @@ p {
 }
 
 /* Слайд */
-.mySwiperLocations .swiper-slide {
-  background: none;
-  opacity: 1;
-  transform: scale(1);
-}
 
 /* Изображение локации */
 .mySwiperLocations .swiper-slide img,
