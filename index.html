@@ -36,44 +36,45 @@
     </div>
   </section>
 
-  <!-- Экран 3: Локация -->
+ <!-- Экран 3: Локация -->
 <section id="screen3" class="screen hidden">
-  <h2>🚘 Локация старта</h2>
-  <p>Где начнётся ваш путь?</p>
+  <div class="location-wrapper">
+    <h2>🚘 Локация старта</h2>
+    <p>Где начнётся ваш путь?</p>
 
-  <div class="swiper mySwiperLocations">
-    <div class="swiper-wrapper">
-      <div class="swiper-slide location-card" data-location="Двор">
-        <div class="card">
-          <div class="location-name">🏢 Двор</div>
-          <img src="dvor.jpg" alt="Двор" class="location-image" />
+    <div class="swiper mySwiperLocations">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide location-card" data-location="Двор">
+          <div class="card">
+            <div class="location-name">🏢 Двор</div>
+            <img src="dvor.jpg" alt="Двор" class="location-image" />
+          </div>
+        </div>
+
+        <div class="swiper-slide location-card" data-location="Улица">
+          <div class="card">
+            <div class="location-name">🌇 Улица</div>
+            <img src="city.jpg" alt="Улица" class="location-image" />
+          </div>
+        </div>
+
+        <div class="swiper-slide location-card" data-location="Частный дом">
+          <div class="card">
+            <div class="location-name">🏡 Частный дом</div>
+            <img src="house.jpg" alt="Частный дом" class="location-image" />
+          </div>
         </div>
       </div>
 
-      <div class="swiper-slide location-card" data-location="Улица">
-        <div class="card">
-          <div class="location-name">🌇 Улица</div>
-          <img src="city.jpg" alt="Улица" class="location-image" />
-        </div>
-      </div>
-
-      <div class="swiper-slide location-card" data-location="Частный дом">
-        <div class="card">
-          <div class="location-name">🏡 Частный дом</div>
-          <img src="house.jpg" alt="Частный дом" class="location-image" />
-        </div>
-      </div>
+      <div class="swiper-button-prev locations-prev"></div>
+      <div class="swiper-button-next locations-next"></div>
+      <div class="swiper-pagination locations-pagination"></div>
     </div>
 
-    <div class="swiper-button-prev locations-prev"></div>
-    <div class="swiper-button-next locations-next"></div>
-    <div class="swiper-pagination locations-pagination"></div>
+    <button id="chooseLocationBtn" class="button">Выбрать локацию</button>
   </div>
-
-  <!-- ✅ Кнопка внутри секции -->
-  <button id="chooseLocationBtn" class="button">Выбрать локацию</button>
 </section>
-
+  
   <!-- Экран 4: Интро персонажа -->
   <section id="screen4" class="screen hidden">
   <!-- ✅ Анимация машины -->
