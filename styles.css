@@ -101,17 +101,7 @@ p {
   transform: translateY(0);
 }
 
-.card {
-  background: rgba(30, 30, 30, 0.92);
-  border-radius: 16px;
-  padding: 20px;
-  width: 90%;
-  max-width: 320px;
-  margin: 0 auto;
-  text-align: center;
-  box-shadow: 0 0 15px rgba(0,0,0,0.3);
-}
-
+/* Карточка персонажа */
 .character-avatar {
   width: 100%;
   max-width: 150px;
