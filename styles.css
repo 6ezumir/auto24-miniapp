@@ -585,8 +585,6 @@ p {
   cursor: pointer;
   transition: all 0.3s ease;
 }
-
-}
 /* Кнопка "Выбрать авто" */
 #chooseCarBtn {
   position: relative;
