@@ -1,11 +1,27 @@
+/* 🎨 Переменные */
+:root {
+  --color-bg1: #0f0f0f;
+  --color-bg2: #2c003e;
+  --color-bg3: #6e00ff;
+  --color-accent1: #ff0080;
+  --color-accent2: #7928ca;
+  --color-text: #fff;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --shadow-light: 0 0 12px rgba(255, 0, 127, 0.5);
+  --shadow-dark: 0 0 15px rgba(0,0,0,0.3);
+}
+
+/* 🌌 Фон */
 body {
   margin: 0;
   padding: 0;
-  background: linear-gradient(135deg, #0f0f0f, #2c003e, #6e00ff);
+  background: linear-gradient(135deg, var(--color-bg1), var(--color-bg2), var(--color-bg3));
   background-size: 400% 400%;
   animation: gradientShift 20s ease infinite;
   font-family: 'Montserrat', sans-serif;
-  color: #fff;
+  color: var(--color-text);
 }
 
 @keyframes gradientShift {
@@ -14,673 +30,131 @@ body {
   100% { background-position: 0% 50%; }
 }
 
-/* Логотип */
+/* 🌟 Общие */
+.hidden { display: none !important; }
+h1, h2 { font-family: 'Orbitron', sans-serif; }
+p { line-height: 1.5; }
+
+/* 🔹 Логотип */
 .logo-container {
-  width: 100%;
   display: flex;
   justify-content: center;
-  margin-top: 15px;
-  margin-bottom: 5px;
+  margin: 15px 0 5px;
 }
-.logo {
-  max-width: 160px;
-  height: auto;
-  filter: drop-shadow(0 0 5px rgba(0,0,0,0.5));
-}
+.logo { max-width: 160px; filter: drop-shadow(0 0 5px rgba(0,0,0,0.5)); }
 
-/* Контейнеры */
-.container {
-  max-width: 400px;
-  margin: 0 auto;
-  padding: 0 20px 80px;
-  text-align: center;
-}
-.hidden {
-  display: none;
-}
-
-h1 {
-  font-family: 'Orbitron', sans-serif;
-  font-size: 1.8rem;
-  margin: 5px 0 15px;
-  text-align: center;
-}
-
-.subtext {
-  font-size: 0.9rem;
-  color: rgba(255, 255, 255, 0.7);
-  margin-top: -5px;
-  margin-bottom: 20px;
-  line-height: 1.4;
-}
-
-p {
+/* 🔹 Кнопки */
+.button, #chooseLocationBtn, #chooseCarBtn {
+  display: block;
+  margin: 20px auto;
+  padding: 12px 24px;
   font-size: 1rem;
-  line-height: 1.5;
-  margin-bottom: 15px;
-}
-
-.button {
-  display: inline-block;
-  background: linear-gradient(90deg, #ff0080, #7928ca);
-  color: #fff;
+  font-family: 'Orbitron', sans-serif;
+  background: linear-gradient(90deg, var(--color-accent1), var(--color-accent2));
+  color: var(--color-text);
   border: none;
-  padding: 12px 20px;
-  margin: 10px 5px;
-  font-size: 1rem;
-  border-radius: 8px;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-light);
   cursor: pointer;
-  transition: transform 0.2s, box-shadow 0.2s;
+  transition: transform .2s, box-shadow .2s;
 }
-.button:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 10px rgba(255, 0, 128, 0.6);
-}
-
-.button-container {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 10px;
-}
-
-.swiper {
-  width: 100%;
-  padding: 10px 0;
-}
-.swiper-slide {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  opacity: 0;
-  transform: translateY(20px);
-  transition: all 0.4s ease;
-}
-.swiper-slide-active {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.card {
-  background: rgba(30, 30, 30, 0.92);
-  border-radius: 16px;
-  padding: 20px;
-  width: 90%;
-  max-width: 320px;
-  margin: 0 auto;
-  text-align: center;
-  box-shadow: 0 0 15px rgba(0,0,0,0.3);
-}
-
-.character-avatar {
-  width: 100%;
-  max-width: 150px;
-  height: 150px;
-  border-radius: 12px;
-  object-fit: cover;
-  object-position: center;
-  margin: 0 auto 12px;
-  box-shadow: 0 0 8px rgba(0,0,0,0.4);
-}
-
-.card h2 {
-  font-size: 1.3rem;
-  margin: 10px 0;
-}
-
-.card p {
-  font-size: 0.95rem;
-  margin-bottom: 12px;
-}
-
-.swiper-button-next,
-.swiper-button-prev {
-  color: #ff0080;
-}
-
-.swiper-pagination-bullet {
-  background: #ff0080;
-}
-
-.car-container {
-  position: fixed;
-  bottom: 20px;
-  left: -150px;
-  display: flex;
-  align-items: center;
-  z-index: 999;
-}
-
-.car-image {
-  width: 100px;
-  height: auto;
-}
-
-.trail {
-  position: absolute;
-  bottom: 20px;
-  left: 0;
-  height: 6px;
-  border-radius: 3px;
-  background: linear-gradient(90deg, rgba(255,255,255,0.5), transparent);
-  opacity: 0;
-  filter: blur(6px);
-}
-
-.car-container.animate {
-  animation: drive 3s forwards;
-}
-
-.car-container.animate .trail {
-  animation: trailFade 3s forwards;
-}
-
-@keyframes drive {
-  0% { transform: translateX(0); opacity: 0; }
-  10% { opacity: 1; }
-  90% { opacity: 1; }
-  100% { transform: translateX(600px); opacity: 0; }
-}
-@keyframes trailFade {
-  0% { opacity: 0; width: 0; }
-  10% { opacity: 0.8; width: 80px; }
-  90% { opacity: 0.8; width: 80px; }
-  100% { opacity: 0; width: 80px; }
-}
-
-.fade-in {
-  opacity: 0;
-  transform: translateY(20px);
-  animation: fadeInUp 0.8s ease forwards;
-}
-.fade-in.delay-1 { animation-delay: 0.3s; }
-.fade-in.delay-2 { animation-delay: 0.6s; }
-.fade-in.delay-3 { animation-delay: 0.9s; }
-
-@keyframes fadeInUp {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@media (max-width: 480px) {
-  h1 { font-size: 1.4rem; }
-}
-
-/* 🌆 Локации - экранированный ID */
-
-/* 🌆 Экран 3: Локация */
-#screen3 {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-  padding: 16px;
-  max-width: 420px;
-  margin: 0 auto;
-  text-align: center;
-  box-sizing: border-box;
-  min-height: 100vh;
-  overflow-y: auto;
-}
-
-#screen3 h2 {
-  margin: 0 0 10px;
-  font-size: 1.4rem;
-  font-family: 'Orbitron', sans-serif;
-}
-
-#screen3 p {
-  margin: 0 0 15px;
-  font-size: 0.95rem;
-  color: rgba(255,255,255,0.7);
-}
-
-/* Свайпер */
-.mySwiperLocations {
-  width: 100%;
-  max-width: 320px;
-  margin: 0 auto;
-  padding: 10px 0;
-}
-
-.mySwiperLocations .swiper-slide {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  opacity: 0.5;
-  transform: scale(0.95);
-  transition: all 0.3s ease;
-}
-
-.mySwiperLocations .swiper-slide-active {
-  opacity: 1;
-  transform: scale(1);
-}
-
-/* Карточка локации */
-#screen3 .card {
-  background: rgba(30, 30, 30, 0.92);
-  border-radius: 16px;
-  padding: 20px;
-  width: 90%;
-  max-width: 280px;
-  text-align: center;
-  box-shadow: 0 0 15px rgba(0,0,0,0.3);
-}
-
-/* Изображение */
-.location-image {
-  width: 100%;
-  max-width: 200px;
-  height: auto;
-  border-radius: 12px;
-  object-fit: cover;
-  margin: 0 auto 12px;
-  box-shadow: 0 0 8px rgba(0,0,0,0.4);
-}
-
-/* Название */
-.location-name {
-  font-size: 1.1rem;
-  font-family: 'Orbitron', sans-serif;
-  margin-bottom: 8px;
-  color: #fff;
-}
-
-/* Кнопка */
-#chooseLocationBtn {
-  margin-top: 15px;
-  font-size: 15px;
-  padding: 10px 20px;
-  font-family: 'Orbitron', sans-serif;
-  border: none;
-  border-radius: 12px;
-  cursor: pointer;
-  background: linear-gradient(90deg, #ff0080, #7928ca);
-  color: white;
-  box-shadow: 0 0 12px rgba(255, 0, 127, 0.5);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-#chooseLocationBtn:hover {
+.button:hover, #chooseLocationBtn:hover, #chooseCarBtn:hover {
   transform: scale(1.05);
   box-shadow: 0 0 16px rgba(255, 0, 127, 0.8);
 }
 
-/* Навигация */
-#screen3 .swiper-button-next,
-#screen3 .swiper-button-prev {
-  color: #ff0080;
-}
-
-#screen3 .swiper-pagination-bullet {
-  background: #ff0080;
-}
-
-
-#screen4 {
-  text-align: center;
+/* 🔹 Карточки */
+.card, .car-card, #screen3 .card {
+  background: rgba(30, 30, 30, 0.92);
+  border-radius: var(--radius-lg);
   padding: 20px;
-}
-#screen5 .swiper {
-  width: 100%;
-  padding-bottom: 40px;
-}
-
-#screen5 .swiper-slide {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  background: #1a1a1a;
-  border-radius: 12px;
-  padding: 10px;
-  transition: transform 0.3s ease, opacity 0.3s ease;
-}
-
-#screen5 .swiper-slide img {
   width: 90%;
-  height: auto;
-  border-radius: 8px;
-  margin-bottom: 10px;
-}
-#screen5 .swiper-slide {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  background: #1a1a1a;
-  border-radius: 12px;
-  padding: 10px;
-  transition: transform 0.3s ease, opacity 0.3s;
-  opacity: 0.5;
-  transform: scale(0.95);
+  max-width: 320px;
+  margin: 0 auto;
+  text-align: center;
+  box-shadow: var(--shadow-dark);
 }
 
-#screen5 .swiper-slide-active {
+.character-avatar, .location-image, .car-card img {
+  width: 100%;
+  max-width: 200px;
+  height: auto;
+  border-radius: var(--radius-md);
+  object-fit: cover;
+  margin: 0 auto 12px;
+  box-shadow: 0 0 8px rgba(0,0,0,0.4);
+}
+
+/* 🔹 Swiper */
+.swiper { width: 100%; padding: 10px 0; }
+.swiper-slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: .5;
+  transform: scale(0.95);
+  transition: all 0.3s ease;
+}
+.swiper-slide-active {
   opacity: 1;
   transform: scale(1);
 }
+.swiper-button-next, .swiper-button-prev { color: var(--color-accent1); }
+.swiper-pagination-bullet { background: var(--color-accent1); }
 
-#screen5 .swiper-slide p {
-  color: white;
-  font-size: 18px;
-  margin: 0 0 8px 0;
-}
-
-#screen5 .swiper-slide img {
-  width: 100%;
-  height: auto;
-  border-radius: 12px;
-}
-
-#screen5 .swiper-button-next,
-#screen5 .swiper-button-prev {
-  color: #ff0080;
-}
-
-#screen5 .button {
-  display: block;
-  margin: 25px auto 0;
-  text-align: center;
-}
-
-
-#screen5 .swiper-slide p {
-  color: white;
-  font-size: 1rem;
-  margin: 0;
-}
-
-
-#storyText {
-  max-width: 90%;
-  margin: 0 auto 20px auto;
-  font-size: 1.1rem;
-  line-height: 1.6;
-}
-
-#storyButtons {
-  display: flex;
-  justify-content: center;
-}
-
-
-/* 🌊 Волна */
-.neon-wave {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 40px;
-  z-index: 1;
-  opacity: 0.5;
-  animation: pulse 2s ease-in-out infinite;
-}
-
-.neon-wave svg {
-  display: block;
-  width: 100%;
-  height: 100%;
-  transform: scaleY(-1);
-  filter: drop-shadow(0 0 10px #ff0055);
-}
-
-@keyframes pulse {
-  0%, 100% {
-    opacity: 0.5;
-    transform: scaleY(-1) scaleX(1);
-  }
-  50% {
-    opacity: 1;
-    transform: scaleY(-1.05) scaleX(1.05);
-  }
-}
-
-.car-options {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 12px;
-  margin-top: 20px;
-}
-
-/* Обёртка слайдера */
-.mySwiperLocations {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-grow: 1;
-  max-height: 55vh;
-  padding: 10px 0;
-  overflow: hidden;
-  max-width: 320px;
-  margin: 0 auto;
-}
-
-/* Слайд */
-
-/* Изображение локации */
-.mySwiperLocations .swiper-slide img,
-.location-card img {
-  width: 100%;
-  height: auto;
-  max-height: 200px;
-  object-fit: cover;
-  border-radius: 12px;
-  filter: none;
-  opacity: 1;
-}
-
-/* Карточка локации */
-.location-card {
-  background: rgba(255, 255, 255, 0.05);
-  padding: 8px;
-  border-radius: 20px;
-  text-align: center;
-  box-shadow: 0 0 20px rgba(255, 255, 255, 0.05);
-  width: 100%;
-  max-width: 320px;
-  margin: 0 auto;
-}
-
-/* Название локации */
-.location-card p,
-.mySwiperLocations .swiper-slide p {
-  color: white;
-  font-size: 1rem;
-  margin-top: 8px;
-}
-
-.location-card p {
-  font-size: 1.1rem;
-  font-weight: 500;
-  margin-top: 10px;
-}
-
-/* Кнопки навигации */
-.locations-prev,
-.locations-next {
-  color: #ff0080;
-}
-
-/* Буллеты пагинации */
-.locations-pagination .swiper-pagination-bullet {
-  background: #ff0080;
-}
-
-/* ==== Свайпер для выбора авто (screen5) ==== */
-.mySwiperCars {
-  width: 100%;
-  padding: 20px 0;
-}
-
-.car-card {
-  background: linear-gradient(135deg, #1f1f1f, #2d0033);
-  border-radius: 20px;
-  padding: 20px;
-  text-align: center;
-  color: #fff;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
-  transition: transform 0.3s ease, opacity 0.3s ease;
-  overflow: hidden; /* Вот это нужно */
-}
-
-.car-card h3 {
-  font-size: 1.2rem;
-  margin-bottom: 5px;
-  font-weight: 600;
-}
-
-.car-card p {
-  font-size: 0.95rem;
-  color: #ccc;
-}
-
-.swiper-button-next.cars-next,
-.swiper-button-prev.cars-prev {
-  color: #fff;
-}
-
-.swiper-pagination.cars-pagination {
-  margin-top: 10px;
-}
-.car-card img {
-  width: auto;
-  max-height: 165px; /* было 180px */
-  object-fit: contain;
-  border-radius: 12px;
-  margin: 0 auto;
-  display: block;
-  border-radius: 16px; /* <-- скругление углов */
-  transition: transform 0.3s ease; /* плавность на всякий случай */
-}
-.car-slide p {
-  text-align: center;
-  font-size: 1.2rem;
-  margin-top: 5px;
-  margin-bottom: 5px;
-  color: #fff;
-}
-
-/* Кнопка "Выбрать авто" */
-#chooseCarBtn {
-  display: block;
-  position: relative;
-  z-index: 10;
-  margin: 30px auto;
-  font-size: 17px;
-  padding: 12px 24px;
-  background: linear-gradient(135deg, #ff007f, #6e00ff);
-  color: white;
-  border: none;
-  border-radius: 12px;
-  box-shadow: 0 0 12px rgba(255, 0, 127, 0.5);
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.swiper-slide.car-card {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 10px;
-  height: auto;
-}
-.location-image {
-  width: 100%;
-  max-width: 280px;
-  height: auto;
-  object-fit: cover;
-  border-radius: 16px;
-  display: block;
-  margin: 0 auto;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-}
-
-.location-name {
-  font-family: 'Orbitron', sans-serif;
-  text-align: center;
-  margin-bottom: 10px;
-  font-size: 18px;
-  color: #fff;
-}
-
-.card {
-  background: #1a1a1a;
-  border-radius: 20px;
-  padding: 20px;
-  text-align: center;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
-}
-.final-image {
-  width: 200px;
-  border-radius: 12px;
-  margin: 20px 0;
-}
-
+/* 🔹 Экран */
 .screen {
   display: none;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start; /* 👈 теперь всё прижато вверх */
-  min-height: 100vh; /* 👈 безопасно занимает весь экран */
-  overflow-y: auto; /* 👈 включаем прокрутку, если не влезает */
-  padding: 20px 20px;
+  justify-content: flex-start;
+  min-height: 100vh;
+  padding: 20px;
   box-sizing: border-box;
+  overflow-y: auto;
+}
+.screen:not(.hidden) { display: flex; }
+
+/* 🔹 Спец-оформление */
+#storyText { max-width: 90%; margin: 0 auto 20px; font-size: 1.1rem; line-height: 1.6; }
+#storyButtons { display: flex; justify-content: center; gap: 10px; }
+
+.location-name, .car-card h3 {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1.1rem;
+  margin: 8px 0;
 }
 
-
-.screen:not(.hidden) {
-  display: flex;
-}
-.screen.hidden {
-  display: none !important;
-  visibility: hidden;
-  height: 0 !important;
-  overflow: hidden;
-  opacity: 0;
-}
-
-/* Для того, чтобы экран выбора стартат локации был таким же, как и экран выбора персонажа. Для этого также в html код был обёрнут в контейнер */
-.location-wrapper {
-  background: rgba(0, 0, 0, 0.25);
-  border-radius: 20px;
-  padding: 16px;
-  max-width: 360px;
-  width: 100%;
-  box-shadow: 0 0 20px rgba(255, 255, 255, 0.05);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 12px;
-  margin-top: 12px;
-}
-
+/* 🔹 Финальный экран */
 .final-box {
   background: rgba(0,0,0,0.3);
-  border-radius: 16px;
+  border-radius: var(--radius-md);
   padding: 20px;
   margin: 20px 0;
   text-align: center;
   box-shadow: 0 0 15px rgba(255,0,0,0.4);
 }
+.final-box p { margin: 10px 0; font-size: 1.1rem; }
+.promo { font-size: 1.2rem; font-weight: bold; color: var(--color-accent1); }
 
-.final-box p {
-  margin: 10px 0;
-  font-size: 1.1rem;
+/* 🔹 Волна */
+.neon-wave {
+  position: fixed;
+  bottom: 0; left: 0;
+  width: 100%; height: 40px;
+  z-index: 1;
+  opacity: .5;
+  animation: pulse 2s ease-in-out infinite;
 }
-
-.promo {
-  font-size: 1.2rem;
-  font-weight: bold;
-  color: #ff0080;
+.neon-wave svg {
+  width: 100%; height: 100%;
+  transform: scaleY(-1);
+  filter: drop-shadow(0 0 10px #ff0055);
 }
-
-
+@keyframes pulse {
+  0%,100% { opacity: .5; transform: scaleY(-1) scaleX(1); }
+  50% { opacity: 1; transform: scaleY(-1.05) scaleX(1.05); }
+}
 
 
 
