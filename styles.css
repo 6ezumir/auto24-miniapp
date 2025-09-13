@@ -679,6 +679,27 @@ p {
   margin-top: 12px;
 }
 
+.final-box {
+  background: rgba(0,0,0,0.3);
+  border-radius: 16px;
+  padding: 20px;
+  margin: 20px 0;
+  text-align: center;
+  box-shadow: 0 0 15px rgba(255,0,0,0.4);
+}
+
+.final-box p {
+  margin: 10px 0;
+  font-size: 1.1rem;
+}
+
+.promo {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #ff0080;
+}
+
+
 
 
 
