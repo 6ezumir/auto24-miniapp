@@ -142,7 +142,7 @@ function selectGender(gender) {
     const slide = document.createElement('div');
     slide.className = 'swiper-slide';
     slide.innerHTML = `
-      <div class="card">
+      <div class=".character-card">
         <img src="${char.image}" alt="${char.title}" class="character-avatar">
         <h2>${char.title}</h2>
         <p>${char.intro}</p>
