@@ -7,6 +7,18 @@ let currentStep = 0;
 let swiper;
 let locationSwiper;
 
+
+// Генерация и сохранение уникального промокода
+function getPromoCode() {
+  let code = localStorage.getItem("promoCode");
+  if (!code) {
+    code = "AUTO24-" + Math.random().toString(36).substring(2, 8).toUpperCase();
+    localStorage.setItem("promoCode", code);
+  }
+  return code;
+}
+
+
 // Универсальная функция показа нужного экрана
 function showScreen(id) {
   document.querySelectorAll('.screen').forEach(screen => {
@@ -219,20 +231,19 @@ function goToCarSelection() {
 }
 
 // Выбор авто
-const chooseCarBtn = document.getElementById("chooseCarBtn");
-if (chooseCarBtn) {
-  chooseCarBtn.addEventListener("click", () => {
-    const activeCar = document.querySelector(".mySwiperCars .swiper-slide-active");
-    selectedCar = activeCar?.dataset.car || "🚗 автомобиль";
+chooseCarBtn.addEventListener("click", () => {
+  const activeCar = document.querySelector(".mySwiperCars .swiper-slide-active");
+  selectedCar = activeCar?.dataset.car || "🚗 автомобиль";
 
-    console.log("Выбран авто:", selectedCar);
+  console.log("Выбран авто:", selectedCar);
 
-    showScreen("screen6");
+  showScreen("screen6");
 
-    document.getElementById("finalText").textContent = `Ты стартуешь из локации: ${selectedLocation}`;
-    document.getElementById("badgeText").textContent = `🚘 авто: ${selectedCar}`;
-  });
-}
+  // Текст благодарности
+  document.getElementById("finalText").textContent = `Ты стартуешь из локации: ${selectedLocation}`;
+  document.getElementById("badgeText").textContent = `🚘 авто: ${selectedCar}\n🎁 Промокод: ${getPromoCode()}`;
+});
+
 
 // Прогресс по шагам
 function nextStep() {
