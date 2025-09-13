@@ -565,10 +565,13 @@ p {
   color: #fff;
 }
 
+/* Кнопка "Выбрать авто" */
 #chooseCarBtn {
   display: block;
-  margin: 40px auto;
-  font-size: 18px;
+  position: relative;
+  z-index: 10;
+  margin: 30px auto;
+  font-size: 17px;
   padding: 12px 24px;
   background: linear-gradient(135deg, #ff007f, #6e00ff);
   color: white;
@@ -578,20 +581,7 @@ p {
   cursor: pointer;
   transition: all 0.3s ease;
 }
-/* Кнопка "Выбрать авто" */
-#chooseCarBtn {
-  position: relative;
-  z-index: 10;
-  margin: 20px auto;
-  display: block;
-  padding: 12px 24px;
-  font-size: 16px;
-  background: linear-gradient(135deg, #ff007f, #6e00ff);
-  color: white;
-  border: none;
-  border-radius: 12px;
-  box-shadow: 0 0 12px rgba(255, 0, 127, 0.5);
-}
+
 .swiper-slide.car-card {
   display: flex;
   flex-direction: column;
