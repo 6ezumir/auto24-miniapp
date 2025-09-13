@@ -240,8 +240,9 @@ chooseCarBtn.addEventListener("click", () => {
   showScreen("screen6");
 
   // Текст благодарности
-  document.getElementById("finalText").textContent = `Ты стартуешь из локации: ${selectedLocation}`;
-  document.getElementById("badgeText").textContent = `🚘 авто: ${selectedCar}\n🎁 Промокод: ${getPromoCode()}`;
+  document.getElementById("finalText").textContent = `Ты стартуешь из: ${selectedLocation}`;
+  document.getElementById("badgeText").textContent = `🚘 Твой выбор: ${selectedCar}`;
+  document.getElementById("promoText").textContent = `🎁 Промокод: ${getPromoCode()}`;
 });
 
 
