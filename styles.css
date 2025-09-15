@@ -249,17 +249,6 @@ p {
   transform: scale(1);
 }
 
-/* Карточка локации */
-#screen3 .card {
-  background: rgba(30, 30, 30, 0.92);
-  border-radius: 16px;
-  padding: 20px;
-  width: 90%;
-  max-width: 280px;
-  text-align: center;
-  box-shadow: 0 0 15px rgba(0,0,0,0.3);
-}
-
 /* Изображение */
 .location-image {
   width: 100%;
