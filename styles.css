@@ -227,7 +227,7 @@ p {
 /* кнопки внутри контейнера по умолчанию скрыты */
 #screen1 .button-container,
 #screen1 .button-container .button {
-  opacity: 0;
+  opacity: 1;
   transform: translateY(20px);
   transition: opacity 0.8s ease, transform 0.8s ease;
 }
