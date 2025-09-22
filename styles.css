@@ -224,6 +224,22 @@ p {
   transform: translateY(0);
 }
 
+/* кнопки внутри контейнера по умолчанию скрыты */
+#screen1 .button-container,
+#screen1 .button-container .button {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+/* когда экран активен → показываем */
+#screen1.show .button-container,
+#screen1.show .button-container .button {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
 /* Машинка */
 #screen1 .car-container {
   position: absolute;
