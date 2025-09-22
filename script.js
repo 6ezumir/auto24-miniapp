@@ -35,22 +35,17 @@ if (id === "screen1") {
   if (car1 && screen1) {
     car1.classList.remove("hidden"); // показать машинку
 
-    // сбрасываем и перезапускаем анимацию экрана
+    // Перезапуск анимации экрана (именно screen1)
     screen1.classList.remove("animate");
-    void screen1.offsetWidth; // перезапуск
+    void screen1.offsetWidth; 
     screen1.classList.add("animate");
 
-    // показываем текст и кнопки почти сразу (через 500мс)
+    // Текст и кнопки появляются через 2 секунды
     setTimeout(() => {
       screen1.classList.add("show");
-    }, 500);
+    }, 2000);
   }
 }
-
-
-
-
-
 // Словарь персонажей
 const characters = {
   'Мужчина': [
