@@ -28,21 +28,24 @@ function showScreen(id) {
   if (target) target.classList.remove('hidden');
 
   // 🚘 Анимация машинки на screen1
-  if (id === "screen1") {
-    const car1 = document.getElementById("carContainer1");
-    if (car1) {
-      car1.classList.remove("hidden"); // показать
-      car1.classList.remove("animate"); // сбросить анимацию
-      void car1.offsetWidth;            // перезапуск
-      car1.classList.add("animate");    // запустить снова
+if (id === "screen1") {
+  const car1 = document.getElementById("carContainer1");
+  if (car1) {
+    car1.classList.remove("hidden"); // показать машинку
 
-      // показываем текст и кнопки только через 2 секунды
-      setTimeout(() => {
-        document.getElementById("screen1").classList.add("show");
-      }, 2000);
-    }
+    // сбрасываем и перезапускаем анимацию экрана
+    const screen1 = document.getElementById("screen1");
+    screen1.classList.remove("animate");
+    void screen1.offsetWidth;   // перезапуск
+    screen1.classList.add("animate");
+
+    // показываем текст и кнопки только через 2 секунды
+    setTimeout(() => {
+      screen1.classList.add("show");
+    }, 2000);
   }
 }
+
 
 
 
