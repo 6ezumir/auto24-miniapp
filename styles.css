@@ -178,6 +178,19 @@ p {
 .fade-in.delay-2 { animation-delay: 0.6s; }
 .fade-in.delay-3 { animation-delay: 0.9s; }
 
+/* 🔥 Универсальная анимация появления снизу */
+.fade-in-up {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.8s ease forwards;
+}
+
+/* Задержки для последовательного появления */
+.fade-in-up.delay-1 { animation-delay: 0.3s; }
+.fade-in-up.delay-2 { animation-delay: 0.6s; }
+.fade-in-up.delay-3 { animation-delay: 0.9s; }
+
+
 @keyframes fadeInUp {
   to {
     opacity: 1;
