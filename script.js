@@ -26,7 +26,23 @@ function showScreen(id) {
   });
   const target = document.getElementById(id);
   if (target) target.classList.remove('hidden');
+
+  // 🚘 Анимация машинки на screen1
+ if (id === "screen1") {
+  const car1 = document.getElementById("carContainer1");
+  if (car1) {
+    car1.classList.remove("animate");
+    void car1.offsetWidth;
+    car1.classList.add("animate");
+
+    // показываем текст только через 2 секунды
+    setTimeout(() => {
+      document.getElementById("screen1").classList.add("show");
+    }, 2000);
+  }
 }
+
+
 
 // Словарь персонажей
 const characters = {
@@ -142,7 +158,7 @@ function selectGender(gender) {
     const slide = document.createElement('div');
     slide.className = 'swiper-slide';
     slide.innerHTML = `
-      <div class=".character-card">
+      <div class="character-card">
         <img src="${char.image}" alt="${char.title}" class="character-avatar">
         <h2>${char.title}</h2>
         <p>${char.intro}</p>
@@ -231,7 +247,8 @@ function goToCarSelection() {
 }
 
 // Выбор авто
-chooseCarBtn.addEventListener("click", () => {
+document.getElementById("chooseCarBtn").addEventListener("click", () => {
+
   const activeCar = document.querySelector(".mySwiperCars .swiper-slide-active");
   selectedCar = activeCar?.dataset.car || "🚗 автомобиль";
 
