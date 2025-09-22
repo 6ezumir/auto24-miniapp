@@ -194,22 +194,24 @@ p {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start; /* прижимаем контент вверх */
   text-align: center;
   min-height: 100vh;
-  padding: 20px;
+  padding: 100px 20px 20px; /* добавляем отступ сверху */
   box-sizing: border-box;
   position: relative;
   overflow: hidden;
 }
 
-/* Заголовок, подзаголовок, кнопка */
+  /* Заголовок, подзаголовок, кнопка */
 #screen1 h1,
 #screen1 p,
 #screen1 .button {
   opacity: 0;
   transform: translateY(20px);
   transition: opacity 0.8s ease, transform 0.8s ease;
+  position: relative;
+  z-index: 20; /* чтобы машина не перекрывала */
 }
 
 #screen1.show h1,
