@@ -29,9 +29,9 @@ function showScreen(id) {
 
   // 🚘 Анимация машинки на screen1
 if (id === "screen1") {
-  const car1 = document.getElementById("carContainer1");
   const screen1 = document.getElementById("screen1");
-
+  const car1 = document.getElementById("carContainer1");
+  
   // ✅ всегда показываем текст и кнопки
   screen1.classList.add("show");
 
