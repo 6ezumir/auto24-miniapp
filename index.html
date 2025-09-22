@@ -16,13 +16,21 @@
   </div>
 
   <!-- Экран 1: Выбор пола -->
-  <section id="screen1" class="screen active">
-    <h1 class="fade-in">Чтобы выбрать подходящего персонажа и подобрать авто — определим базу: кто вы?</h1>
-    <div class="fade-in delay-1 button-container">
-      <button class="button" onclick="selectGender('Мужчина')">Мужчина</button>
-      <button class="button" onclick="selectGender('Женщина')">Женщина</button>
-    </div>
-  </section>
+<section id="screen1" class="screen active">
+  <!-- ✅ Машинка -->
+  <div class="car-container hidden">
+    <img src="car-yellow (1).png" alt="Машина" class="car-image">
+    <div class="trail"></div>
+  </div>
+
+  <h1 class="fade-in">
+    Чтобы выбрать подходящего персонажа и подобрать авто — определим базу: кто вы?
+  </h1>
+  <div class="fade-in delay-1 button-container">
+    <button class="button" onclick="selectGender('Мужчина')">Мужчина</button>
+    <button class="button" onclick="selectGender('Женщина')">Женщина</button>
+  </div>
+</section>
 
   <!-- Экран 2: Выбор персонажа -->
   <section id="screen2" class="screen hidden">
@@ -76,9 +84,9 @@
 </section>
   
   <!-- Экран 4: Интро персонажа -->
-  <section id="screen4" class="screen hidden">
-  <!-- ✅ Анимация машины -->
-  <div id="carContainer" class="car-container hidden">
+<section id="screen4" class="screen hidden">
+  <!-- ✅ Машинка -->
+  <div class="car-container hidden">
     <img src="car-yellow (1).png" alt="Машина" class="car-image">
     <div class="trail"></div>
   </div>
