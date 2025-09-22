@@ -199,55 +199,46 @@ p {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start; /* контент идёт сверху вниз */
+  justify-content: flex-start; /* контент идёт сверху */
   text-align: center;
   min-height: 100vh;
-  padding: 40px 20px 100px; /* 👈 сверху 40px, снизу большой запас для машинки */
+  padding: 40px 20px 100px; /* сверху + снизу место для машинки */
   box-sizing: border-box;
   position: relative;
   overflow: hidden;
 }
 
-/* Заголовок, подзаголовок, кнопка */
+/* Заголовок и кнопки — по умолчанию скрыты */
 #screen1 h1,
-#screen1 p,
-#screen1 .button {
+#screen1 .button-container {
   opacity: 0;
   transform: translateY(20px);
   transition: opacity 0.8s ease, transform 0.8s ease;
 }
 
+/* Когда экран активен → показываем */
 #screen1.show h1,
-#screen1.show p,
-#screen1.show .button {
+#screen1.show .button-container {
   opacity: 1;
   transform: translateY(0);
 }
 
-/* кнопки внутри контейнера по умолчанию скрыты */
-#screen1 .button-container,
-#screen1 .button-container .button {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.8s ease, transform 0.8s ease;
+/* Задержки для плавного появления */
+#screen1 h1 {
+  transition-delay: 0.2s;
 }
-
-/* когда экран активен → показываем */
-#screen1.show .button-container,
-#screen1.show .button-container .button {
-  opacity: 1;
-  transform: translateY(0);
+#screen1 .button-container {
+  transition-delay: 0.6s;
 }
-
 
 /* Машинка */
 #screen1 .car-container {
   position: absolute;
-  bottom: 20px;   /* 👈 машинка всегда внизу */
+  bottom: 20px;
   left: -200px;
   display: flex;
   align-items: center;
-  z-index: 1;     /* ниже текста и кнопок */
+  z-index: 1; /* ниже текста и кнопок */
 }
 
 #screen1 .car-image {
