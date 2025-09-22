@@ -773,14 +773,5 @@ p {
   color: #ff0080;
 }
 
-.fade-in-up {
-  pointer-events: none; /* блокируем клики пока идёт анимация */
-}
-
-.fade-in-up.animated {
-  pointer-events: auto; /* включаем клики после завершения */
-}
-
-
 
 
