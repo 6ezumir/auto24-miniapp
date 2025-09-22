@@ -194,24 +194,22 @@ p {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start; /* прижимаем контент вверх */
+  justify-content: flex-start; /* контент идёт сверху вниз */
   text-align: center;
   min-height: 100vh;
-  padding: 100px 20px 20px; /* добавляем отступ сверху */
+  padding: 40px 20px 100px; /* 👈 сверху 40px, снизу большой запас для машинки */
   box-sizing: border-box;
   position: relative;
   overflow: hidden;
 }
 
-  /* Заголовок, подзаголовок, кнопка */
+/* Заголовок, подзаголовок, кнопка */
 #screen1 h1,
 #screen1 p,
 #screen1 .button {
   opacity: 0;
   transform: translateY(20px);
   transition: opacity 0.8s ease, transform 0.8s ease;
-  position: relative;
-  z-index: 20; /* чтобы машина не перекрывала */
 }
 
 #screen1.show h1,
@@ -224,11 +222,11 @@ p {
 /* Машинка */
 #screen1 .car-container {
   position: absolute;
-  bottom: 40px;
+  bottom: 20px;   /* 👈 машинка всегда внизу */
   left: -200px;
   display: flex;
   align-items: center;
-  z-index: 10;
+  z-index: 1;     /* ниже текста и кнопок */
 }
 
 #screen1 .car-image {
@@ -247,7 +245,6 @@ p {
   90%  { transform: translateX(110vw); opacity: 1; }
   100% { transform: translateX(110vw); opacity: 0; }
 }
-
 
 
 /* 👤 Экран 2: Персонажи */
