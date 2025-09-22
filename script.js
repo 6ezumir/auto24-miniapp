@@ -32,20 +32,18 @@ if (id === "screen1") {
   const car1 = document.getElementById("carContainer1");
   const screen1 = document.getElementById("screen1");
 
-  if (car1 && screen1) {
-    car1.classList.remove("hidden"); // показать машинку
+  // ✅ всегда показываем текст и кнопки
+  screen1.classList.add("show");
 
-    // Перезапуск анимации экрана (именно screen1)
-    screen1.classList.remove("animate");
-    void screen1.offsetWidth; 
-    screen1.classList.add("animate");
-
-    // Текст и кнопки появляются через 2 секунды
-    setTimeout(() => {
-      screen1.classList.add("show");
-    }, 2000);
+  // если машинка есть → запускаем её анимацию
+  if (car1) {
+    car1.classList.remove("hidden"); 
+    car1.classList.remove("animate"); 
+    void car1.offsetWidth;            
+    car1.classList.add("animate");    
   }
 }
+
 // Словарь персонажей
 const characters = {
   'Мужчина': [
