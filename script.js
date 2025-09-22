@@ -30,19 +30,20 @@ function showScreen(id) {
   // 🚘 Анимация машинки на screen1
 if (id === "screen1") {
   const car1 = document.getElementById("carContainer1");
-  if (car1) {
+  const screen1 = document.getElementById("screen1");
+
+  if (car1 && screen1) {
     car1.classList.remove("hidden"); // показать машинку
 
     // сбрасываем и перезапускаем анимацию экрана
-    const screen1 = document.getElementById("screen1");
     screen1.classList.remove("animate");
-    void screen1.offsetWidth;   // перезапуск
+    void screen1.offsetWidth; // перезапуск
     screen1.classList.add("animate");
 
-    // показываем текст и кнопки только через 2 секунды
+    // показываем текст и кнопки почти сразу (через 500мс)
     setTimeout(() => {
       screen1.classList.add("show");
-    }, 2000);
+    }, 500);
   }
 }
 
