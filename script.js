@@ -48,12 +48,6 @@ if (id === "screen1") {
     car1.classList.add("animate");
   }
 
-  // ✨ показываем текст и кнопки только через 0.5 сек
-  setTimeout(() => {
-    screen1.classList.add("show");
-  }, 500);
-}
-
 
 // Словарь персонажей
 const characters = {
