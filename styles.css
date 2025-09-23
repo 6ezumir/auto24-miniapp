@@ -216,13 +216,6 @@ p {
   transition: opacity 0.8s ease, transform 0.8s ease;
 }
 
-/* Когда экран активен → показываем */
-#screen1.show h1,
-#screen1.show .button-container {
-  opacity: 1;
-  transform: translateY(0);
-}
-
 /* Задержки для плавного появления */
 #screen1 h1 {
   transition-delay: 0.2s;
