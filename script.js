@@ -27,14 +27,6 @@ function showScreen(id) {
   const target = document.getElementById(id);
   if (target) target.classList.remove('hidden');
 
-  // ✅ Когда анимация fade-in-up закончена → разрешаем клик
-document.querySelectorAll('.fade-in-up').forEach(el => {
-  el.addEventListener('animationend', () => {
-    el.classList.add('animated');
-  });
-});
-
-
   // 🚘 Анимация машинки на screen1
 if (id === "screen1") {
   const screen1 = document.getElementById("screen1");
