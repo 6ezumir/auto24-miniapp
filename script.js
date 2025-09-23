@@ -223,7 +223,7 @@ document.getElementById("chooseLocationBtn").addEventListener("click", () => {
   document.getElementById("storyButtons").innerHTML = '<button class="button" onclick="goToCarSelection()">Далее</button>';
   
   // ✅ Показать машину
-  const car = document.getElementById("carContainer");
+  const car = document.querySelector("#screen4 .car-container");
   if (car) {
     car.classList.remove("hidden");   // показать
     car.classList.remove("animate");  // сбросить анимацию
