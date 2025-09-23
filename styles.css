@@ -400,7 +400,7 @@ p {
   height: auto;
 }
 
-#screen4.animate .car-container {
+#screen4 .car-container.animate  {
   animation: drive-in-4 2.5s ease forwards;
 }
 
