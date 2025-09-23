@@ -39,18 +39,21 @@ document.querySelectorAll('.fade-in-up').forEach(el => {
 if (id === "screen1") {
   const screen1 = document.getElementById("screen1");
   const car1 = document.getElementById("carContainer1");
-  
-  // ✅ всегда показываем текст и кнопки
-  screen1.classList.add("show");
 
-  // если машинка есть → запускаем её анимацию
+  // 🚘 запускаем машинку сразу
   if (car1) {
-    car1.classList.remove("hidden"); 
-    car1.classList.remove("animate"); 
-    void car1.offsetWidth;            
-    car1.classList.add("animate");    
+    car1.classList.remove("hidden");
+    car1.classList.remove("animate");
+    void car1.offsetWidth;
+    car1.classList.add("animate");
   }
+
+  // ✨ показываем текст и кнопки только через 0.5 сек
+  setTimeout(() => {
+    screen1.classList.add("show");
+  }, 500);
 }
+
 
 // Словарь персонажей
 const characters = {
