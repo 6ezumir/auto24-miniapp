@@ -779,6 +779,14 @@ p {
   font-weight: bold;
   color: #ff0080;
 }
+/* Разрешаем клики после появления */
+.fade-in-up {
+  pointer-events: none; /* пока анимация идёт */
+}
+
+.fade-in-up.animated {
+  pointer-events: auto; /* после окончания анимации */
+}
 
 
 
