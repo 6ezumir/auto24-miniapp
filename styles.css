@@ -247,9 +247,10 @@ p {
 }
 
 /* Анимация машинки */
-#screen1.animate .car-container {
+.car-container.animate {
   animation: drive-in 2.5s ease forwards;
 }
+
 
 @keyframes drive-in {
   0%   { transform: translateX(0); opacity: 0; }
