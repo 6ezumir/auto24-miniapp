@@ -207,23 +207,6 @@ p {
   position: relative;
   overflow: hidden;
 }
-
-/* Заголовок и кнопки — по умолчанию скрыты */
-#screen1 h1,
-#screen1 .button-container {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.8s ease, transform 0.8s ease;
-}
-
-/* Задержки для плавного появления */
-#screen1 h1 {
-  transition-delay: 0.2s;
-}
-#screen1 .button-container {
-  transition-delay: 0.6s;
-}
-
 /* Машинка */
 #screen1 .car-container {
   position: absolute;
@@ -251,6 +234,9 @@ p {
   90%  { transform: translateX(110vw); opacity: 1; }
   100% { transform: translateX(110vw); opacity: 0; }
 }
+/* задержки появления (переписывают старые) */
+.fade-in-up.delay-1 { animation-delay: .5s; }  /* заголовок */
+.fade-in-up.delay-2 { animation-delay: .8s; }  /* кнопки */
 
 
 /* 👤 Экран 2: Персонажи */
