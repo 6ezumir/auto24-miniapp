@@ -21,24 +21,19 @@ function getPromoCode() {
 
 // Универсальная функция показа нужного экрана
 function showScreen(id) {
-  document.querySelectorAll('.screen').forEach(screen => {
-    screen.classList.add('hidden');
-  });
+  document.querySelectorAll('.screen').forEach(s => s.classList.add('hidden'));
   const target = document.getElementById(id);
   if (target) target.classList.remove('hidden');
 
-  // 🚘 Анимация машинки на screen1
-if (id === "screen1") {
-  const screen1 = document.getElementById("screen1");
-  const car1 = document.getElementById("carContainer1");
-
-  // 🚘 запускаем машинку сразу
-  if (car1) {
-    car1.classList.remove("hidden");
-    car1.classList.remove("animate");
-    void car1.offsetWidth;
-    car1.classList.add("animate");
+  if (id === "screen1") {
+    const car1 = document.getElementById("carContainer1");
+    if (car1) {
+      car1.classList.remove("hidden", "animate");
+      void car1.offsetWidth;
+      car1.classList.add("animate");
+    }
   }
+}
 
 
 // Словарь персонажей
