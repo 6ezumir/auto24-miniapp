@@ -793,4 +793,29 @@ p {
 .location-image{
   border-radius: 12px;
 }
+********************************************************************* 2
+
+/* Экран 3 — никаких панелей/теней */
+#screen3 .location-wrapper,
+#screen3 .mySwiperLocations,
+#screen3 .mySwiperLocations .swiper-wrapper,
+#screen3 .mySwiperLocations .swiper-slide{
+  background: transparent !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+  padding: 0 !important;
+}
+
+/* немного воздуха вокруг заголовка */
+#screen3 .location-wrapper{
+  max-width: 420px !important;
+  width: 100%;
+  margin: 0 auto;
+  gap: 12px;
+}
+
+/* картинки оставляем с мягким скруглением */
+#screen3 .location-image{
+  border-radius: 12px;
+}
 
