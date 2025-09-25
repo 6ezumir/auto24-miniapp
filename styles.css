@@ -711,6 +711,8 @@ p {
   overflow-y: auto; /* 👈 включаем прокрутку, если не влезает */
   padding: 20px 20px;
   box-sizing: border-box;
+  position: relative;
+  z-index: 2;
 }
 
 
