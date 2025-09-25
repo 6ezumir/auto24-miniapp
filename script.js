@@ -18,6 +18,26 @@ function getPromoCode() {
   return code;
 }
 
+function renderFinal({ ending, badge }) {
+  const finalEl = document.getElementById('finalText');
+  const badgeEl = document.getElementById('badgeText');
+  const promoEl = document.getElementById('promoText');
+
+  if (!finalEl || !badgeEl || !promoEl) {
+    console.warn('Нет элементов финала (finalText / badgeText / promoText)');
+    return;
+  }
+
+  finalEl.textContent = ending || `Ты стартуешь из: ${selectedLocation || 'Локация не выбрана'}`;
+  badgeEl.textContent = badge || `🚘 Твой выбор: ${selectedCar || 'Авто не выбрано'}`;
+
+  const promo = getPromoCode();
+  promoEl.textContent = `🎁 Промокод: ${promo}`;
+
+  showScreen('screen6');
+}
+
+
 
 // Универсальная функция показа нужного экрана
 function showScreen(id) {
@@ -240,19 +260,15 @@ function goToCarSelection() {
 
 // Выбор авто
 document.getElementById("chooseCarBtn").addEventListener("click", () => {
-
   const activeCar = document.querySelector(".mySwiperCars .swiper-slide-active");
   selectedCar = activeCar?.dataset.car || "🚗 автомобиль";
 
-  console.log("Выбран авто:", selectedCar);
-
-  showScreen("screen6");
-
-  // Текст благодарности
-  document.getElementById("finalText").textContent = `Ты стартуешь из: ${selectedLocation}`;
-  document.getElementById("badgeText").textContent = `🚘 Твой выбор: ${selectedCar}`;
-  document.getElementById("promoText").textContent = `🎁 Промокод: ${getPromoCode()}`;
+  renderFinal({
+    ending: `Ты стартуешь из: ${selectedLocation || 'Город'}`,
+    badge:  `🚘 Твой выбор: ${selectedCar}`
+  });
 });
+
 
 
 // Прогресс по шагам
@@ -291,10 +307,12 @@ function showStep() {
 }
 
 function showFinal(result) {
-  showScreen('screen6');
-  document.getElementById('finalText').textContent = result.ending;
-  document.getElementById('badgeText').textContent = `🏆 Достижение: ${result.badge}`;
+  renderFinal({
+    ending: result?.ending || `Ты стартуешь из: ${selectedLocation || 'Город'}`,
+    badge:  `🏆 Достижение: ${result?.badge || 'Без названия'}`
+  });
 }
+
 
 function goToBot() {
   window.location.href = "https://t.me/auto24serviceofficial_bot";
