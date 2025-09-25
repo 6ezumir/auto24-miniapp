@@ -727,7 +727,7 @@ p {
   opacity: 0;
 }
 
-/* Для того, чтобы экран выбора стартат локации был таким же, как и экран выбора персонажа. Для этого также в html код был обёрнут в контейнер */
+/* Для того, чтобы экран выбора стартат локации был таким же, как и экран выбора персонажа. Для этого также в html код был обёрнут в контейнер 
 .location-wrapper {
   background: rgba(0, 0, 0, 0.25);
   border-radius: 20px;
@@ -740,7 +740,7 @@ p {
   align-items: center;
   gap: 12px;
   margin-top: 12px;
-}
+} */
 
 .final-box {
   background: rgba(0,0,0,0.3);
@@ -761,7 +761,7 @@ p {
   font-weight: bold;
   color: #ff0080;
 }
-***********************************************************************
+/* ***********************************************************************   */
 
 /* убираем фиолетовую «панель» */
 .location-wrapper{
@@ -795,50 +795,58 @@ p {
 }
 ********************************************************************* 2
 
-/* === Экран 3: убираем фон/рамки у панели и слайдов === */
-#screen3 .location-wrapper,
-#screen3 .mySwiperLocations,
-#screen3 .mySwiperLocations .swiper-wrapper,
-#screen3 .mySwiperLocations .swiper-slide {
+/* === Screen3: полностью убираем «плиту» под локациями === */
+#screen3,
+#screen3 * {
   background: transparent !important;
   box-shadow: none !important;
+}
+
+/* Контейнер секции */
+#screen3 .location-wrapper {
   border: 0 !important;
   border-radius: 0 !important;
   padding: 0 !important;
-}
-
-#screen3 .location-wrapper {
-  width: 100%;
+  margin: 0 auto !important;
+  width: 100% !important;
   max-width: 420px !important;
-  margin: 0 auto;
-  gap: 12px;
+  gap: 12px !important;
 }
 
+/* Контейнер свайпера */
+#screen3 .swiper.mySwiperLocations,
+#screen3 .mySwiperLocations .swiper-wrapper,
+#screen3 .mySwiperLocations .swiper-slide {
+  border: 0 !important;
+  border-radius: 0 !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+/* Картинка и подпись — оставляем только их */
 #screen3 .location-image {
+  display: block;
   width: 100%;
   height: auto;
   border-radius: 12px;
-  display: block;
 }
-
 #screen3 .location-name {
   margin: 8px 0 10px;
   font-weight: 600;
 }
 
-/* стрелки остаются поверх слайдов */
-#screen3 .locations-prev,
-#screen3 .locations-next {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 2;
+/* Кнопка: под слайдером, размер НЕ меняем */
+#chooseLocationBtn {
+  position: static !important;
+  margin: 16px auto 24px !important;
+  z-index: 1 !important;
 }
 
-/* КНОПКА: переносим под слайдер, размер — как сейчас */
-#chooseLocationBtn {
-  position: static !important;   /* убрать абсолют/фикс позиционирование */
-  margin: 16px auto 24px !important; /* просто отступы, без изменения ширины */
-  z-index: 1;                    /* ниже стрелок */
-  /* ширину НЕ задаём — сохраняется текущий размер кнопки */
+/* Стрелки поверх слайдов */
+#screen3 .locations-prev,
+#screen3 .locations-next {
+  position: absolute !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  z-index: 2 !important;
 }
