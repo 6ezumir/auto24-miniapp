@@ -795,27 +795,50 @@ p {
 }
 ********************************************************************* 2
 
-/* Экран 3 — никаких панелей/теней */
+/* === Экран 3: убираем фон/рамки у панели и слайдов === */
 #screen3 .location-wrapper,
 #screen3 .mySwiperLocations,
 #screen3 .mySwiperLocations .swiper-wrapper,
-#screen3 .mySwiperLocations .swiper-slide{
+#screen3 .mySwiperLocations .swiper-slide {
   background: transparent !important;
   box-shadow: none !important;
+  border: 0 !important;
   border-radius: 0 !important;
   padding: 0 !important;
 }
 
-/* немного воздуха вокруг заголовка */
-#screen3 .location-wrapper{
-  max-width: 420px !important;
+#screen3 .location-wrapper {
   width: 100%;
+  max-width: 420px !important;
   margin: 0 auto;
   gap: 12px;
 }
 
-/* картинки оставляем с мягким скруглением */
-#screen3 .location-image{
+#screen3 .location-image {
+  width: 100%;
+  height: auto;
   border-radius: 12px;
+  display: block;
 }
 
+#screen3 .location-name {
+  margin: 8px 0 10px;
+  font-weight: 600;
+}
+
+/* стрелки остаются поверх слайдов */
+#screen3 .locations-prev,
+#screen3 .locations-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+}
+
+/* КНОПКА: переносим под слайдер, размер — как сейчас */
+#chooseLocationBtn {
+  position: static !important;   /* убрать абсолют/фикс позиционирование */
+  margin: 16px auto 24px !important; /* просто отступы, без изменения ширины */
+  z-index: 1;                    /* ниже стрелок */
+  /* ширину НЕ задаём — сохраняется текущий размер кнопки */
+}
