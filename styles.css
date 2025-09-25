@@ -795,58 +795,61 @@ p {
 }
 ********************************************************************* 2
 
-/* === Screen3: полностью убираем «плиту» под локациями === */
-#screen3,
-#screen3 * {
+/* контейнер экрана: запас снизу под волну */
+#screen3 { padding: 16px 16px 120px !important; }
+
+/* убираем любые декоративные подложки вокруг */
+#screen3 .location-wrapper,
+#screen3 .mySwiperLocations { 
   background: transparent !important;
   box-shadow: none !important;
-}
-
-/* Контейнер секции */
-#screen3 .location-wrapper {
   border: 0 !important;
-  border-radius: 0 !important;
-  padding: 0 !important;
-  margin: 0 auto !important;
-  width: 100% !important;
-  max-width: 420px !important;
-  gap: 12px !important;
-}
-
-/* Контейнер свайпера */
-#screen3 .swiper.mySwiperLocations,
-#screen3 .mySwiperLocations .swiper-wrapper,
-#screen3 .mySwiperLocations .swiper-slide {
-  border: 0 !important;
-  border-radius: 0 !important;
-  padding: 0 !important;
-  margin: 0 !important;
-}
-
-/* Картинка и подпись — оставляем только их */
-#screen3 .location-image {
-  display: block;
+  max-width: 420px;
   width: 100%;
-  height: auto;
+  margin: 0 auto;
+  overflow: hidden;          /* чтобы торцы не выглядывали */
+  padding: 0 !important;
+}
+
+/* каждый слайд занимает всю ширину */
+#screen3 .mySwiperLocations .swiper-slide {
+  width: 100% !important;
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+/* карточка + картинка без лишних рамок */
+#screen3 .location-card { 
+  background: transparent; 
+  border: 0; 
+  box-shadow: none;
+  padding: 0;
+}
+#screen3 .location-image {
+  width: 100%;
+  aspect-ratio: 16/9;
+  object-fit: cover;
   border-radius: 12px;
-}
-#screen3 .location-name {
-  margin: 8px 0 10px;
-  font-weight: 600;
+  display: block;
 }
 
-/* Кнопка: под слайдером, размер НЕ меняем */
+/* стрелки чуть снаружи, чтобы не перекрывали картинку */
+#screen3 .locations-prev, 
+#screen3 .locations-next { 
+  color: #ff0080;
+  top: 50%;
+  transform: translateY(-50%);
+}
+#screen3 .locations-prev { left: -6px; }
+#screen3 .locations-next { right: -6px; }
+
+/* кнопка — строго под свайпером, размер НЕ меняем */
 #chooseLocationBtn {
-  position: static !important;
-  margin: 16px auto 24px !important;
-  z-index: 1 !important;
+  display: block;
+  margin: 14px auto 0;
+  position: static;
 }
 
-/* Стрелки поверх слайдов */
-#screen3 .locations-prev,
-#screen3 .locations-next {
-  position: absolute !important;
-  top: 50% !important;
-  transform: translateY(-50%) !important;
-  z-index: 2 !important;
-}
+/* волна всегда под контентом */
+.neon-wave { z-index: 0 !important; }
+#screen3 { position: relative; z-index: 1; }
