@@ -762,44 +762,5 @@ p {
   color: #ff0080;
 }
 ***********************************************************************
-/* === высота волны как переменная === */
-:root{
-  --wave-h: 48px; /* можешь 40–56 под свой SVG */
-}
-
-/* Волна фиксированная снизу и не ловит клики */
-.neon-wave{
-  position: fixed;
-  bottom: 0; left: 0; right: 0;
-  height: var(--wave-h);
-  z-index: 0 !important;
-  pointer-events: none !important;
-}
-
-/* Экраны занимают высоту МИНУС волна, ничего не «подпрыгивает» */
-.screen{
-  position: relative;
-  z-index: 2 !important;
-  min-height: calc(100dvh - var(--wave-h));  /* вместо 100vh + большого padding */
-  padding-bottom: calc(env(safe-area-inset-bottom, 0px) + 12px);
-}
-
-/* Машинка на 4-м экране всегда над волной */
-#screen4 .car-container{
-  position: absolute;
-  bottom: calc(var(--wave-h) + 24px); /* подняли над волной */
-  z-index: 5 !important;
-}
-
-/* Чуть воздуха под локациями, чтобы не упирались в волну */
-.mySwiperLocations{ margin-bottom: 12px; }
-
-/* На всякий: убираем возможные внешние отступы снизу у контейнеров, которые мешают расчёту */
-#screen3 .location-wrapper,
-#screen5 .swiper{
-  margin-bottom: 0;
-}
-
-
 
 
