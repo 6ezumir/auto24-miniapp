@@ -293,34 +293,10 @@ p {
 
 /* 🌆 Локации - экранированный ID */
 
-/* 🌆 Экран 3: Локация */
-#screen3 {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-  padding: 16px;
-  max-width: 420px;
-  margin: 0 auto;
-  text-align: center;
-  box-sizing: border-box;
-  min-height: 100vh;
-  overflow-y: auto;
-}
+/* экран 3: отступ снизу под волну */
+#screen3 { padding: 16px 16px 120px; }
 
-#screen3 h2 {
-  margin: 0 0 10px;
-  font-size: 1.4rem;
-  font-family: 'Orbitron', sans-serif;
-}
-
-#screen3 p {
-  margin: 0 0 15px;
-  font-size: 0.95rem;
-  color: rgba(255,255,255,0.7);
-}
-
-/* Свайпер */
+/* свайпер локаций — как на экране 2 */
 .mySwiperLocations {
   width: 100%;
   max-width: 320px;
@@ -328,56 +304,54 @@ p {
   padding: 10px 0;
 }
 
-.mySwiperLocations .swiper-wrapper {
-  margin: 0 auto !important; /* фикс смещений */
-}
-
+/* слайды без полупрозрачности/скейла */
 .mySwiperLocations .swiper-slide {
   display: flex;
-  flex-direction: column;   /* картинка + текст = столбиком */
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
-  width: 100% !important;   /* фикс ширины */
+  justify-content: center;
+  width: 100% !important;
   box-sizing: border-box;
-  opacity: 0.5;
-  transform: scale(0.95);
-  transition: all 0.3s ease;
-}
-
-.mySwiperLocations .swiper-slide-active {
   opacity: 1;
-  transform: scale(1);
+  transform: none;
 }
 
-/* Кнопка */
-#chooseLocationBtn {
-  margin-top: 15px;
-  font-size: 15px;
-  padding: 10px 20px;
-  font-family: 'Orbitron', sans-serif;
-  border: none;
+/* картинка локации */
+.location-image {
+  width: 100%;
+  max-width: 280px;
+  height: auto;
+  object-fit: cover;
   border-radius: 12px;
-  cursor: pointer;
-  background: linear-gradient(90deg, #ff0080, #7928ca);
-  color: white;
-  box-shadow: 0 0 12px rgba(255, 0, 127, 0.5);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: block;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
 }
 
-#chooseLocationBtn:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 16px rgba(255, 0, 127, 0.8);
+/* подпись под картинкой */
+.location-name {
+  font-family: 'Orbitron', sans-serif;
+  text-align: center;
+  margin: 8px 0 0;
+  font-size: 18px;
+  color: #fff;
 }
 
-/* Навигация */
-#screen3 .swiper-button-next,
-#screen3 .swiper-button-prev {
-  color: #ff0080;
+/* стрелки и буллеты свайпера */
+#screen3 .locations-prev,
+#screen3 .locations-next { color: #ff0080; }
+#screen3 .locations-pagination .swiper-pagination-bullet { background: #ff0080; }
+
+/* кнопка — строго под свайпером */
+#chooseLocationBtn {
+  display: block;
+  margin: 14px auto 0;
+  position: static;
 }
 
-#screen3 .swiper-pagination-bullet {
-  background: #ff0080;
-}
+/* волна ниже контента */
+.neon-wave { z-index: 0 !important; }
+.screen { position: relative; z-index: 2; }
+
 
 
 
