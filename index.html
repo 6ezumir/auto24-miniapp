@@ -44,43 +44,39 @@
     </div>
   </section>
 
-<!-- Экран 3: Локация -->
 <section id="screen3" class="screen hidden">
-  <div class="location-wrapper">
-    <h2>Локация старта</h2>
-    <p>Где начнётся ваш путь?</p>
+  <h2> Локация старта</h2>
+  <p>Где начнётся ваш путь?</p>
 
-    <div class="swiper mySwiperLocations">
-      <div class="swiper-wrapper">
-        <div class="swiper-slide location-card" data-location="Двор">
-          <div class="location-card">
-            <div class="location-name">🏢 Двор</div>
-            <img src="dvor.jpg" alt="Двор" class="location-image" />
-          </div>
-        </div>
-
-        <div class="swiper-slide location-card" data-location="Улица">
-          <div class="location-card">
-            <div class="location-name">🌇 Улица</div>
-            <img src="city.jpg" alt="Улица" class="location-image" />
-          </div>
-        </div>
-
-        <div class="swiper-slide location-card" data-location="Частный дом">
-          <div class="location-card">
-            <div class="location-name">🏡 Частный дом</div>
-            <img src="house.jpg" alt="Частный дом" class="location-image" />
-          </div>
-        </div>
+  <!-- Свайпер -->
+  <div class="swiper mySwiperLocations">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide" data-location="Двор">
+        <img src="dvor.jpg" alt="Двор" class="location-image">
+        <div class="location-name">🏢 Двор</div>
       </div>
 
-    <button id="chooseLocationBtn" class="button">Выбрать локацию</button>
-  </div>
+      <div class="swiper-slide" data-location="Улица">
+        <img src="city.jpg" alt="Улица" class="location-image">
+        <div class="location-name">🌇 Улица</div>
+      </div>
+
+      <div class="swiper-slide" data-location="Частный дом">
+        <img src="house.jpg" alt="Частный дом" class="location-image">
+        <div class="location-name">🏡 Частный дом</div>
+      </div>
+    </div>
+
+    <!-- Управление свайпером (должно быть ВНУТРИ .mySwiperLocations) -->
+    <div class="swiper-button-prev locations-prev"></div>
+    <div class="swiper-button-next locations-next"></div>
     <div class="swiper-pagination locations-pagination"></div>
-      <div class="swiper-button-prev locations-prev"></div>
-      <div class="swiper-button-next locations-next"></div>
-    </div>  
+  </div> <!-- ← ЗАКРЫВАЕМ swiper-обёртку ЗДЕСЬ -->
+
+  <!-- Кнопка должна быть СРАЗУ ПОСЛЕ закрытия .mySwiperLocations -->
+  <button id="chooseLocationBtn" class="button">Выбрать локацию</button>
 </section>
+
   
   <!-- Экран 4: Интро персонажа -->
 <section id="screen4" class="screen hidden">
