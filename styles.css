@@ -1011,3 +1011,163 @@ body{
 }
 
 
+
+/* ========== RESET & NO-SCROLL ========== */
+html, body{
+  height:100%;
+  overflow:hidden;
+  overscroll-behavior:none;
+  touch-action:pan-x;
+}
+*{ box-sizing:border-box; }
+
+/* ========== PALETTE ========== */
+:root{
+  --bg-1:#0D0F14;   /* индиго-тёмный */
+  --bg-2:#1A0D1A;   /* бордовый-тёмный */
+  --bg-3:#7A001F;   /* бордовый акцент */
+  --accent:#D7263D; /* красный акцент */
+  --ink:#FFFFFF;
+  --ink-2:#D1D5DB;
+  --deep:#121826;   /* глубокий тёмный */
+}
+
+/* ========== ANIMATED BACKGROUND ========== */
+@keyframes gradientShift{
+  0%{background-position:0% 50%}
+  50%{background-position:100% 50%}
+  100%{background-position:0% 50%}
+}
+body{
+  background:linear-gradient(135deg,var(--bg-1),var(--bg-2),var(--bg-3)) !important;
+  background-size:400% 400% !important;
+  animation:gradientShift 20s ease infinite !important;
+  font-family:'Montserrat',sans-serif;
+  color:var(--ink);
+  margin:0;
+}
+
+/* ========== TYPOGRAPHY ========== */
+h1,h2,.location-name{ color:var(--ink) !important; }
+.subtext,.car-card p{ color:var(--ink-2) !important; }
+
+/* ========== LOGO ON TOP ========== */
+.logo-container{ position:relative; z-index:10; }
+.logo{ display:block; filter:drop-shadow(0 0 24px rgba(188,0,45,.4)) !important; }
+
+/* ========== DECOR SAFE CLICKS ========== */
+.neon-wave{ z-index:0 !important; pointer-events:none !important; }
+.character-avatar::after,
+.location-image::after,
+.car-card::after{ pointer-events:none !important; }
+
+/* ========== BUTTONS ========== */
+.button,#chooseCarBtn{
+  position:relative; z-index:15; pointer-events:auto;
+  background:linear-gradient(90deg,var(--accent),var(--deep)) !important;
+  color:var(--ink) !important;
+  box-shadow:0 0 12px rgba(215,38,61,.35) !important;
+  transition:transform .2s, box-shadow .2s;
+}
+.button:hover,#chooseCarBtn:hover{
+  transform:scale(1.05);
+  box-shadow:0 0 16px rgba(215,38,61,.55) !important;
+}
+
+/* стрелки/буллеты */
+.swiper-button-next,
+.swiper-button-prev,
+.locations-prev,
+.locations-next{ color:var(--accent) !important; }
+.swiper-pagination-bullet,
+.locations-pagination .swiper-pagination-bullet{ background:var(--accent) !important; }
+
+/* ========== IMAGES TONE (мягко) ========== */
+.character-avatar,
+.location-image,
+#screen5 .swiper-slide img,
+.car-card img{
+  filter:saturate(.95) contrast(1.04) hue-rotate(-6deg);
+  transition:filter .2s ease;
+}
+.tone-soft{ filter:saturate(.98) contrast(1.02) hue-rotate(-3deg) !important; }
+.tone-off { filter:none !important; }
+
+/* ========== SCREENS BASE ========== */
+.screen{
+  display:none;
+  flex-direction:column;
+  align-items:center;
+  justify-content:flex-start;
+  height:100dvh;            /* ровно видимая зона */
+  overflow:hidden;          /* без вертикальной прокрутки */
+  padding:20px;
+  position:relative;
+  z-index:2;
+}
+.screen:not(.hidden){ display:flex; }
+.screen.hidden{
+  display:none !important; visibility:hidden;
+  height:0 !important; overflow:hidden; opacity:0;
+}
+
+/* ========== SCREEN 1 ========== */
+#screen1{
+  height:100dvh !important;
+  padding:40px 20px 100px !important;
+  overflow:hidden !important;
+}
+
+/* ========== SCREEN 2 ========== */
+#screen2{
+  height:100dvh !important;
+  overflow:hidden !important;
+  max-width:420px; margin:0 auto; padding:16px;
+}
+
+/* ========== SCREEN 3 (locations) ========== */
+#screen3{
+  height:100dvh !important;
+  overflow:hidden !important;
+  padding:16px 16px 120px !important; /* запас под волну/кнопку */
+  position:relative; z-index:1;
+}
+/* сам слайдер */
+#screen3 .mySwiperLocations{
+  max-width:420px !important;
+  width:100%; margin:0 auto 12px; padding:0 !important;
+  max-height:55dvh !important;
+  overflow:hidden; position:relative; z-index:5;
+}
+/* изображение в слайдах */
+#screen3 .location-image{
+  width:100%; aspect-ratio:16/9; object-fit:cover;
+  max-height:38dvh; border-radius:12px; display:block;
+}
+/* стрелки */
+#screen3 .locations-prev,#screen3 .locations-next{
+  color:var(--accent) !important;
+  top:50%; transform:translateY(-50%);
+  z-index:6;
+}
+#screen3 .locations-prev{ left:-6px; }
+#screen3 .locations-next{ right:-6px; }
+/* кнопка */
+#chooseLocationBtn{
+  display:block !important; position:relative !important;
+  margin:14px auto 0 !important;
+  z-index:10 !important; pointer-events:auto !important;
+}
+
+/* ========== SWIPER (не растягиваем на весь экран) ========== */
+.swiper,.swiper-wrapper,.swiper-slide{ height:auto !important; }
+.mySwiperCharacters{ max-height:48dvh; }
+.mySwiperLocations { max-height:55dvh; }
+#screen5 .swiper   { max-height:62dvh; }
+
+/* ========== MINOR TWEAK: поднять свайпер на screen3 ========== */
+#screen3 .mySwiperLocations{ transform:translateY(-12px); }
+#screen3 .locations-prev,#screen3 .locations-next{ top:calc(50% - 12px); }
+
+
+
