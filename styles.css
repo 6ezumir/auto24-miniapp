@@ -952,3 +952,61 @@ body{
 /* 🖱️ Явно разрешим клики по кнопкам (если родитель с overlay) */
 .button, #chooseCarBtn{ position: relative; z-index: 15; pointer-events:auto; }
 
+
+
+/* --- Screen 3: фикс слоя и места под кнопку --- */
+#screen3{
+  height: 100dvh !important;
+  overflow: hidden !important;          /* без вертикальной прокрутки */
+  padding: 16px 16px 120px !important;  /* место под волну + кнопку */
+  position: relative;
+  z-index: 2;                           /* выше волны и декора */
+}
+
+/* Слайдер не растягиваем, оставляем место под кнопку */
+#screen3 .mySwiperLocations{
+  max-height: 55dvh !important;         /* как планировалось */
+  margin-bottom: 12px;
+  position: relative;
+  z-index: 5;
+}
+
+/* Картинка внутри слайдов не съедает место */
+#screen3 .location-image{
+  max-height: 38dvh;                    /* чтобы слайдер не «выпирал» */
+  object-fit: cover;
+}
+
+/* Стрелки — поверх картинки, но не перекрывают кнопку */
+#screen3 .locations-prev,
+#screen3 .locations-next{
+  color: var(--accent) !important;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 6;
+}
+
+/* Кнопка — гарантированно видима и кликабельна */
+#chooseLocationBtn{
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  position: relative !important;
+  z-index: 10 !important;   /* выше любых декораций */
+  pointer-events: auto !important;
+  margin: 14px auto 0 !important;
+}
+
+/* Волна и декоративные наложения не ловят клики и ниже контента */
+.neon-wave{
+  z-index: 0 !important;
+  pointer-events: none !important;
+}
+
+/* На всякий: декоративные оверлеи карточек не перекрывают клики */
+#screen3 .location-card::after,
+#screen3 .location-image::after{
+  pointer-events: none !important;
+}
+
+
