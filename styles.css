@@ -1,3 +1,12 @@
+/* ⛔ Полный запрет вертикального скролла по всей странице */
+html, body {
+  height: 100%;
+  overflow: hidden;            /* нет прокрутки */
+  overscroll-behavior: none;   /* без pull-to-refresh/резинки */
+  touch-action: pan-x;         /* оставляем только горизонтальные свайпы */
+}
+* { box-sizing: border-box; }
+
 body {
   margin: 0;
   padding: 0;
@@ -680,19 +689,15 @@ p {
   display: none;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start; /* 👈 теперь всё прижато вверх */
-  min-height: 100vh; /* 👈 безопасно занимает весь экран */
-  overflow-y: auto; /* 👈 включаем прокрутку, если не влезает */
+  justify-content: flex-start;
+  height: 100dvh;      /* было min-height:100vh */
+  overflow: hidden;    /* было overflow-y:auto */
   padding: 20px 20px;
   box-sizing: border-box;
   position: relative;
   z-index: 2;
 }
-
-
-.screen:not(.hidden) {
-  display: flex;
-}
+.screen:not(.hidden) { display: flex; }
 .screen.hidden {
   display: none !important;
   visibility: hidden;
@@ -700,6 +705,7 @@ p {
   overflow: hidden;
   opacity: 0;
 }
+
 
 /* Для того, чтобы экран выбора стартат локации был таким же, как и экран выбора персонажа. Для этого также в html код был обёрнут в контейнер 
 .location-wrapper {
@@ -827,3 +833,91 @@ p {
 /* волна всегда под контентом */
 .neon-wave { z-index: 0 !important; }
 #screen3 { position: relative; z-index: 1; }
+
+
+/* === 🎨 Палитра (под логотип) === */
+:root{
+  --bg-1:#0D0F14;   /* тёмный индиго */
+  --bg-2:#1A0D1A;   /* тёмный бордовый */
+  --bg-3:#7A001F;   /* бордовый акцент */
+  --accent:#D7263D; /* красный акцент */
+  --accent-dark:#BC002D;
+  --ink:#FFFFFF;
+  --ink-2:#D1D5DB;
+  --deep:#121826;   /* тёмный для градиентов/кнопок */
+}
+
+/* Фон страницы — новый градиент */
+body{
+  background: linear-gradient(135deg, var(--bg-1), var(--bg-2), var(--bg-3)) !important;
+  background-size:400% 400%;
+}
+
+/* Кнопки — красный → тёмный */
+.button, #chooseCarBtn{
+  background: linear-gradient(90deg, var(--accent), var(--deep)) !important;
+  color: var(--ink) !important;
+  box-shadow: 0 0 12px rgba(215,38,61,.35) !important;
+}
+.button:hover, #chooseCarBtn:hover{
+  transform: scale(1.05);
+  box-shadow: 0 0 16px rgba(215,38,61,.55) !important;
+}
+
+/* Стрелки/буллеты свайперов под акцент */
+.swiper-button-next,
+.swiper-button-prev,
+.locations-prev,
+.locations-next{ color: var(--accent) !important; }
+
+.swiper-pagination-bullet,
+.locations-pagination .swiper-pagination-bullet{
+  background: var(--accent) !important;
+}
+
+/* Заголовки/текст (на всякий) */
+h1, h2, .location-name { color: var(--ink) !important; }
+.subtext, .car-card p { color: var(--ink-2) !important; }
+
+/* Лого — лёгкое красное свечение */
+.logo{
+  filter: drop-shadow(0 0 24px rgba(188,0,45,.4)) !important;
+}
+
+/* === 🎬 Единый «тёплый» тон для изображений ===
+   Мягкая тонировка, чтобы фотки не холодили фон.
+   Можно повесить класс .tint на нужные картинки 
+   ИЛИ применить сразу к всем нужным селекторам ниже.
+*/
+
+/* Прямо на элементы изображений */
+.character-avatar,
+.location-image,
+#screen5 .swiper-slide img,
+.car-card img{
+  /* лёгкий цветокор: чуть теплее, чуть контраста, меньше синевы */
+  filter: saturate(0.95) contrast(1.04) hue-rotate(-6deg);
+  transition: filter .2s ease;
+}
+
+/* Дополнительная мягкая заливка через псевдо-элемент */
+.character-avatar,
+.location-image,
+.car-card{
+  position: relative;
+  overflow: hidden;
+}
+.character-avatar::after,
+.location-image::after,
+.car-card::after{
+  content:"";
+  position:absolute; inset:0;
+  pointer-events:none;
+  /* едва заметный красно-бордовый в софт-лайт */
+  background: linear-gradient(180deg, rgba(215,38,61,.12), rgba(18,24,38,.10));
+  mix-blend-mode: soft-light;
+}
+
+/* Если где-то оттенок стал слишком тёплым — ослабь: */
+.tone-soft { filter: saturate(0.98) contrast(1.02) hue-rotate(-3deg) !important; }
+.tone-off  { filter: none !important; } /* полностью без тона */
