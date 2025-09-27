@@ -1185,3 +1185,42 @@ h1,h2,.location-name{ color:var(--ink) !important; }
 /* На всякий: волна не перекрывает и не ловит клики */
 .neon-wave{ z-index: 0 !important; pointer-events: none !important; }
 
+/* === Animated BG как отдельный слой, не на body === */
+@keyframes gradientShiftBg {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+:root::before{
+  content:"";
+  position: fixed;
+  inset: 0;
+  z-index: -1; /* под всем контентом */
+  background: linear-gradient(135deg, #0f0f0f, #2c003e, #6e00ff); /* твои цвета */
+  background-size: 400% 400%;
+  animation: gradientShiftBg 20s ease infinite;
+  pointer-events: none;
+}
+
+/* Чтобы слой был виден, делаем фон элементов прозрачным */
+html, body, .screen { background: transparent !important; }
+
+/* screen3: подпись над картинкой в слайде */
+#screen3 .mySwiperLocations .swiper-slide{
+  display: flex;
+  flex-direction: column-reverse; /* меняем порядок: текст сверху, фото ниже */
+  align-items: center;
+}
+
+#screen3 .mySwiperLocations .swiper-slide img{
+  margin-top: 10px;   /* небольшой отступ от подписи */
+  margin-bottom: 0;
+}
+
+#screen3 .mySwiperLocations .swiper-slide p{
+  margin: 0 0 6px 0;  /* компактнее подпись */
+  text-align: center; /* как и было */
+}
+
+
