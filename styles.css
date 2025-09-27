@@ -537,7 +537,7 @@ p {
   opacity: 1;
 }
 
-/* Карточка локации    /*пока что закомментировал */
+/* Карточка локации — пока отключено
 .location-card {
   background: rgba(255, 255, 255, 0.05);
   padding: 8px;
@@ -547,7 +547,8 @@ p {
   width: 100%;
   max-width: 320px;
   margin: 0 auto;
-}*/
+}
+*/
 
 /* Название локации */
 .location-card p,
