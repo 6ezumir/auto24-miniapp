@@ -1223,4 +1223,37 @@ html, body, .screen { background: transparent !important; }
   text-align: center; /* как и было */
 }
 
+/* === Dark Red Animated BG (бордовый) === */
+:root{
+  --bg1:#0D0F14;  /* почти чёрный индиго */
+  --bg2:#1A0D1A;  /* тёмный бордовый */
+  --bg3:#7A001F;  /* бордовый акцент */
+  --glow:#BC002D; /* красный для лёгкого свечения */
+}
+
+@keyframes bgShiftRed {
+  0% { background-position: 0% 50%; }
+  50%{ background-position: 100% 50%; }
+  100%{ background-position: 0% 50%; }
+}
+
+/* фон отдельным слоем, чтобы его не перебивали другие правила */
+:root::before{
+  content:"";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  /* слегка “живой” бордовый: линейный + мягкая красная засветка снизу */
+  background:
+    radial-gradient(1200px 600px at 50% 110%, rgba(188,0,45,.18), transparent 60%),
+    linear-gradient(135deg, var(--bg1), var(--bg2) 45%, var(--bg3) 100%);
+  background-size: 400% 400%;
+  animation: bgShiftRed 20s ease infinite;
+  pointer-events: none;
+}
+
+/* чтобы слой был виден */
+html, body, .screen{ background: transparent !important; }
+/* на самый старый iOS можно оставить запасной цвет */
+body{ background-color:#12080E; }
 
