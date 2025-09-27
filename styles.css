@@ -1169,3 +1169,19 @@ h1,h2,.location-name{ color:var(--ink) !important; }
 #screen3 .mySwiperLocations{ transform:translateY(-12px); }
 #screen3 .locations-prev,#screen3 .locations-next{ top:calc(50% - 12px); }
 
+/* --- FIX: кнопка видима и не обрезается на screen3 --- */
+#screen3 .mySwiperLocations{
+  flex: 0 0 auto !important;     /* выключаем flex-grow */
+  margin-bottom: 12px !important;
+  max-height: 50dvh !important;  /* оставляем место кнопке */
+}
+#screen3 #chooseLocationBtn{
+  position: relative !important; /* остаётся в потоке, но наверху слоя */
+  z-index: 10 !important;
+  pointer-events: auto !important;
+  margin: 14px auto 0 !important;
+}
+
+/* На всякий: волна не перекрывает и не ловит клики */
+.neon-wave{ z-index: 0 !important; pointer-events: none !important; }
+
