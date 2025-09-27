@@ -921,3 +921,34 @@ h1, h2, .location-name { color: var(--ink) !important; }
 /* Если где-то оттенок стал слишком тёплым — ослабь: */
 .tone-soft { filter: saturate(0.98) contrast(1.02) hue-rotate(-3deg) !important; }
 .tone-off  { filter: none !important; } /* полностью без тона */
+
+/* 🔄 Вернём перелив градиента на body */
+@keyframes gradientShift {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+body{
+  background: linear-gradient(135deg, var(--bg-1), var(--bg-2), var(--bg-3)) !important;
+  background-size: 400% 400%;
+  animation: gradientShift 20s ease infinite; /* 👈 добавили */
+}
+
+/* ✅ Страховка для кликов: ничего не перекрывает кнопки */
+.neon-wave,
+.character-avatar::after,
+.location-image::after,
+.car-card::after{
+  pointer-events: none; /* уже стоит у псевдо-элементов, дублируем на всякий */
+}
+
+/* 🚫 Если где-то есть полноэкранные оверлеи — пусть не ловят клики */
+.fullscreen-overlay{ pointer-events:none; }
+
+/* 🪪 Поднимем логотип над всем декором на всякий случай */
+.logo-container{ position: relative; z-index: 10; }
+.logo{ display:block; }
+
+/* 🖱️ Явно разрешим клики по кнопкам (если родитель с overlay) */
+.button, #chooseCarBtn{ position: relative; z-index: 15; pointer-events:auto; }
+
