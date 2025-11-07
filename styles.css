@@ -1257,3 +1257,31 @@ html, body, .screen{ background: transparent !important; }
 /* на самый старый iOS можно оставить запасной цвет */
 body{ background-color:#12080E; }
 
+.promo-section {
+  text-align: center;
+  margin: 15px 0;
+}
+
+.copy-btn {
+  background: #4CAF50;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  margin: 8px 0;
+  transition: background 0.3s;
+}
+
+.copy-btn:hover {
+  background: #45a049;
+}
+
+.copy-message {
+  display: block;
+  font-size: 12px;
+  margin-top: 5px;
+  height: 16px;
+  color: #4CAF50;
+}
