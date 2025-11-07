@@ -339,3 +339,39 @@ window.addEventListener("load", () => {
 });
 
 
+// ... весь ваш существующий код ...
+
+// Остальные функции (selectGender, startCharacterStory, и т.д.)
+// ...
+
+function goToBot() {
+  window.location.href = "https://t.me/auto24serviceofficial_bot";
+}
+
+// ✅ ДОБАВЬТЕ ЭТУ ФУНКЦИЮ ЗДЕСЬ (в самый конец файла):
+function copyPromoCode() {
+  const promo = getPromoCode();
+  const copyMessage = document.getElementById('copyMessage');
+  
+  navigator.clipboard.writeText(promo).then(() => {
+    if (copyMessage) {
+      copyMessage.textContent = '✅ Скопировано!';
+      setTimeout(() => {
+        copyMessage.textContent = '';
+      }, 2000);
+    }
+  }).catch(err => {
+    // Fallback для старых браузеров
+    const textArea = document.createElement('textarea');
+    textArea.value = promo;
+    document.body.appendChild(textArea);
+    textArea.select();
+    document.execCommand('copy');
+    document.body.removeChild(textArea);
+    
+    if (copyMessage) {
+      copyMessage.textContent = '✅ Скопировано!';
+      setTimeout(() => { copyMessage.textContent = ''; }, 2000);
+    }
+  });
+}
