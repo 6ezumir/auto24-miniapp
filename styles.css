@@ -1263,21 +1263,25 @@ body{ background-color:#12080E; }
 }
 
 .copy-btn {
-  background: #4CAF50;
-  color: white;
+  background: linear-gradient(45deg, #FF0080, #FF8C00, #40E0D0);
   border: none;
-  padding: 8px 16px;
-  border-radius: 5px;
+  padding: 12px 24px;
+  border-radius: 25px;
+  color: white;
+  font-weight: bold;
+  font-size: 16px;
   cursor: pointer;
-  font-size: 14px;
-  margin: 8px 0;
-  transition: background 0.3s;
+  box-shadow: 0 0 20px #FF0080, 0 0 40px #FF0080;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin: 8px 0;  /* ← ОСТАВИЛИ ТОЛЬКО ЭТО */
 }
 
 .copy-btn:hover {
-  background: #45a049;
+  transform: scale(1.05);
+  box-shadow: 0 0 30px #FF0080, 0 0 60px #FF0080;
 }
-
 .copy-message {
   display: block;
   font-size: 12px;
