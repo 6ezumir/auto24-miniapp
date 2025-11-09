@@ -345,7 +345,7 @@ window.addEventListener("load", () => {
 // ...
 
 function goToBot() {
-  window.location.href = "https://t.me/auto24serviceofficial_bot";
+  window.location.href = "https://t.me/auto24serviceofficial_bot?start=miniapp', '_blank'";
 }
 
 // ✅ ДОБАВЬТЕ ЭТУ ФУНКЦИЮ ЗДЕСЬ (в самый конец файла):
