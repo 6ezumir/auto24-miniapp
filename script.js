@@ -315,7 +315,7 @@ function showFinal(result) {
 
 
 function goToBot() {
-  window.location.href = "https://t.me/auto24serviceofficial_bot";
+  window.location.href = "https://t.me/auto24serviceofficial_bot?start=miniapp', '_blank'";
 }
 
 // Инициализация свайпера авто
