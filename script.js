@@ -7,7 +7,6 @@ let currentStep = 0;
 let swiper;
 let locationSwiper;
 
-
 // Генерация и сохранение уникального промокода
 function getPromoCode() {
   let code = localStorage.getItem("promoCode");
@@ -37,8 +36,6 @@ function renderFinal({ ending, badge }) {
   showScreen('screen6');
 }
 
-
-
 // Универсальная функция показа нужного экрана
 function showScreen(id) {
   document.querySelectorAll('.screen').forEach(s => s.classList.add('hidden'));
@@ -55,12 +52,11 @@ function showScreen(id) {
   }
 }
 
-
 // Словарь персонажей
 const characters = {
   'Мужчина': [
     {
-      title: 'Кадзу — Ходячий Калькулятор',
+      title: 'Кадзу — Ходячий Калькуляator',
       intro: 'Ты — предприниматель. Для тебя машина — часть имиджа.',
       fullIntro: 'Каждое утро Кадзу открывает рынок и закрывает сделки. Он точно знает, сколько стоит его время. И машина — это продление его бренда. Надёжная, строгая и статусная — именно так он ездит по жизни.',
       image: 'entrepreneur.jpg',
@@ -252,7 +248,6 @@ document.getElementById("chooseLocationBtn").addEventListener("click", () => {
   }
 });
 
-
 // Переход к выбору авто
 function goToCarSelection() {
   showScreen('screen5');
@@ -268,8 +263,6 @@ document.getElementById("chooseCarBtn").addEventListener("click", () => {
     badge:  `🚘 Твой выбор: ${selectedCar}`
   });
 });
-
-
 
 // Прогресс по шагам
 function nextStep() {
@@ -313,42 +306,12 @@ function showFinal(result) {
   });
 }
 
-
+// Функция перехода в бота (ОДНА версия)
 function goToBot() {
-  window.location.href = "https://t.me/auto24serviceofficial_bot?start=miniapp', '_blank'";
+  window.open('https://t.me/auto24serviceofficial_bot?start=miniapp', '_blank');
 }
 
-// Инициализация свайпера авто
-const carSwiper = new Swiper(".mySwiperCars", {
-  slidesPerView: 1,
-  spaceBetween: 20,
-  loop: false,
-  navigation: {
-    nextEl: ".cars-next",
-    prevEl: ".cars-prev"
-  },
-  pagination: {
-    el: ".cars-pagination",
-    clickable: true
-  }
-});
-
-// ✅ Автоматически запускаем экран 1 при загрузке
-window.addEventListener("load", () => {
-  showScreen("screen1");
-});
-
-
-// ... весь ваш существующий код ...
-
-// Остальные функции (selectGender, startCharacterStory, и т.д.)
-// ...
-
-function goToBot() {
-  window.location.href = "https://t.me/auto24serviceofficial_bot?start=miniapp', '_blank'";
-}
-
-// ✅ ДОБАВЬТЕ ЭТУ ФУНКЦИЮ ЗДЕСЬ (в самый конец файла):
+// Функция копирования промокода
 function copyPromoCode() {
   const promo = getPromoCode();
   const copyMessage = document.getElementById('copyMessage');
@@ -375,3 +338,23 @@ function copyPromoCode() {
     }
   });
 }
+
+// Инициализация свайпера авто
+const carSwiper = new Swiper(".mySwiperCars", {
+  slidesPerView: 1,
+  spaceBetween: 20,
+  loop: false,
+  navigation: {
+    nextEl: ".cars-next",
+    prevEl: ".cars-prev"
+  },
+  pagination: {
+    el: ".cars-pagination",
+    clickable: true
+  }
+});
+
+// ✅ Автоматически запускаем экран 1 при загрузке (ОДИН раз)
+window.addEventListener("load", () => {
+  showScreen("screen1");
+});
